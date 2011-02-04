@@ -1,4 +1,12 @@
 - collect what algebraic & categorical background to introduce. (ask Kamal about it?)
+Algebraic background: 
+
+Modules
+braid group
+Hopf algebras
+Representatios
+define a simple Lie algebra
+define algebras. Ring quotients?
 
 Categorical background:
     - introduce MTCs via Muger notes. Look for a reference (perhaps there is one in your notes).
