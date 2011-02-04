@@ -1,0 +1,23 @@
+- collect what algebraic & categorical background to introduce. (ask Kamal about it?)
+
+Categorical background:
+    - introduce MTCs via Muger notes. Look for a reference (perhaps there is one in your notes).
+        there is one here: http://www.math.ru.nl/~mueger/PDF/20.pdf
+    - talk about fusion some (source: Kassel?)
+U_q(sl(2)):
+    - Work out what V_n, the Verma modules are. 
+    - Clean up your notation. 
+    - Extract some content from the Andersen & Paradowski paper
+    - talk about quantum Clebsch-Gordon (maybe this comes from [AP]?)
+    - describe this quotient in some explicit way in the sl(2) case
+        - describe the braiding morphisms explicitly 
+
+TQC:
+    - Explain how to simulate circuit-based quantum computation in this quotient category (be really explicit about the braiding morphisms)
+    - sketch the proof of universality
+
+general structure:
+- get thesis thing that Maja gave you up and running
+- get your theorem and definition numbering straight (not crucial right now, though)
+- get your references in place. You're going to have to cite things soon
+- Decide how you're going to draw your pictures.
