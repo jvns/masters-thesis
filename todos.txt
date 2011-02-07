@@ -1,12 +1,11 @@
-- collect what algebraic & categorical background to introduce. (ask Kamal about it?)
-Algebraic background: 
+- collect what algebraic & categorical background to introduce. 
 
-Modules
-braid group
-Hopf algebras
-Representatios
-define a simple Lie algebra
-define algebras. Ring quotients?
+Algebraic background: 
+    - Modules
+    - braid group
+    - Representations
+    - define a simple Lie algebra
+    - Ring quotients?
 
 Categorical background:
     - introduce MTCs via Muger notes. Look for a reference (perhaps there is one in your notes).
@@ -26,6 +25,5 @@ TQC:
 
 general structure:
 - get thesis thing that Maja gave you up and running
-- get your theorem and definition numbering straight (not crucial right now, though)
+- get your theorem and definition numbering more straight
 - get your references in place. You're going to have to cite things soon
-- Decide how you're going to draw your pictures.

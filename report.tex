@@ -2,11 +2,13 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
+\usepackage{xypic}
 
-\newtheorem{remark}{Remark}
-\newtheorem{defn}{Definition}
-\newtheorem{lemma}{Lemma}
-\newtheorem{example}{Example}
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}[theorem]{Example}
 
 \newcommand{\isomto}{\overset{\sim}{\rightarrow}}
 \newcommand{\tr}{\operatorname{tr}}
@@ -14,11 +16,160 @@
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\End}{\operatorname{End}}
 
+\numberwithin{equation}{subsection}
+
 \begin{document}
 \tableofcontents
 \section{Algebraic Background}
 \subsection{Modules}
 \subsection{Hopf algebras}
+\subsubsection{Algebras and Coalgebras}
+For a field $k$, a \emph{$k$-algebra} $A$ is a $k$-vector space with an
+associative bilinear mapping $A \times A \to A$ which has an identity element
+$1 \in A$ such that $1\cdot x = x\cdot 1 = x$ for any $x \in A$.
+
+Put in categorical terms, a $k$-algebra is given by a triple $(A, \mu, \eta)$,
+where $A$ is a vector space, and $\mu: A \otimes A \to A$ and $\eta: k \to A$
+are linear maps satisfying the axioms:
+
+Associativity:
+The diagram
+\begin{equation}
+\xymatrix{
+A \otimes A \otimes A \ar[d]^{\id \otimes \mu} \ar[r]^{\mu \otimes \id} & A \otimes A \ar[d]^{\mu}\\
+ A \otimes A \ar[r]^\mu & A 
+}
+\end{equation}
+commutes.
+
+Unit: 
+
+The diagram
+
+\begin{equation}
+    \xymatrix{
+    k \otimes A \ar[r]^{\eta \otimes \id} \ar[rd]^\simeq & A \otimes A \ar[d]^\mu & A \otimes k \ar[l]_{\id \otimes \eta} \ar[ld]^{\simeq} \\
+    & A &
+    }
+\end{equation}
+commutes.
+
+An algebra is called \emph{commutative} if $x \cdot y = y \cdot x$ for any $x,y\in A$. In other terms, it needs to satisfy the commutativity axiom:
+
+The triangle 
+
+\begin{equation}
+    \xymatrix{
+    A \otimes A \ar[rr]^{\tau_{A,A}} \ar[rd]_\mu & & A \otimes A \ar[ld]^\mu \\
+    & A &
+    }
+\end{equation}
+
+
+We can obtain the definition of a coalgebra by reversing all the arrows as follows:
+
+\begin{defn}
+    A \emph{coalgebra} is a triple $(C, \Delta, \varepsilon)$ where $C$ is a
+    vector space, and $\Delta: C \to C \otimes C$, $\varepsilon: C \to k$ are
+    linear maps satisfying the axioms:
+
+Associativity:
+The diagram
+\begin{equation}
+\xymatrix{
+C \otimes C \otimes C   & C \otimes C \ar[l]_{\Delta \otimes \id}\\
+ C \otimes C\ar[u]^{\id \otimes \Delta}  & C \ar[l]_\Delta \ar[u]_{\Delta}
+}
+\end{equation}
+commutes.
+
+Unit: 
+
+The diagram
+
+\begin{equation}
+    \xymatrix{
+    k \otimes C  & C \otimes C \ar[l]_{\varepsilon \otimes \id} \ar[r]^{\id \otimes \varepsilon} & C \otimes k   \\
+    & C \ar[u]_\Delta \ar[lu]^\simeq \ar[ru]_{\simeq}&
+    }
+\end{equation}
+commutes.
+\end{defn}
+A coalgebra is called \emph{cocommutative} if the triangle 
+
+\begin{equation}
+    \xymatrix{
+    A \otimes A   & & A \ar[ll]^{\tau_{A,A}} \otimes A  \\
+    & \ar[lu]^\Delta A \ar[ru]_\Delta&
+    }
+\end{equation}
+
+commutes.
+
+%todo: define a morphism of bialgebras
+
+\subsubsection{Bialgebras}
+
+Suppose $H$ is a vector space which has both an algebra structure $(H, \mu,
+\eta)$ and a coalgebra structure $(H, \Delta, \varepsilon)$. We call this a
+\emph{bialgebra} if the two structures are compatible:
+
+\begin{defn}
+    A vector space with an algebra and coalgebra structure is called a
+    \emph{bialgebra} if one of the following two equivalent conditions holds:
+
+    \begin{enumerate}
+        \item The maps $\mu$ and $\eta$ are morphisms of coalgebras
+        \item The maps $\Delta$ and $\varepsilon$ are morphisms of algebras
+    \end{enumerate}
+\end{defn}
+
+\subsubsection{Hopf Algebras}
+
+% todo: introduce Sweedler notation??
+
+\begin{defn}
+    Let $(H, \mu, \eta, \Delta, \varepsilon)$ be a bialgebra. An endomophisms
+    $S$ of $H$ is called a \emph{antipode} for the bialgebra if the following
+    two diagrams commute:
+
+    \begin{equation}
+        \xymatrix{
+        H \ar[r]^{\Delta} \ar[rrd]_{\varepsilon}& H \otimes H \ar[rr]^{S \otimes \id} & & H \otimes H \ar[r]^{\mu} & H \\
+        & & k \ar[rru]_{\eta}& &
+        }
+    \end{equation}
+
+    \begin{equation}
+        \xymatrix{
+        H \ar[r]^{\Delta} \ar[rrd]_{\varepsilon}& H \otimes H \ar[rr]^{\id \otimes S} & & H \otimes H \ar[r]^{\mu} & H \\
+        & & k \ar[rru]_{\eta}& &
+        }
+    \end{equation}
+\end{defn}
+
+\begin{defn}
+    A \emph{Hopf algebra} is a bialgebra with an antipode. A morphism of Hopf
+    algebras is a morphism between the bialgebras which commutes with the
+    antipodes. 
+\end{defn}
+
+\begin{example}
+    One motivating example of a Hopf algebra is the Hopf algebra obtained from
+    any finite group. 
+
+    Let $G$ be a finite group. The Hopf algebra $k[G]$ is the algebra with
+    basis $\left\{ v_g: g \in G \right\}$, multiplication $v_g v_h = v_{gh}$,
+    and unit the group identity. 
+
+    We can define a coalgebra structure on $k[G]$ by $\Delta(v_g) = v_g \otimes v_g$
+    and $\varepsilon(v_g) = 0$ for $g \neq e$, $\varepsilon(v_e) = 1$.
+
+    The antipode $S$ is given by $S(v_g) = v_{g^{-1}}$ for any $g \in G$.
+\end{example}
+
+In general the antipode can be thought of as an analog to the inverse in a
+group. If a Hopf algebra has an antipode, it is unique, and $S^2 = \id$.
 \subsection{Representations}
 
 \section{Categorical Background}
@@ -96,6 +247,10 @@ is equal to $\id_V$, and similarly the composition
 \end{equation}
 
 is equal to $\id_{V^*}$
+
+\subsection{The Category of Representation of a Hopf Algebra}
+
+Suppose $(H, \mu, \eta, \Delta, \varepsilon)$ is a Hopf algebra with antipode $S$. 
 \section{The Representation Theory of $U_q(\mathfrak{sl}(2))$}
 \subsection{Lie Algebras}
 
@@ -247,7 +402,7 @@ such that:
 
 Suppose $\ell$ is odd, and $q$ is an $\ell^{\text{th}}$ root of unity. 
 
-If $0 \leq n \leq \ell - 1$, the $n+1$-dimensional
+If $0 \leq n \leq \ell - 1$, the $(n+1)$-dimensional
 $U_q(\mathfrak{sl}(2))$-modules are as described above. %todo: name them 
 There are no simple $U_q(\mathfrak{sl}(2))$-modules with dimension $\geq
 \ell+1$. It remains to classify the $\ell$-dimensional
@@ -298,7 +453,6 @@ $Z_0(\pm q^k)$ is simple if and only if $k = \ell - 1$.
 \end{align*}
 \end{enumerate}
 \subsection{A Hopf Algebra Structure on $U_q(\mathfrak{sl}(2))$}
-%todo: define a Hopf algebra
 
 We can define a Hopf algebra stucture on $U_q(\mathfrak{sl}(2))$ as follows:
 
