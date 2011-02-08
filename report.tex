@@ -15,6 +15,7 @@
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\End}{\operatorname{End}}
+\newcommand{\Ob}{\operatorname{Ob}}
 
 \numberwithin{equation}{subsection}
 
@@ -155,6 +156,7 @@ Suppose $H$ is a vector space which has both an algebra structure $(H, \mu,
 \end{defn}
 
 \begin{example}
+    \label{groupalgebra}
     One motivating example of a Hopf algebra is the Hopf algebra obtained from
     any finite group. 
 
@@ -163,7 +165,7 @@ Suppose $H$ is a vector space which has both an algebra structure $(H, \mu,
     and unit the group identity. 
 
     We can define a coalgebra structure on $k[G]$ by $\Delta(v_g) = v_g \otimes v_g$
-    and $\varepsilon(v_g) = 0$ for $g \neq e$, $\varepsilon(v_e) = 1$.
+    and $\varepsilon(v_g) = 1$ for any $g \in G$.
 
     The antipode $S$ is given by $S(v_g) = v_{g^{-1}}$ for any $g \in G$.
 \end{example}
@@ -247,6 +249,74 @@ is equal to $\id_V$, and similarly the composition
 \end{equation}
 
 is equal to $\id_{V^*}$
+
+\subsection{Modular Tensor Categories}
+
+The \emph{dimension} of a category $\mathcal{C}$ is defined by 
+
+\begin{equation}
+    \operatorname{dim}(\mathcal{C}) = \sum_{ x \in \Ob \mathcal{C}} (\operatorname{dim} x)^2
+\end{equation}
+
+
+\begin{defn}
+    The \emph{symmetric center} of a braided category $\mathcal{C}$ $\mathbf{Z}_2(\mathcal{C})$ is a full subcategory with 
+
+    \begin{equation}
+        \Ob \mathbf{Z}_2(\mathcal{C}) = \left\{ x \in \mathcal{C} : \sigma_{XY} \circ \sigma_{YX} = \id\ \forall Y \in \mathcal{C} \right\}
+    \end{equation}
+\end{defn}
+
+% todo: define fusion category
+% todo: put some more stuff in here from Bakalove & Kirillov
+\begin{defn}
+    A modular tensor category is a braided fusion category such that $\mathbf{Z}_2(\mathcal{C})$ is trivial (every object is isomorphic to $\mathbf{1}^{\oplus n}$). Equivalently, every simple object in the center is isomorphic to $\mathbf{1}$.
+\end{defn}
+
+Why are these categories called modular? 
+
+Define 
+
+\begin{equation}
+    % todo: make this a picture??
+    s_{x,y} = \tr_{x \otimes y}(\sigma_{Y,X} \circ \sigma_{X,Y})
+\end{equation}
+
+for every simple object $X,Y$.
+
+\begin{theorem}
+    % todo: find a citation for this
+    $\mathbf{Z}_2(\mathcal{C})$ is trivial if and only if the matrix $s$ is invertible. 
+\end{theorem}
+
+\begin{example}
+    An elementary class of examples of modular tensor categories can be obtained via the quantum double construction as follows. 
+
+    % todo: write something about this being a simpler example of something more general that Drinfel'd did
+
+    Recall the Hopf algebra $k[G]$ of any finite group $G$ from \ref{groupalgebra} with basis $\left\{ v_g \right\}_{g \in G}$ and
+
+    % todo: fix aligning here
+    \begin{align}
+        &\text{multiplication} &v_g v_h = v_{gh} \\
+        &\text{unit}           &e \\
+        &\text{comultiplication} &\Delta(v_g) = v_g \otimes v_g \\
+        &\text{counit}           &\varepsilon(v_g) = 1 \\
+        &\text{antipode}         &S(v_g) = v_{g^-1}
+    \end{align}
+
+    The dual Hopf algebra to $k[G]$ is the function algebra $F(G)$ with basis $\left\{ \delta_g : g \in G \right\}$ with 
+
+    \begin{align}
+        &\text{multiplication} &v_g v_h = v_{gh} \\
+        &\text{unit}           &e \\
+        &\text{comultiplication} &\Delta(v_g) = v_g \otimes v_g \\
+        &\text{counit}           &\varepsilon(v_g) = 1 \\
+        &\text{antipode}         &S(v_g) = v_{g^-1}
+    \end{align}
+
+
+\end{example}
 
 \subsection{The Category of Representation of a Hopf Algebra}
 
