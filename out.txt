@@ -1,0 +1,25 @@
+% todo: define a morphism of bialgebras
+% todo: introduce Sweedler notation??
+% todo: talk about abelian categories, simple objects, the endomorphism rings
+% todo: fix the enumerate labels
+% todo: copy this stuff from B & K. blah.
+% todo: write down the vector space example
+% todo: define Sweedler notation??
+% todo: define fusion category
+% todo: put some more stuff in here from Bakalov & Kirillov
+% todo: finish this 
+% todo: make this a picture??
+% todo: write something about this being a simpler example of something more general that Drinfel'd did
+% todo: fix aligning here
+% todo: fix the numbering here
+% todo: do I need to explain quotients by ideals? Do I need to define algebras? Help.
+% todo: should I explain why the representation theory looks this way? 
+% todo: fix formatting here
+% todo: find a better way to motivate q-notation. (maybe that paper that
+% todo: why are there 2 representations here instead of 1? what extra freedom
+% todo: say somewhere that the results and notation are taken from
+% todo: include some representation theory background. Give a more coherent
+% todo: say something about them not all being the same.
+% todo: fix formatting
+% todo: define maximal submodule?
+% todo: make this less general
