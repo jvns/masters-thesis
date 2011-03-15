@@ -25,6 +25,21 @@
 \tableofcontents
 \section{Algebraic Background}
 \subsection{Modules}
+
+In  this section we will be working over a unital ring $R$. 
+    % todo: see if unital is the right word
+\begin{defn}
+    A $R$-\emph{module} over a ring $R$ is an abelian group $N$ with a binary
+    operation $R \times N \to N$ written $r\cdot n$ or $rn$ such that for $r,s \in R$ and $m,n \in N$:
+
+    \begin{enumerate}
+        \item r(n + m) = rn + rm
+        \item (rs)n = r(sn)
+        \item 1n = n
+        \item (r+s)n = rn + s
+    \end{enumerate}
+\end{defn}
+
 \subsection{Hopf algebras}
 \subsubsection{Algebras and Coalgebras}
 For a field $k$, a \emph{$k$-algebra} $A$ is a $k$-vector space with an
@@ -113,7 +128,6 @@ A coalgebra is called \emph{cocommutative} if the triangle
 
 commutes.
 
-%todo: define a morphism of bialgebras
 
 \subsubsection{Bialgebras}
 
@@ -245,7 +259,7 @@ For each integer $n \geq 0$, there is a unique (up to isomorphism) representatio
 
 \section{Categorical Background}
 Throughout we will be working over a field $k$ of characterisic 0.
-\subsection{Monoidal Categories}
+\subsection{Abelian and Monoidal Categories}
 
 
 \begin{defn}
@@ -278,8 +292,7 @@ Throughout we will be working over a field $k$ of characterisic 0.
         injection $V \hookrightarrow U$ is either $0$ or an isomorphism.
     \end{defn}
 \end{defn}
-% todo: talk about abelian categories, simple objects, the endomorphism rings
-% being vector spaces
+% todo: simple objects
 \begin{defn}
     A \emph{monoidal category} is a category $\mathcal{C}$ with 
     \begin{enumerate}
@@ -413,8 +426,6 @@ In what follows it will become important to have a notion of the trace of a
 morphism. The definitions that follow will allow us to define a trace in a
 certain class of rigid monoidal categories called ribbon categories.
 
-%todo: fix the english.
-
 \begin{defn}
 
     A \emph{ribbon category} is a rigid braided tensor category with a natural isomorphism
@@ -511,7 +522,8 @@ for every simple object $X,Y$.
 \begin{example}
     An elementary class of examples of modular tensor categories can be obtained via the quantum double construction as follows. 
 
-    % todo: write something about this being a simpler example of something more general that Drinfel'd did
+    % todo: write something about this being a simpler example of something
+    % more general that Drinfel'd did
 
     Recall the Hopf algebra $k[G]$ of any finite group $G$ from \ref{groupalgebra} with basis $\left\{ v_g \right\}_{g \in G}$ and
 
