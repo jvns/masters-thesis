@@ -3,11 +3,14 @@
 
 
 Algebraic background: 
+    - write a section about quantum algebra
     - Modules
+        define maximal submodule
     - braid group
     - Representations
     - define a simple Lie algebra
     - Ring quotients?
+
 
 Categorical background:
     - introduce MTCs via Muger notes. Look for a reference (perhaps there is one in your notes).
@@ -16,9 +19,11 @@ Categorical background:
 
 U_q(sl(2)):
     - Work out what V_n, the Verma modules are. 
+    - find out if the V(n,-) are Weyl modules.
+    - Find out what Weyl modules are, really. 
     - Find out what the R-matrix is
     - Clean up your notation. 
-    - Extract some content from the Andersen & Paradowski paper
+    - Extract some content from the Andersen & Paradowski paper (done! Via Sawin.)
     - talk about quantum Clebsch-Gordon (maybe this comes from [AP]?)
     - describe this quotient in some explicit way in the sl(2) case
         - describe the braiding morphisms explicitly 
@@ -32,4 +37,4 @@ general structure:
 - get thesis thing that Maja gave you up and running (seems useful!)
 - get your equation numbering straight
 - get your references in place. You're going to have to cite things soon
-- put thesis backups somewhere
+ put thesis backups somewhere

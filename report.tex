@@ -624,7 +624,7 @@ There is a unique algebra automorphism of $U_q(\sll(2))$ such that
 This is called the \emph{Cartan automorphism}.
 
 \subsection{A Hopf Algebra Structure on $U_q(\sll(2))$}
-
+%todo: define such a structure on \mathfrak{g}, really
 We can define a Hopf algebra structure on $U_q(\sll(2))$ as follows:
 
 %todo: fix formatting
@@ -645,45 +645,76 @@ It is straightforward to check that this defines a Hopf algebra structure.
 
 \subsection{Representations of $U_q(\sll(2))$, $q$ not a root of unity}
 
-When $q$ is not a root of unity, the representation theory of $U_q(\sll(2))$ bears a striking resemblance to that of $\sll(2)$.
+When $q$ is not a root of unity, the representation theory of $U_q(\sll(2))$ bears a striking resemblance to that of $\sll(2)$. The category of representations of $U_q(\sll(2))$ is semisimple, and  the irreducible representations are classified as follows:
 
-Every representation of $U_q(\sll(2))$ is semisimple, and the irreducible representations are classified as follows:
+For each integer $n \geq 0$, there are two unique (up to isomorphism)
+representations of $U_q(\sll(2))$ of dimension $n+1$. 
+The representations are $V(n,+)$ with basis $\left\{ v^+_0, \ldots, v^+_n \right\}$ , and $V(n,-)$ with basis $\left\{ v^-_0, \ldots, v^-_n \right\}$ with action defined by 
 
+% from Kassel, p. 101
+\begin{align*}
+    &K v^+_i = q^{n-2i} v^+_i  &
+    &K v^-_i = -q^{n-2i} v^-_i \\
+    &F v^+_i = \begin{cases} [i+1]_qv_{i+1}& \text{ if $i < n$} \\ 0& \text{ if $i = n$} \end{cases} &
+    &F v^-_i = \begin{cases} [i+1]_qv'_{i+1}& \text{ if $i < n$} \\ 0& \text{ if $i = n$} \end{cases} \\
+    &E v^+_i = \begin{cases} 
+                     [n-i+1]_qv_{i-1}& \text{ if $i > 0$} \\ 
+                    0& \text{ if $i = 0$} 
+             \end{cases} &
+    &E v^-_i = \begin{cases} 
+                    -[n-i+1]_q v'_{i-1}& \text{ if $i > 0$} \\ 
+                    0& \text{ if $i = 0$} 
+             \end{cases}
+\end{align*}
 
+The proof of this can be done in a way analogous to the classification of the representations of $\sll(2)$.
 
 \subsection{Representations of $U_q(\sll(2))$, $q$ a root of unity}
 % Jantzen, 2.11 - 2.13. June 2010 in Clairefontaine book
 
 %% Explain this explicitly
-The representation theory of the associative algebra $U(\sll(2))$ can
-be described in exactly the same way as that of the Lie algebra
-$\sll(2)$. 
+%The representation theory of the associative algebra $U(\sll(2))$ can
+%be described in exactly the same way as that of the Lie algebra
+%$\sll(2)$. 
 
 %todo: all the content is here I think, but structure it better 
+
+Suppose now that $q$ is a root of unity. Here the situation is considerably
+different. The category of representations is no longer semisimple. It is
+still possible to classify the irreducible representations, and we will do so. 
+
+First, we will show the following result:
+
+\begin{theorem}
 If $q$ is not a root of unity, then there are no simple $U_q(\sll(2))$-modules
 with dimension $\geq \ell+1$. 
+\end{theorem}
+
+\begin{proof}
+    %todo
+\end{proof}
 
 The irreducible representations of
 $U_q(\sll(2))$ can be classified as follows: 
 
 For each $n\geq 0$, there are 2 simple $U_q(\sll(2))$-modules of dimension $n+1$: 
 % todo: fix formatting here
-$V_+(n)$ with basis $v_0, \ldots, v_n$ \\
-$V_-(n)$ with basis $v'_0, \ldots, v'_n$
+$V_+(n)$ with basis $v^+_0, \ldots, v^+_n$ \\
+$V_-(n)$ with basis $v^-_0, \ldots, v^-_n$
 
 such that: 
 % todo: find a better way to motivate q-notation. (maybe that paper that
 % prakash showed you?)
 \begin{align*}
-    &K v_i = q^{n-2i} v_i  &
-    &K v'_i = -q^{n-2i} v'_i \\
-    &F v_i = \begin{cases} [i+1]_qv_{i+1}& \text{ if $i < n$} \\ 0& \text{ if $i = n$} \end{cases} &
-    &F v'_i = \begin{cases} [i+1]_qv'_{i+1}& \text{ if $i < n$} \\ 0& \text{ if $i = n$} \end{cases} \\
-    &E v_i = \begin{cases} 
+    &K v^+_i = q^{n-2i} v^+_i  &
+    &K v^-_i = -q^{n-2i} v^-_i \\
+    &F v^+_i = \begin{cases} [i+1]_qv_{i+1}& \text{ if $i < n$} \\ 0& \text{ if $i = n$} \end{cases} &
+    &F v^-_i = \begin{cases} [i+1]_qv'_{i+1}& \text{ if $i < n$} \\ 0& \text{ if $i = n$} \end{cases} \\
+    &E v^+_i = \begin{cases} 
                      [n-i+1]_qv_{i-1}& \text{ if $i > 0$} \\ 
                     0& \text{ if $i = 0$} 
              \end{cases} &
-    &E v'_i = \begin{cases} 
+    &E v^-_i = \begin{cases} 
                     -[n-i+1]_q v'_{i-1}& \text{ if $i > 0$} \\ 
                     0& \text{ if $i = 0$} 
              \end{cases}
@@ -750,64 +781,134 @@ $Z_0(\pm q^k)$ is simple if and only if $k = \ell - 1$.
 
 
 \section{Modular Tensor Categories from $U_q(\mathfrak{g})$}
-\subsection{Tilting modules}
-\subsection{Negligible morphisms}
-\subsection{Construction of the MTC}
-\subsection{Fusion rules}
 % from Bakalov & Kirillov, section 3.3
-We will denote the category of representations of $U_q(\sll(2))$ at a
-$k^\text{th}$ root of unity $q$ by $\mathcal{C}(\sll(2), k)$. 
+We will denote the category of representations of $U_q(\mathfrak{g})$ at a
+$\ell^\text{th}$ root of unity $q$ by $\mathcal{C}(\mathfrak{g}, \ell)$. 
+
 This is a rigid monoidal category because of the Hopf algebra structure on
-$U_q(\sll(2))$ described above. However, there are infinitely many
-simple objects and further the category is not semisimple. Our goal is to find
-an appropriate semisimple part of this category to obtain a modular tensor
-category.
+$U_q(\mathfrak{g})$ described above. 
 
-The first step is to restrict our attention to the subcategory of \emph{tilting modules}. 
+As discussed in the previous section, $\mathcal{C}(\sll(2),\ell)$ is not
+semisimple, and further has an infinite number of nonisomorphic
+$\ell$-dimensional simple objects.  
 
-% todo: define maximal submodule?
-\begin{defn}
-    A \emph{composition series} for a module $M$ is a sequence of submodules 
+The same is true for the category $\mathcal{C}(\mathfrak{g}, \ell)$ for a
+general semisimple Lie algebra $\mathfrak{g}$.
 
-    \begin{equation}
-        \left\{ 0 \right\} = J_0 \subset \cdots \subset J_n = M
-    \end{equation}
+Our goal is to find an appropriate semisimple part of this category to obtain a
+modular tensor category as a quotient.
 
-    such each $J_k$ is a maximal submodule of $J_{k+1}$
-\end{defn}
-\begin{defn}
-    A $U_q(\sll(2))$-module $T$ is called \emph{tilting} if both $T$ and $T^*$ have composition series with factors $V_n$.
-    % TODO: define the V_n
-\end{defn}
 
-To make this subcategory into a modular tensor categories, we will to quotient
-this category by the modules with quantum dimension zero. 
 
-\begin{defn}
-    A tilting module $T$ is \emph{negligible} if $\tr_q(f) = 0$ for all $f: T \to T$.
-\end{defn}
-\begin{lemma}
-    %% todo: make this less general
-    $T$ is negligible if and only if $T = \bigoplus _{\lambda \notin \mathcal{C}} n_\lambda T_\lambda$
-\end{lemma}
+
+\subsection{Quantum trace}
+
+The Hopf algebra structure on $U_q(\mathfrak{g})$, coupled with the $R$-matrix,
+gives the category of representations $\mathcal{C}(\mathfrak{g}, \ell)$ the
+structure of a ribbon category. There is therefore a well-defined trace of an
+endomorphism in the category. This is distinct from the usual trace of an
+vector space endomorphism. 
+
+We will denote the trace of a morphism $f$ by $\tr_q(f)$.
+
+In the case $U_q(\sll(2))$, the quantum trace is given by 
+
+\begin{equation}
+    \tr_q(f) = \tr(Kf)
+\end{equation}
+
+where $\tr$ is the usual trace of a vector space endomorphism.
+
+\subsection{Negligible morphisms}
+%todo: sort out which things should be theorems and which things should be
+%lemmas
+To make this subcategory into a modular tensor categories, we will need to
+quotient this category by the modules with quantum dimension zero. This is a
+fairly natural thing to do.  % todo: why, really?
 
 \begin{defn}
     A morphism $f: T_1 \to T_2$ is \emph{negligible} if $\tr_q(fg) = 0$ for any $g: T_2 \to T_1$
 \end{defn}
 
+
+\begin{defn}
+    A module $T$ is \emph{negligible} if all of its endomorphisms are negligible.
+\end{defn}
+\subsection{Tilting modules} 
+% when citing, say something like: originally done by Anderson & P, there's
+% something more accessible by Sawin
+
+The first step is to restrict our attention to the subcategory of \emph{tilting
+modules}. We will define tilting modules, describe some results classifying the
+tilting modules in $U_q(\mathfrak{g})$, and finally list the tilting modules in
+the category $\mathcal{C}(\sll(2), \ell)$.
+
+% todo: define Weyl modules
+\begin{defn}
+    Suppose $M$ is a $U_q(\mathfrak{g})$-module. A \emph{Weyl filtration} $M$ is a sequence of submodules 
+
+    \begin{equation}
+        \left\{ 0 \right\} = J_0 \subset \cdots \subset J_n = M
+    \end{equation}
+
+    such each $J_k$ is a maximal submodule of $J_{k+1}$ and each quotient $J_{k+1}/J_k$ is a Weyl module. 
+\end{defn}
+
+\begin{defn}
+    A $U_q(\sll(2))$-module $M$ is called \emph{tilting} if both $M$ and $M^*$ have Weyl filtrations.
+\end{defn}
+
+
+\begin{theorem}
+    Every tilting module is a direct sum of indecomposable tilting modules.
+    Every indecomposable tilting module is isomorphic to some $T_\lambda$, the
+    unique indecomposable tilting module with a maximal vector of weight
+    $\lambda$.
+\end{theorem}
+
+
+
+\begin{lemma}
+    A tilting module $T$ is negligible if and only if its quantum dimension is 0.
+\end{lemma}
+
+%todo: actually define this region
+Define the region $\Lambda^\ell$.
+
+The following two theorems provide a characterization of the tilting modules sufficient for our purposes.
+
+\begin{theorem}
+For any $\lambda \notin \Lambda^\ell$, $T^\lambda$ is negligible. 
+\end{theorem}
+
+\begin{theorem}
+For any $\lambda \in \Lambda^\ell$, $T^\lambda = W^\lambda$.
+\end{theorem}
+
+
+
+\subsection{Construction of the MTC}
+
+We construct the modular tensor category that we will use to do topological
+computing by restricting our attention to the subcategory of tilting modules of
+$U_q(\mathfrak{g})$, and quotienting by the negligible morphisms. We can do
+this because the hom sets $Hom(V,W)$ are vector spaces:
+
+%todo: change the notation here, I guess
 \begin{defn}
     Define the category $\mathcal{C}^\text{int}$ be the category with objects tilting modules and morphisms 
 
     \begin{equation*}
         \Hom(V,W) = \Hom_T(V,W) / \text{negligible morphisms}
     \end{equation*}
+
 \end{defn}
 
 The category $\mathcal{C}^\text{int}$ has the following properties:
 \begin{enumerate}
     \item An object $T$ is negligible if and only if it is isomorphic to 0 in $\mathcal{C}^\text{int}$
     \item  $\mathcal{C}^\text{int}$ is a ribbon category
-    \item Any object $T$ in $\mathcal{C}^\text{int}$ is isomorphic to % todo: fix
+    \item Any object $T$ in $\mathcal{C}^\text{int}$ is isomorphic to a direct sum of Weyl modules.
     \item $\mathcal{C}^\text{int}$ is a semisimple abelian category. 
     \item $\dim_{\mathcal{C}^\text{int}} T > 0$ for every $T \not\simeq 0$
 \end{enumerate}
@@ -815,6 +916,23 @@ The category $\mathcal{C}^\text{int}$ has the following properties:
 $\mathcal{C}^\text{int}$ is in fact a modular tensor category. A proof of this
 can be found in Bakalov \& Kirillov. %todo: make this a real reference
  
+\subsection{Fusion rules}
+
+The fusion rules for $U_q(\sll(2))$ are given by 
+
+%todo: notation is inconsistent here
+\begin{equation}
+    V_m \otimes V_n \simeq \sum_i N_{mn}^i V_i
+\end{equation}
+
+where 
+
+\begin{equation}
+    N_{mn}^i = \begin{cases} 1 \text{ for } |m-n| \leq i \leq m+n, i \leq 2k - (m+n), i + m + n \in 2 \mathbf{Z} \\
+                             0 \text{ else } 
+               \end{cases}
+    \label{<++>}
+\end{equation}<++>
 
 % Bakalov & Kirillov
 
