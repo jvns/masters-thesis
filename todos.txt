@@ -4,10 +4,9 @@
 
 Algebraic background: 
     - write a section about quantum algebra
-    - Modules
+    - Modules & Representations
         define maximal submodule
     - braid group
-    - Representations
     - define a simple Lie algebra
     - Ring quotients?
 
@@ -16,15 +15,18 @@ Categorical background:
     - introduce MTCs via Muger notes. Look for a reference (perhaps there is one in your notes).
       there is one here: http://www.math.ru.nl/~mueger/PDF/20.pdf
     - talk about fusion some (source: Kassel?)
+    - consider introducing graphical notation?
 
 U_q(sl(2)):
-    - Work out what V_n, the Verma modules are. 
+    - Work out what V_n, the Verma modules are.  (the (V(n,_), I think))
     - find out if the V(n,-) are Weyl modules.
     - Find out what Weyl modules are, really. 
     - Find out what the R-matrix is
     - Clean up your notation. 
     - Extract some content from the Andersen & Paradowski paper (done! Via Sawin.)
+
     - talk about quantum Clebsch-Gordon (maybe this comes from [AP]?)
+
     - describe this quotient in some explicit way in the sl(2) case
         - describe the braiding morphisms explicitly 
 
