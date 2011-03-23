@@ -1,6 +1,6 @@
 - collect what algebraic & categorical background to introduce. 
 - write up bit about tr_q(f) = tr(kf)
-
+Say somewhere that we're working over a field of characteristic 0.
 
 Algebraic background: 
     - write a section about quantum algebra
