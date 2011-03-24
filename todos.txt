@@ -4,11 +4,11 @@ Say somewhere that we're working over a field of characteristic 0.
 
 Algebraic background: 
     - write a section about quantum algebra
-    - Modules & Representations
+    - write the modules & representations section
         define maximal submodule
     - braid group
-    - define a simple Lie algebra
-    - Ring quotients?
+    - sketch the classification of Lie algebras
+    - talk about roots and weights?
 
 
 Categorical background:
