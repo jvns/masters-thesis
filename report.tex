@@ -8,6 +8,7 @@
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{defn}[theorem]{Definition}
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
 \newtheorem{example}[theorem]{Example}
 
 \newcommand{\isomto}{\overset{\sim}{\rightarrow}}
@@ -733,7 +734,17 @@ There is a unique algebra automorphism of $U_q(\sll(2))$ such that
     \omega(E) = F, \omega(F) = E, \omega(K) = K^{-1}
 \end{equation}
 
-This is called the \emph{Cartan automorphism}.
+This is called the \emph{Cartan automorphism}. We will use this later when
+constructing representations of $U_q(\sll(2))$.
+
+Before proceeding, we will note some relations between the generators
+$E,F,K,K^{-1}$. The following can be checked fairly easily by induction:
+
+\begin{align}
+    \label{EFrelations}
+    EF^s = F^sE + [s]_q F^{s-1} \frac{Kq^{1-s} - K^{-1} q^{-(1-s)}}{q-q^{-1}} \\
+    FE^s = E^sF - [s]_q E^{s-1} \frac{Kq^{s-1} - K^{-1} q^{-(s-1)}}{q-q^{-1}}
+\end{align}
 
 \subsection{A Hopf Algebra Structure on $U_q(\sll(2))$}
 %todo: define such a structure on \mathfrak{g}, really
@@ -756,10 +767,69 @@ It is straightforward to check that this defines a Hopf algebra structure.
 
 \subsection{Representations of $U_q(\sll(2))$, $q$ not a root of unity}
 
-When $q$ is not a root of unity, the representation theory of $U_q(\sll(2))$ bears a striking resemblance to that of $\sll(2)$. The category of representations of $U_q(\sll(2))$ is semisimple, and  the irreducible representations are classified as follows:
+When $q$ is not a root of unity, the representation theory of $U_q(\sll(2))$
+bears a striking resemblance to that of $\sll(2)$. We will sketch the
+classification of the representations of $\sll(2)$ here for $q$ not a root of
+unity.
 
-For each integer $n \geq 0$, there are two unique (up to isomorphism)
-representations of $U_q(\sll(2))$ of dimension $n+1$. 
+\begin{claim}
+    Let $M$ be a finite dimensional $U_q(\sll(2))$-module. Then there is a
+    vector $v \in M$ such that $Ev = 0$. 
+\end{claim}
+%todo: do I need to prove that $K$ has eigenvectors?
+
+\begin{proof}
+    Let $v_0$ be an eigenvector of $K$ with eigenvalue $\lambda$. $KEK^{-1} =
+    q^2 E$, so it follows that $E^i v_0$ is an eigenvector of $K$ with
+    eigenvalue $q^{2i}\lambda$. Each value $q^{2i}\lambda$ is different as $q$
+    is not a root of unity, therefore $K$ has infinitely many eigenvectors. 
+
+    This is impossible, so some $E^i v_0$ must be zero.
+\end{proof}
+
+For any $\lambda \in k, \lambda \neq 0$ there is an infinite dimensional
+$U_q(\sll(2))$-module $M(\lambda)$ with basis $v_0, v_1, v_2, \ldots$ such that
+for any $i$,
+\begin{align}
+    Kv_i &= \lambda q^{-2i}v_i \\
+    Fv_i &= v_{i+1} \\
+    Ev_i &= \begin{cases} 0 & \text{if $i = 0$} \\
+                          [i]_q \frac{\lambda q^{1-i} - \lambda^{-1}q^{i-1}}{q - q^{-1}}v_{i-1} & \text{else}
+            \end{cases}
+\end{align}
+
+To see that this a $U_q(\sll(2))$-module, we can note that 
+
+%todo: set U = U_q(\sll(2)) here
+\begin{equation}
+    M(\lambda) = U/(UE + U(K-\lambda))
+\end{equation}
+
+with $v_i$ being the coset of $F^i$. It follows from this that if $M$ is a
+$U_q(\sll(2))$-module and $v \in M$ such that $Ev = 0$, $Kv = \lambda v$, there
+is a unique homomorphism $\varphi: M(\lambda) \to M$ where $\varphi(v_0) = v$.
+If $M$ is simple, then this homomorphism is surjective and it follows that $M$
+is a quotient of $M(\lambda)$. 
+
+We now have that 
+\begin{claim}
+    Any finite dimensional simple $U_q(\sll(2))$-module is a quotient of $M(\lambda)$.
+\end{claim}
+
+\begin{claim}
+    $M(\lambda)$ is simple for $\lambda \neq \pm q^n$
+\end{claim}
+
+\begin{proof}
+    See \cite{Jantzen1996}.
+\end{proof}
+
+This leads us to the following characterization:
+
+%The category of representations of $U_q(\sll(2))$ is semisimple, and the
+%irreducible representations are classified as follows:
+
+For each integer $n \geq 0$, there are two unique (up to isomorphism) representations of $U_q(\sll(2))$ of dimension $n+1$. 
 The representations are $V(n,+)$ with basis $\left\{ v^+_0, \ldots, v^+_n \right\}$ , and $V(n,-)$ with basis $\left\{ v^-_0, \ldots, v^-_n \right\}$ with action defined by 
 
 % from Kassel, p. 101
@@ -788,8 +858,6 @@ The proof of this can be done in a way analogous to the classification of the re
 %be described in exactly the same way as that of the Lie algebra
 %$\sll(2)$. 
 
-%todo: all the content is here I think, but structure it better 
-
 Suppose now that $q$ is a root of unity. Here the situation is considerably
 different. The category of representations is no longer semisimple. It is
 still possible to classify the irreducible representations, and we will do so. 
@@ -801,6 +869,25 @@ If $q$ is a root of unity, then there are no simple $U_q(\sll(2))$-modules
 with dimension $\geq \ell+1$. 
 \end{theorem}
 
+First it will be helpful to prove a lemma about the center of $U_q(\sll(2))$.
+
+\begin{lemma}
+    If $q$ is a $\ell^\text{th}$ root of unity, then $E^\ell, F^\ell, K^\ell, K^{-\ell}$ are all central in $U_q(\sll(2))$.
+\end{lemma}
+\begin{proof}
+    It is straightforward to check from the defining relations that 
+
+    \begin{align}
+        K^\ell E K^{-\ell} &= q^{2\ell}E = E  & K^{\ell}FK^{-\ell} &= q^{-2\ell}F = F\\
+        K E^\ell K^{-1} &= q^{2\ell}E^\ell = E^\ell  & KF^\ell K^{-1} &= q^{-2\ell}F^\ell = F^\ell
+    \end{align}
+    
+    and from \ref{EFrelations}, since $[\ell]_q = 0$, 
+    \begin{equation}
+        EF^\ell = F^\ell E \text{ and } E^\ell F = FE^\ell
+    \end{equation}
+
+\end{proof}
 \begin{proof}
     %todo
 \end{proof}

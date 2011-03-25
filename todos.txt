@@ -29,6 +29,8 @@ U_q(sl(2)):
 
     - describe this quotient in some explicit way in the sl(2) case
         - describe the braiding morphisms explicitly 
+    - define represenations of U_q(g)
+    - Define the region $\Lambda^\ell$.
 
 TQC:
     - Explain how to simulate circuit-based quantum computation in this
