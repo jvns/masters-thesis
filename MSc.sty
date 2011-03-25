@@ -1,0 +1,44 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{MSc}%
+  [2002/12/02 M.Sc. thesis style for McGill Computer Science]
+
+
+% -- Title Page ----------------------------------------------------------------
+
+\renewcommand{\maketitle}%
+{
+  \begin{titlepage}
+  \setlength{\oddsidemargin}{0.5in}
+  \mbox{}\vspace{5em}
+  \begin{center}
+    {\large\textbf{\expandafter{\@title}}}
+    \\[2em]
+    {
+      \normalsize
+      \textit{by \\ \@author}
+      \\[5em]
+		  \textrm{\@Department \\ \@Institution, \@Location}
+      \\[1em]
+		  \@SubmitDate
+    }
+  \end{center}
+  \vfill
+  \begin{center}
+    {
+      \small\sc
+      A thesis submitted to McGill University \\
+      in partial fulfillment of the requirements of the degree of \\
+      Master of Science
+    }
+  \end{center}
+  \vspace{4em}
+  \begin{center}
+    {
+      \normalsize
+      \@CopyrightMessage
+    }
+  \end{center}
+
+  \end{titlepage}
+}

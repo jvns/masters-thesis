@@ -1,0 +1,317 @@
+Throughout we will again be working over a field $k$ of characteristic 0.
+
+\section{Monoidal Categories}
+\begin{defn}
+    A \emph{monoidal category} is a category $\mathcal{C}$ with 
+    \begin{enumerate}
+    \renewcommand{\labelenumi}{\roman{enumi})}
+        \item a bifunctor $\otimes: \mathcal{C} \times \mathcal{C} \to
+            \mathcal{C}$
+        \item a unit object $\mathbf{1}$ and natural transformations
+            \begin{equation}
+                \lambda_V : \mathbf{1} \otimes V \isomto V \\
+                \rho_V : V \otimes 1 \isomto V
+            \end{equation}
+        \item a natural transformation 
+
+            \begin{equation}
+                \alpha_{UVW} (U \otimes V) \otimes W \isomto U \otimes (V \otimes W)
+            \end{equation}
+
+            which satisfy the associativity property 
+
+        \item if $X_1, X_2$ are two objects obtained from $V_1 \otimes V_2
+            \otimes \cdots V_n$ by inserting 1s and brackets, then all
+            isomorphisms $\varphi: X_1 \isomto X_2$ composed of $\alpha$'s,
+            $\lambda$'s, and $\rho$'s are equal. 
+        \item $\mathbf{1}$ is a simple object and $\End_\mathcal{C} \mathbf{1} = k$
+    \end{enumerate}
+
+\end{defn}
+
+\begin{example}
+    \begin{enumerate}
+    \renewcommand{\labelenumi}{\roman{enumi})}
+        \item The category of vector spaces over a field $\operatorname{Vec}(k)$
+        \item the category of finite dimensional representations of a group, algebra, or Lie algebra
+    \end{enumerate}
+\end{example}
+    
+\section{Braided monoidal categories}
+
+Let $\mathcal{C}$ be a monoidal category with a natural transformation 
+
+\begin{equation}
+    \sigma_{VW} : V \otimes W \to W \otimes V
+\end{equation}
+
+\section{Rigid monoidal categories}
+% todo: write down the vector space example?
+A rigid monoidal category is a monoidal category where there is a notion of a dual. 
+
+\begin{defn}
+    Let $\mathcal{C}$ be a monoidal category, $V$ an object in $\mathcal{C}$. A
+    \emph{right dual} to $V$ is an object $V^*$ with two morphisms
+
+    \begin{align}
+        e_V: V^* \otimes V \to \mathbf{1}  \\
+        i_V: \mathbf{1} \to V^* \otimes V
+    \end{align}
+\end{defn}
+
+such that the composition
+
+\begin{equation}
+    V \stackrel{i_v \otimes \id_V}{\xrightarrow{\hspace*{1cm}}} V \otimes V^*
+    \otimes V  \stackrel{\id_V \otimes e_V}{\xrightarrow{\hspace*{1cm}}} V
+\end{equation}
+
+is equal to $\id_V$, and similarly the composition
+
+\begin{equation}
+    V^* \stackrel{id_{V^*} \otimes \id_V}{\xrightarrow{\hspace*{1cm}}} V^*
+    \otimes V \otimes V^*  \stackrel{e_V \otimes
+    \id_{V^*}}{\xrightarrow{\hspace*{1cm}}} V^*
+\end{equation}
+
+is equal to $\id_{V^*}$
+
+
+\section{The Category of Representations of a Hopf Algebra}
+
+Suppose $(H, \mu, \eta, \Delta, \varepsilon)$ is a Hopf algebra with antipode $S$. 
+
+Let $\Rep_f H$ be the category of finite dimensional representations of $H$ as
+a $k$-algebra.
+
+If $A$ is an algebra and $U, V$ are $A$-modules, then $U \otimes V$ is a vector
+space, but there is no natural way to impose a $A$-module structure on $U
+\otimes V$. 
+
+The comultiplication $\Delta$ on $H$ allows us to impose a $H$-module structure
+on the tensor product $U \otimes V$ of two $H$-modules $U,V$ as follows.
+
+Suppose $\Delta(h) = \sum _{i} h^{(1)}_i \otimes h^{(2)}_i$. Then we define
+
+\begin{equation}
+    h (u \otimes v) = \sum_{i} h^{(1)}_i u \otimes h^{(2)}_i v
+\end{equation}
+
+We define the tensor unit using the counit $\varepsilon$: $\mathbf{1}$ is the
+vector space $k$, with 
+
+\begin{equation}
+    h(1) = \varepsilon(h) 1
+\end{equation}
+
+ for any $h\in H$.
+
+So we have that $\Rep_f(H)$ is a monoidal category, with this tensor product.
+Only the counit and the comultiplication are required for this definition, so
+in fact the category of representations of any bialgebra is a monoidal
+category.
+
+We can use the antipode $S$ to define duals as follows:
+
+For any module $U$, let the dual $U^*$ be the dual vector space of linear
+functionals on $U$, with action
+
+\begin{equation}
+    (h\cdot \varphi)(u)  = \varphi(S(h) u)
+\end{equation}
+
+It follows that $\Rep_f(H)$ is a rigid monoidal category. This also serves as
+motivation for the definition of a Hopf algebra: it is an algebra with
+additional structures such that its category of representations is monoidal and
+rigid. 
+
+% maybe say that the category of reps of the group has this structure, and it
+% follows that the category of reps of the group algebra k[G] has this
+% structure, and the Hopf algebra stuff is a way to generalize that
+
+
+\section{Ribbon Categories}
+
+In what follows it will become important to have a notion of the trace of a
+morphism. The definitions that follow will allow us to define a trace in a
+certain class of rigid monoidal categories called ribbon categories.
+
+\begin{defn}
+
+    A \emph{ribbon category} is a rigid braided tensor category with a natural
+    isomorphism
+    \begin{equation}
+        \delta_V: V \to V^{**}
+    \end{equation}
+
+such that 
+\begin{enumerate}
+    \renewcommand{\labelenumi}{\roman{enumi})}
+
+    \item $\delta_{V \otimes W} = \delta_V \otimes \delta_W$
+    \item $\delta_1 = \id$
+    \item $\delta_{V^*} = (\delta_V^*)^{-1}$
+\end{enumerate}
+
+\end{defn}
+
+If $V$ is an object in a ribbon category $\mathcal{C}$ and $f$ an endomorphism
+of $V$, we can define the trace of $f$ by the composition
+
+\begin{equation}
+    \xymatrix{
+    \mathbf{1} \ar[r]^-{i_V} & V \otimes V^* \ar[r]^-{f \otimes \id} & V^* \otimes V \ar[r]^-{\delta_V \otimes \id} & V^{**} \otimes V^* \ar[r]^-{e_{V^*}} & 
+    \mathbf{1}
+    }
+\end{equation}
+
+We define the dimension of an object $V$ to be $\dim V = \tr \id_V$.
+
+\section{Semisimple Categories}
+\begin{defn}
+    A category $\mathcal{C}$ is called \emph{abelian} if it satisfies the conditions:
+
+    \begin{enumerate}
+    \renewcommand{\labelenumi}{\roman{enumi})}
+        \item All the hom sets $\Hom(A,B)$ are $k$-vector spaces, and the compositions
+            
+            \begin{equation}
+                (\varphi, \psi) \mapsto \varphi \circ \psi
+            \end{equation}
+
+            are $k$-bilinear.
+        \item There is a zero object $\mathbf{0} \in \Ob \mathcal{C}$ such that
+            $\Hom(0,V) = \Hom(V,0) = 0$ for every object $V$
+        \item Finite direct sums exist in $\mathcal{C}$
+        \item Every morphism $\varphi$ has a kernel $\ker \varphi$ and a
+            cokernel $\coker \varphi$. Every morphism is a composition of an
+            epimorphism followed by a monomorphism. If $\ker \varphi = 0$, then
+            $\varphi = \ker(\coker \varphi)$. If $\coker \varphi = 0$, then
+            $\varphi = \coker(\ker \varphi)$.
+    \end{enumerate}
+
+    Examples of abelian categories include the category of $k$-vector spaces,
+    the category of finite dimensional $k$-vector spaces, and the category of
+    representations of a group $G$ over $k$.
+
+\end{defn}
+
+\begin{defn}
+    An object $U$ in an abelian category is called $\emph{simple}$ if any
+    injection $V \hookrightarrow U$ is either $0$ or an isomorphism.
+\end{defn}
+
+\begin{defn}
+    An abelian category $\mathcal{C}$ is \emph{semisimple} if any object $V$ is isomorphic to a direct sum of simple objects
+
+    \begin{equation}
+        V \simeq \bigoplus{i} N_i V_i
+    \end{equation}
+
+    where the $V_i$ are simple objects, $N_i \in \mathbf{N}$
+
+\end{defn}
+
+    Suppose that $\mathcal{C}$ is a semisimple ribbon category. Let $I$ be the
+    set of equivalence classes of nonzero simple objects in $\mathcal{C}$ and
+    choose a representative $V_i$ for each equivalence class  $i \in I$.
+    
+    We can define the \emph{fusion coefficients} $N_{ij}^k \in \mathbf{N}$.
+
+    \begin{equation}
+        V_i \otimes V_j \simeq \bigoplus_k N_{ij}^k V_k
+    \end{equation}
+
+    We call each equation of this type a \emph{fusion rule}. 
+
+    \section{Modular Tensor Categories}
+
+The \emph{dimension} of a category $\mathcal{C}$ is defined by 
+
+\begin{equation}
+    \operatorname{dim}(\mathcal{C}) = \sum_{ x \in \Ob \mathcal{C}} (\operatorname{dim} x)^2
+\end{equation}
+
+
+\begin{defn}
+    The \emph{symmetric center} of a braided category $\mathcal{C}$
+    $\mathbf{Z}_2(\mathcal{C})$ is a full subcategory with 
+
+    \begin{equation}
+        \Ob \mathbf{Z}_2(\mathcal{C}) = \left\{ x \in \mathcal{C} : \sigma_{XY} \circ \sigma_{YX} = \id\ \forall Y \in \mathcal{C} \right\}
+    \end{equation}
+\end{defn}
+
+\begin{defn}
+    A modular tensor category is a semisimple ribbon category such that
+    $\mathbf{Z}_2(\mathcal{C})$ is trivial (every object is isomorphic to
+    $\mathbf{1}^{\oplus n}$). Equivalently, every simple object in the center
+    is isomorphic to $\mathbf{1}$.  
+\end{defn}
+
+Why are these categories called modular? 
+%todo: finish this 
+Define 
+
+\begin{equation}
+    s_{X,Y} = \tr_{X \otimes Y}(\sigma_{Y,X} \circ \sigma_{X,Y})
+\end{equation}
+
+for every simple object $X,Y$.
+
+\begin{theorem}
+    % todo: find a citation for this
+    $\mathbf{Z}_2(\mathcal{C})$ is trivial if and only if the matrix $s$ is invertible. 
+\end{theorem}
+
+\begin{example}
+    An elementary class of examples of modular tensor categories can be
+    obtained via the quantum double construction as follows. This is a simple
+    example of Drinfeld's quantum double construction which can be applied to
+    any finite dimensional Hopf algebra.
+    %todo: does it need to be finite dimensional?
+
+
+    Recall the Hopf algebra $k[G]$ of any finite group $G$ from
+    \ref{groupalgebra} with basis $\left\{ v_g \right\}_{g \in G}$ and
+
+    \begin{align}
+        &\text{multiplication }   & v_g v_h = v_{gh} \\
+        &\text{unit }             & e \\
+        &\text{comultiplication } & \Delta(v_g) = v_g \otimes v_g \\
+        &\text{counit }           & \varepsilon(v_g) = 1 \\
+        &\text{antipode }         & S(v_g) = v_{g^-1}
+    \end{align}
+
+    The dual Hopf algebra to $k[G]$ is the function algebra $F(G)$ with basis
+    $\left\{ \delta_g : g \in G \right\}$ of functions
+
+    \begin{equation}
+        \delta_g(x) = \delta_{g,x} = \begin{cases} 1 &\text{for $g = x$} \\ 0 &\text{for $g \neq x$} \end{cases}
+    \end{equation}
+
+    \begin{align}
+        &\text{multiplication} &\delta_g \delta_h = \delta_{g,h} \delta_g\\
+        &\text{unit}           &\sum_{g \in G} \delta_g \\
+        &\text{comultiplication} &\Delta(\delta_g) = \sum_{g_1 g_2 = g} \delta_{g_1} \otimes \delta_{g_2}\\
+        &\text{counit}           &\varepsilon(\delta_g) = \delta_{e,g} \\
+        &\text{antipode}         &S(\delta_g) = \delta_{g^-1}
+    \end{align}
+
+
+    The quantum double $D(G)$ of $k(G)$ can be described as follows. $D(G)$ is
+    the Hopf algebra with vector space $F(G) \otimes_k k[G]$ and 
+
+    \begin{align}
+        &\text{multiplication} &(\delta_g\otimes v_x) (\delta_h \otimes v_y) = \delta_{gx,xh} (\delta_g \otimes v_{xy})\\
+        &\text{unit}           &\sum_{g \in G} \delta_g  \otimes v_e\\
+        &\text{comultiplication} &\Delta(\delta_g \otimes v_x) = \sum_{g_1 g_2 = g} (\delta_{g_1} \otimes v_x) \otimes (\delta_{g_2} \otimes v_x) \\
+        &\text{counit}           &\varepsilon(\delta_g \otimes v_x) = \delta_{e,g} \\
+        &\text{antipode}         &S(\delta_g \otimes v_x) = \delta_{x^{-1}g^-1 x} \otimes v_{x^{-1}}
+    \end{align}
+
+
+\end{example}
+
+
+

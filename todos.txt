@@ -4,8 +4,7 @@ Say somewhere that we're working over a field of characteristic 0.
 
 Algebraic background: 
     - write a section about quantum algebra
-    - write the modules & representations section
-        define maximal submodule
+    - define maximal submodule
     - braid group
     - sketch the classification of Lie algebras
     - talk about roots and weights?

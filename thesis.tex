@@ -1,0 +1,125 @@
+\input{preamble}
+
+
+
+\begin{document}
+
+
+%\layout
+\maketitle
+
+%% -- Front Matter ----------------------------
+
+\begin{Preface}
+
+%\begin{Abstract} % 150 words or less 
+%\input{0_abstract-en}
+%
+%\end{Abstract}
+%
+%
+%\begin{Resume} % 150 words or less 
+%\begin{otherlanguage*}{french}
+%\input{0_abstract-fr}
+%\end{otherlanguage*}
+%
+%\end{Resume}
+
+
+%\chapter*{Acknowledgments}
+%\input{0_acknowledgements}
+%
+
+
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+\end{Preface}
+
+%% -- Main Body ----------------------------
+
+\pagestyle{fancyplain}
+
+%% ------ Example of a proper chapter block -------
+%%\chapter{Chapter Title}
+%%\label{chap:chapterlabel}
+%%\doublespacing
+%%\input{chapterfile} % keep empty line before \mediumspacing!
+
+%%\mediumspacing
+%%--------------------------- end Example ---------
+
+
+%\chapter{Introduction} 
+%\label{chap:intro} 
+%\doublespacing
+%\input{1_intro}
+%
+%\mediumspacing
+
+\chapter{Algebraic Background} 
+\label{chap:algbackground} 
+\doublespacing
+\input{2_algbackground}
+
+\mediumspacing
+
+\chapter{Categorical Background} 
+\label{chap:categoricalbackground} 
+\doublespacing
+\input{3_categoricalbackground}
+
+\mediumspacing
+
+\chapter{The Representation Theory of $U_q(\sll(2))$} 
+\label{chap:uqsl2} 
+\doublespacing
+\input{4_uqsl2}
+
+\mediumspacing
+
+
+\chapter{Modular Tensor Categories from $U_q(\mathfrak{g})$} 
+\label{chap:MTCfromuqsl2} 
+\doublespacing
+\input{5_MTC-from-uqsl2}
+
+\mediumspacing
+
+\chapter{From MTC to TQC} 
+\label{chap:MTCtoTQC} 
+\doublespacing
+\input{6_MTC-to-TQC}
+
+\mediumspacing
+%% -- Glossary/Notation ----------------------
+% if you want to use the glossary package to make Glossary and Notation chapters
+%\clearpage
+%\addcontentsline{toc}{chapter}{Glossary}
+%\printglossary
+
+%\clearpage
+%\addcontentsline{toc}{chapter}{Index of Notation}
+%\printnotation
+
+%% -- Bibliography ----------------------
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliography}
+\nocite{*}
+\bibliographystyle{plain} % use plainnat if you're using the natbib package
+\bibliography{library.bib}
+
+
+%% -- Appendices ----------------------
+
+%\part*{Appendices}
+%\appendix
+%\addtocontents{toc}{\protect\contentsline{part}{Appendices}{}}
+%\chapter{Detailed Definitions?}
+%\doublespacing
+%\input{8_appendix}
+
+%\mediumspacing
+
+\end{document}

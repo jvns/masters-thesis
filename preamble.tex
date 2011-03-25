@@ -1,0 +1,114 @@
+\documentclass[MSc]{Thesis}
+\clubpenalty=10000
+\widowpenalty = 10000
+
+
+%\input{../../macros/macros} 
+
+%% Glossary/Notation stuff
+%\usepackage[style=altlist,number=none]{glossary}
+%\newglossarytype[nlg]{notation}{not}{ntn}  % separate glossary for notation
+%\newcommand{\notationname}{Index of Notation}
+%\newcommand{\shortnotationname}{Index of Notation} %\makeglossary
+%\makenotation
+% To update glossary and index, respectively:
+% Pass the following to the texmaker options for makeindex
+%makeindex -s %.ist -t %.glg -o %.gls %.glo
+%makeindex -s %.ist -t %.nlg -o %.ntn %.not
+% Then run latex, makeindex, latex, preview.
+
+\usepackage[dvips]{geometry}
+\usepackage{graphicx}
+
+\usepackage{fancyhdr}
+\lhead[]{\fancyplain{}{\nouppercase{\rightmark}}}
+\rhead[\fancyplain{}{\nouppercase{\leftmark}}]{}
+
+
+% A potentially nicer citation format
+%\usepackage[numbers,sort&compress,longnamesfirst]{natbib} 
+%\bibliographystyle{plainnat}
+% Search and replace all \cite occurences with \citep.
+% See http://merkel.zoneo.net/Latex/natbib.php for more details.
+
+
+\usepackage{longtable}
+\setlength{\LTcapwidth}{\textwidth}
+\setlength{\LTpre}{2\bigskipamount}
+% Allow tables to flow over page boundaries.
+
+
+
+%% jnspacing
+\makeatletter
+\newcommand{\tinyspacing}{\let\CS=
+\@currsize\renewcommand{\baselinestretch}{.75}\small\CS}
+\newcommand{\smallerspacing}{\let\CS=
+\@currsize\renewcommand{\baselinestretch}{.90}\small\CS}
+\newcommand{\smallspacing}{\let\CS=
+\@currsize\renewcommand{\baselinestretch}{.80}\small\CS}
+\newcommand{\singlespacing}{\let\CS=
+\@currsize\renewcommand{\baselinestretch}{.96}\small\CS}
+\newcommand{\singlespacingmed}{\let\CS=
+\@currsize\renewcommand{\baselinestretch}{1.1}\small\CS}
+\newcommand{\singlespacingplus}{\let\CS=
+\@currsize\renewcommand{\baselinestretch}{1.40}\small\CS}
+\newcommand{\singlespacingplusplus}{\let\CS=
+\@currsize\renewcommand{\baselinestretch}{1.30}\small\CS}
+\newcommand{\mediumspacing}{\let\CS=
+\@currsize\renewcommand{\baselinestretch}{1.20}\small\CS}
+\newcommand{\doublespacing}{\let\CS=
+\@currsize\renewcommand{\baselinestretch}{1.75}\small\CS}
+\newcommand{\normalspacing}{\singlespacing}
+\makeatother
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{xypic}
+
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand{\isomto}{\overset{\sim}{\rightarrow}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Rep}{\operatorname{Rep}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Ob}{\operatorname{Ob}}
+
+\newcommand{\sll}{\mathfrak{sl}}
+
+\numberwithin{equation}{subsection}
+
+
+
+%== Title Information ==========================================================
+
+\title{Thesis Title}
+%      ---------------------- 70 character title limit ----------------------
+
+\author{Julia Evans}
+
+\Department{School of Computer Science}
+\Institution{McGill University}
+\Location{Montr\'eal}
+
+%\SubmitDate{Month YYYY}
+%
+%\CopyrightMessage{Copyright \copyright\ YYYY by Name I. Surname}
+
+
+% Overwrite text height not correctly set in style
+\textheight=8.25in
+
+% Trick to avoid figures printed on a single page
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85} 
