@@ -26,11 +26,10 @@ defined for $q = 1$. $U_q(\sll(2))$ is isomorphic to the algebra
 $U'_q(\sll(2))$ with generators $E,F,K,K^{-1},L$ and relations:
 
 \begin{align}
-    KK^{-1} =\ &1 = K^{-1}K \\
-    KEK^{-1} &= q^2 E \\
-    KFK^{-1} &= q^{-2} F \\
-    [E,F] &= L \\
-    (q - q^{-1})L &= K-K^{-1} 
+    KK^{-1} &= 1 &  K^{-1}K  =1 \\
+    KEK^{-1} &= q^2 E & KFK^{-1} &= q^{-2} F \\
+    [E,F] &= L  & (q - q^{-1})L &= K-K^{-1} \\
+    [L,E] &= q(EK + K^{-1}E) & [L,F] = -q^{-1}(FK + K^{-1}F)
 \end{align}
 
 For $q=1$, we can define a homomorphism $\varphi: U'_1(\sll(2)) \to
@@ -138,10 +137,9 @@ We now have that
     See \cite{Jantzen1996}.
 \end{proof}
 
-This leads us to the following characterization:
+For $\lambda = \pm q^{n}$, $M(\lambda)$ has one nontrivial submodule spanned by the $v_i$ with $i \geq n+1$.
+This leads us to the following characterization (details can be found in \cite{Jantzen1996}):
 
-%The category of representations of $U_q(\sll(2))$ is semisimple, and the
-%irreducible representations are classified as follows:
 
 For each integer $n \geq 0$, there are two unique (up to isomorphism)
 representations of $U_q(\sll(2))$ of dimension $n+1$. 
@@ -165,8 +163,10 @@ with action defined by
              \end{cases}
 \end{align*}
 
-The proof of this can be done in a way analogous to the classification of the
-representations of $\sll(2)$.
+By the proof sketched above, these are the only representations of
+$U_q(\sll(2))$. It is also possible to show that every finite dimensional
+representation of $U_q(\sll(2))$ is semisimple. In other words, the category of
+representations is semisimple.
 
 \section{Representations of $U_q(\sll(2))$, $q$ a root of unity}
 % Jantzen, 2.11 - 2.13. June 2010 in Clairefontaine book
@@ -177,8 +177,9 @@ representations of $\sll(2)$.
 %$\sll(2)$. 
 
 Suppose now that $q$ is a root of unity. Here the situation is considerably
-different. The category of representations is no longer semisimple. It is
-still possible to classify the irreducible representations, and we will do so. 
+different. The category of finite dimensional representations is no longer
+semisimple. It is still however possible to classify the irreducible representations,
+and we will do so. 
 
 First, we will show the following result:
 

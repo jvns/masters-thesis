@@ -20,6 +20,8 @@
 \usepackage[dvips]{geometry}
 \usepackage{graphicx}
 
+\usepackage{natbib}
+
 \usepackage{fancyhdr}
 \lhead[]{\fancyplain{}{\nouppercase{\rightmark}}}
 \rhead[\fancyplain{}{\nouppercase{\leftmark}}]{}
@@ -62,12 +64,10 @@
 \newcommand{\normalspacing}{\singlespacing}
 \makeatother
 
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsfonts}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage{xypic}
 
-\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{defn}[theorem]{Definition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -85,7 +85,7 @@
 
 \newcommand{\sll}{\mathfrak{sl}}
 
-\numberwithin{equation}{subsection}
+\numberwithin{equation}{section}
 
 
 

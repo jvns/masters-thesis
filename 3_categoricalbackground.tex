@@ -8,18 +8,29 @@ Throughout we will again be working over a field $k$ of characteristic 0.
         \item a bifunctor $\otimes: \mathcal{C} \times \mathcal{C} \to
             \mathcal{C}$
         \item a unit object $\mathbf{1}$ and natural transformations
-            \begin{equation}
-                \lambda_V : \mathbf{1} \otimes V \isomto V \\
-                \rho_V : V \otimes 1 \isomto V
-            \end{equation}
+            \begin{align}
+                \lambda_V &: \mathbf{1} \otimes V \isomto V \\
+                \rho_V &: V \otimes 1 \isomto V
+            \end{align}
         \item a natural transformation 
 
             \begin{equation}
                 \alpha_{UVW} (U \otimes V) \otimes W \isomto U \otimes (V \otimes W)
             \end{equation}
 
-            which satisfy the associativity property 
+            which satisfy the associativity property :
 
+            \begin{equation}
+                \xymatrix{
+&  (A \otimes (B \otimes C)) \otimes D \ar[rd]^-{\alpha_{A, B \otimes C, D}} & \\
+( (A \otimes B) \otimes C ) \otimes D \ar[ru]^-{\alpha_{A,B,C}\otimes 1_D}  \ar[d]^-{\alpha_{A \otimes B, C, D}} & & A \otimes ( (B \otimes C) \otimes D) \ar[d]^-{1_A \otimes \alpha_{B,C,D}} \\
+                (A \otimes B) \otimes (C \otimes D) \ar[rr]^- {\alpha_{A,B,C \otimes D}} & & A \otimes (B \otimes (C \otimes D))
+                }
+            \end{equation}
+
+            commutes for all objects $A,B,C,D$.
+
+            %todo: add the triangle condition, say that this next thing is a theorem.
         \item if $X_1, X_2$ are two objects obtained from $V_1 \otimes V_2
             \otimes \cdots V_n$ by inserting 1s and brackets, then all
             isomorphisms $\varphi: X_1 \isomto X_2$ composed of $\alpha$'s,
@@ -32,8 +43,8 @@ Throughout we will again be working over a field $k$ of characteristic 0.
 \begin{example}
     \begin{enumerate}
     \renewcommand{\labelenumi}{\roman{enumi})}
-        \item The category of vector spaces over a field $\operatorname{Vec}(k)$
-        \item the category of finite dimensional representations of a group, algebra, or Lie algebra
+        \item The category of $k$-vector spaces $\operatorname{Vec}(k)$
+        \item The category of finite dimensional representations of a group, algebra, or Lie algebra
     \end{enumerate}
 \end{example}
     
@@ -299,8 +310,8 @@ for every simple object $X,Y$.
     \end{align}
 
 
-    The quantum double $D(G)$ of $k(G)$ can be described as follows. $D(G)$ is
-    the Hopf algebra with vector space $F(G) \otimes_k k[G]$ and 
+    The quantum double $D(G) of $k(G)$ can be described as follows. $D(G)$ is
+    the Hopf algebra with vector space $F(G)$ \otimes_k k[G]$ and 
 
     \begin{align}
         &\text{multiplication} &(\delta_g\otimes v_x) (\delta_h \otimes v_y) = \delta_{gx,xh} (\delta_g \otimes v_{xy})\\
