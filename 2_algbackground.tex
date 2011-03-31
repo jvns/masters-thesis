@@ -399,4 +399,49 @@ in a group. If a Hopf algebra has an antipode, it is unique, and $S^2 = \id$.
 
 \end{example}
 
+\subsection{Braided bialgebras and the $R$-matrix}
 
+In this section we will discuss braided bialgebras. This additional structure
+on a bialgebra will allow us to make its category of representations braided.
+
+Recall that a bialgebra is \emph{cocommutative} if for any $x$
+
+\begin{equation}
+    \tau_{H,H}\circ \Delta(x)  = \Delta(x)
+\end{equation}
+
+\begin{defn}
+    A bialgebra $(H,\mu,\eta, \Delta, \varepsilon)$ is
+    \emph{quasi-cocommutative} if there exists an invertible element $R \in H
+    \otimes H$ such that for any $x$,
+
+    \begin{equation}
+        \tau_{H,H}\circ \Delta(x)  = R \Delta(x) R^{-1}
+    \end{equation}
+\end{defn}
+
+Such an element $R$ is called a \emph{universal $R$-matrix} for the bialgebra. 
+
+\begin{defn}
+    A quasi-cocommutative bialgebra $(H,\mu,\eta, \Delta, \varepsilon, R)$ is \emph{braided} if $R$ satisfies the conditions
+
+    \begin{align}
+        (\Delta \otimes \id_H)(R) = R_{13} R_{23} \\
+        (\id_H \otimes \Delta)(R) = R_{13} R_{12} 
+    \end{align}
+
+    where if $R = \displaystyle\sum_i s_i \otimes t_i$, $R_{13} = \sum_{i} s_i
+    \otimes 1 \otimes t_i$, $R_{21} = \sum_{i} t_i \otimes s_i \otimes 1$, etc.
+    % todo: make this less vague, but not horrible. Somehow.
+
+\end{defn}
+
+It can be shown that 
+
+\begin{equation}
+    R_{12} R_{13} R_{23} = R_{23} R_{13} R_{12}
+\end{equation}
+
+which suspiciously resembles the Yang-Baxter equation. We will see in
+\ref{bialgtocategory} how this leads to a braiding on the category of
+representations.

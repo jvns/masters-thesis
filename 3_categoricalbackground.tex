@@ -140,6 +140,31 @@ rigid.
 % follows that the category of reps of the group algebra k[G] has this
 % structure, and the Hopf algebra stuff is a way to generalize that
 
+\subsection{Braided structure}
+\label{bialgtocategory}
+In this section we'll sketch the proof of the following theorem
+
+\begin{theorem}
+    Let $(H, \mu, \eta, \Delta, \varepsilon)$ be a bialgebra. The category $\Rep_f(H)$ is braided if and only if $H$ is braided. 
+\end{theorem}
+\begin{proof}
+    Suppose $(H, \mu, \eta, \Delta, \varepsilon)$ has a universal $R$-matrix $R$. Let $V,W$ be two $H$-modules, and $R = \sum_{i} s_i \otimes t_i$. 
+
+    We can define a natural isomorphism $\sigma_{V,W}^R$ between $V \otimes W$ and $W \otimes V$ by
+
+    \begin{equation}
+        \sigma_{V,W}^R = \tau_{V,W}(R(v \otimes w)) = \sum_{i} t_i w \otimes s_i v
+    \end{equation}
+    % proof that this works: p. 178, 179, Kassel
+
+    Conversely, let $(H, \mu, \eta, \Delta, \varepsilon)$ be a bialgebra, and suppose the category $\Rep_f(H)$ has a braiding $\sigma$. Define 
+
+    \begin{equation}
+        R = \tau_{H,H}(\sigma_{H,H}(1 \otimes 1))
+    \end{equation}
+
+    % a proof that this works can be found in Kassel, p. 318
+\end{proof}
 
 \section{Ribbon Categories}
 
