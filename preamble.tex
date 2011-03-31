@@ -81,11 +81,17 @@
 \newcommand{\Rep}{\operatorname{Rep}}
 \newcommand{\coker}{\operatorname{coker}}
 \newcommand{\End}{\operatorname{End}}
+\newcommand{\Fib}{\mathbf{Fib}}
 \newcommand{\Ob}{\operatorname{Ob}}
 
 \newcommand{\sll}{\mathfrak{sl}}
 
 \numberwithin{equation}{section}
+
+\usepackage{ifthen, color}
+\newboolean{viewtodos}
+\setboolean{viewtodos}{true} % set to true or false
+\newcommand{\todo}[1]{ {\color{red} \ifthenelse{\boolean{viewtodos}}{#1}{}} }
 
 
 
