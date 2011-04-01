@@ -48,17 +48,8 @@ Throughout we will again be working over a field $k$ of characteristic 0.
         \item The category of finite dimensional representations of a group, algebra, or Lie algebra
     \end{enumerate}
 \end{example}
-    
-\section{Braided monoidal categories}
-
-Let $\mathcal{C}$ be a monoidal category with a natural transformation 
-
-\begin{equation}
-    \sigma_{VW} : V \otimes W \to W \otimes V
-\end{equation}
 
 \section{Rigid monoidal categories}
-\todo{ write down the vector space example?}
 
 A rigid monoidal category is a monoidal category where there is a notion of a dual. 
 
@@ -75,7 +66,7 @@ A rigid monoidal category is a monoidal category where there is a notion of a du
 such that the composition
 
 \begin{equation}
-    V \stackrel{i_v \otimes \id_V}{\xrightarrow{\hspace*{1cm}}} V \otimes V^*
+    V \stackrel{i_V \otimes \id_V}{\xrightarrow{\hspace*{1cm}}} V \otimes V^*
     \otimes V  \stackrel{\id_V \otimes e_V}{\xrightarrow{\hspace*{1cm}}} V
 \end{equation}
 
@@ -89,84 +80,48 @@ is equal to $\id_V$, and similarly the composition
 
 is equal to $\id_{V^*}$
 
+   
+\section{Braided monoidal categories}
 
-\section{The Category of Representations of a Hopf Algebra}
-
-Suppose $(H, \mu, \eta, \Delta, \varepsilon)$ is a Hopf algebra with antipode $S$. 
-
-Let $\Rep_f H$ be the category of finite dimensional representations of $H$ as
-a $k$-algebra.
-
-If $A$ is an algebra and $U, V$ are $A$-modules, then $U \otimes V$ is a vector
-space, but there is no natural way to impose a $A$-module structure on $U
-\otimes V$. 
-
-The comultiplication $\Delta$ on $H$ allows us to impose a $H$-module structure
-on the tensor product $U \otimes V$ of two $H$-modules $U,V$ as follows.
-
-Suppose $\Delta(h) = \sum _{i} h^{(1)}_i \otimes h^{(2)}_i$. Then we define
+Let $\mathcal{C}$ be a monoidal category with a natural transformation 
 
 \begin{equation}
-    h (u \otimes v) = \sum_{i} h^{(1)}_i u \otimes h^{(2)}_i v
+    \sigma_{V,W} : V \otimes W \to W \otimes V
 \end{equation}
 
-We define the tensor unit using the counit $\varepsilon$: $\mathbf{1}$ is the
-vector space $k$, with 
+For $V_1, V_2, \dots, V_n \in \mathcal{C}$, consider expressions of the form 
 
 \begin{equation}
-    h(1) = \varepsilon(h) 1
+    ( (V_{i_1}\otimes V_{i_2}) \otimes (V_{i_3} \otimes 1)) \otimes \cdots \otimes V_{i_n}
 \end{equation}
 
- for any $h\in H$.
+obtained from $V_1,V_2,\ldots,V_n$ by adding brackets and $1$'s.
 
-So we have that $\Rep_f(H)$ is a monoidal category, with this tensor product.
-Only the counit and the comultiplication are required for this definition, so
-in fact the category of representations of any bialgebra is a monoidal
-category.
+To any composition of $\alpha's, \lambda's, \rho's$, assign an element of the
+braid group $B_n$ as follows:
 
-We can use the antipode $S$ to define duals as follows:
+\begin{align}
+    \alpha, \lambda, \rho &\mapsto 1
+    \sigma_{V_{i_k}, V_{i_{k+1}}} \mapsto b_k
+\end{align}
 
-For any module $U$, let the dual $U^*$ be the dual vector space of linear
-functionals on $U$, with action
+\begin{defn}
+    A \emph{braided tensor category} is a monoidal category with natural
+    isomorphisms $\sigma_{X,Y}$ as above such that any $\varphi: X_1 \to X_2$
+    obtained by composing $\alpha's, \lambda's, \rho's, \sigma's$ depends only
+    on its image in $B_n$.
+\end{defn}
 
-\begin{equation}
-    (h\cdot \varphi)(u)  = \varphi(S(h) u)
-\end{equation}
+\begin{defn}
+    A braided tensor category is called \emph{symmetric} if $\sigma_{X,Y} \circ
+    \sigma_{Y,X} = \id_{X \otimes Y}$ for any objects $X,Y$.
+\end{defn}
 
-It follows that $\Rep_f(H)$ is a rigid monoidal category. This also serves as
-motivation for the definition of a Hopf algebra: it is an algebra with
-additional structures such that its category of representations is monoidal and
-rigid. 
+Some examples of symmetric tensor categories include:
 
-% maybe say that the category of reps of the group has this structure, and it
-% follows that the category of reps of the group algebra k[G] has this
-% structure, and the Hopf algebra stuff is a way to generalize that
-
-\subsection{Braided structure}
-\label{bialgtocategory}
-In this section we'll sketch the proof of the following theorem
-
-\begin{theorem}
-    Let $(H, \mu, \eta, \Delta, \varepsilon)$ be a bialgebra. The category $\Rep_f(H)$ is braided if and only if $H$ is braided. 
-\end{theorem}
-\begin{proof}
-    Suppose $(H, \mu, \eta, \Delta, \varepsilon)$ has a universal $R$-matrix $R$. Let $V,W$ be two $H$-modules, and $R = \sum_{i} s_i \otimes t_i$. 
-
-    We can define a natural isomorphism $\sigma_{V,W}^R$ between $V \otimes W$ and $W \otimes V$ by
-
-    \begin{equation}
-        \sigma_{V,W}^R = \tau_{V,W}(R(v \otimes w)) = \sum_{i} t_i w \otimes s_i v
-    \end{equation}
-    % proof that this works: p. 178, 179, Kassel
-
-    Conversely, let $(H, \mu, \eta, \Delta, \varepsilon)$ be a bialgebra, and suppose the category $\Rep_f(H)$ has a braiding $\sigma$. Define 
-
-    \begin{equation}
-        R = \tau_{H,H}(\sigma_{H,H}(1 \otimes 1))
-    \end{equation}
-
-    % a proof that this works can be found in Kassel, p. 318
-\end{proof}
+\begin{itemize}
+    \item The category $\mathbf{Vect}$ of finite dimensional vector spaces over a field $k$.
+\end{itemize}
 
 \section{Ribbon Categories}
 
@@ -262,13 +217,13 @@ We define the dimension of an object $V$ to be $\dim V = \tr \id_V$.
 
     We call each equation of this type a \emph{fusion rule}. 
 
-    \section{Modular Tensor Categories}
+\section{Modular Tensor Categories}
 
-The \emph{dimension} of a category $\mathcal{C}$ is defined by 
+%The \emph{dimension} of a category $\mathcal{C}$ is defined by 
 
-\begin{equation}
-    \operatorname{dim}(\mathcal{C}) = \sum_{ x \in \Ob \mathcal{C}} (\operatorname{dim} x)^2
-\end{equation}
+%\begin{equation}
+%    \operatorname{dim}(\mathcal{C}) = \sum_{ x \in \Ob \mathcal{C}} (\operatorname{dim} x)^2
+%\end{equation}
 
 
 \begin{defn}
@@ -278,18 +233,22 @@ The \emph{dimension} of a category $\mathcal{C}$ is defined by
     \begin{equation}
         \Ob \mathbf{Z}_2(\mathcal{C}) = \left\{ x \in \mathcal{C} : \sigma_{XY} \circ \sigma_{YX} = \id\ \forall Y \in \mathcal{C} \right\}
     \end{equation}
+
+
 \end{defn}
 
 \begin{defn}
     A modular tensor category is a semisimple ribbon category such that
     $\mathbf{Z}_2(\mathcal{C})$ is trivial (every object is isomorphic to
-    $\mathbf{1}^{\oplus n}$). Equivalently, every simple object in the center
-    is isomorphic to $\mathbf{1}$.  
+    $\mathbf{1}^{\oplus n}$). 
+
+    %Equivalently, every simple object in the center is isomorphic to $\mathbf{1}$.  
 \end{defn}
 
-Why are these categories called modular? 
-\todo{ finish this }
-Define 
+%Why are these categories called modular? 
+%\todo{ finish this }
+
+In any semisimple rigid braided tensor category, define
 
 \begin{equation}
     s_{X,Y} = \tr_{X \otimes Y}(\sigma_{Y,X} \circ \sigma_{X,Y})
@@ -298,9 +257,7 @@ Define
 for every simple object $X,Y$.
 
 \begin{theorem}
-    \todo{ find a citation for this}
-
-    $\mathbf{Z}_2(\mathcal{C})$ is trivial if and only if the matrix $s$ is invertible. 
+    $\mathbf{Z}_2(\mathcal{C})$ is trivial if and only if the matrix $s$ is invertible.  \todo{find a citation for this}
 \end{theorem}
 
 \begin{example}
@@ -339,8 +296,9 @@ for every simple object $X,Y$.
     \end{align}
 
 
-    The quantum double $D(G) of $k(G)$ can be described as follows. $D(G)$ is
-    the Hopf algebra with vector space $F(G)$ \otimes_k k[G]$ and 
+    The quantum double $D(G)$ of $k(G)$ can be described as follows: 
+    
+    $D(G)$ is the Hopf algebra with vector space $F(G) \otimes_k k[G]$ and 
 
     \begin{align}
         &\text{multiplication} &(\delta_g\otimes v_x) (\delta_h \otimes v_y) = \delta_{gx,xh} (\delta_g \otimes v_{xy})\\
@@ -353,5 +311,83 @@ for every simple object $X,Y$.
 
 \end{example}
 
+
+\section{The Category of Representations of a Hopf Algebra}
+
+Suppose $(H, \mu, \eta, \Delta, \varepsilon)$ is a Hopf algebra with antipode $S$. 
+
+Let $\Rep_f H$ be the category of finite dimensional representations of $H$ as
+a $k$-algebra.
+
+If $A$ is an algebra and $U, V$ are $A$-modules, then $U \otimes V$ is a vector
+space, but there is no natural way to impose a $A$-module structure on $U
+\otimes V$. 
+
+The comultiplication $\Delta$ on $H$ allows us to impose a $H$-module structure
+on the tensor product $U \otimes V$ of two $H$-modules $U,V$ as follows.
+
+Suppose $\Delta(h) = \sum _{i} h^{(1)}_i \otimes h^{(2)}_i$. Then we define
+
+\begin{equation}
+    h (u \otimes v) = \sum_{i} h^{(1)}_i u \otimes h^{(2)}_i v
+\end{equation}
+
+We define the tensor unit using the counit $\varepsilon$: $\mathbf{1}$ is the
+vector space $k$, with 
+
+\begin{equation}
+    h(1) = \varepsilon(h) 1
+\end{equation}
+
+ for any $h\in H$.
+
+So we have that $\Rep_f(H)$ is a monoidal category, with this tensor product.
+Only the counit and the comultiplication are required for this definition, so
+in fact the category of representations of any bialgebra is a monoidal
+category.
+
+We can use the antipode $S$ to define duals as follows:
+
+For any module $U$, let the dual $U^*$ be the dual vector space of linear
+functionals on $U$, with action
+
+\begin{equation}
+    (h\cdot \varphi)(u)  = \varphi(S(h) u)
+\end{equation}
+
+It follows that $\Rep_f(H)$ is a rigid monoidal category. This also serves as
+motivation for the definition of a Hopf algebra: it is an algebra with
+additional structures such that its category of representations is monoidal and
+rigid. 
+
+% maybe say that the category of reps of the group has this structure, and it
+% follows that the category of reps of the group algebra k[G] has this
+% structure, and the Hopf algebra stuff is a way to generalize that
+
+\subsection{Braided structure}
+\label{bialgtocategory}
+In this section we'll sketch the proof of the following theorem
+
+\begin{theorem}
+    Let $(H, \mu, \eta, \Delta, \varepsilon)$ be a bialgebra. The category $\Rep_f(H)$ is braided if and only if $H$ is braided. 
+\end{theorem}
+\begin{proof}
+    Suppose $(H, \mu, \eta, \Delta, \varepsilon)$ has a universal $R$-matrix $R$. Let $V,W$ be two $H$-modules, and $R = \sum_{i} s_i \otimes t_i$. 
+
+    We can define a natural isomorphism $\sigma_{V,W}^R$ between $V \otimes W$ and $W \otimes V$ by
+
+    \begin{equation}
+        \sigma_{V,W}^R = \tau_{V,W}(R(v \otimes w)) = \sum_{i} t_i w \otimes s_i v
+    \end{equation}
+    % proof that this works: p. 178, 179, Kassel
+
+    Conversely, let $(H, \mu, \eta, \Delta, \varepsilon)$ be a bialgebra, and suppose the category $\Rep_f(H)$ has a braiding $\sigma$. Define 
+
+    \begin{equation}
+        R = \tau_{H,H}(\sigma_{H,H}(1 \otimes 1))
+    \end{equation}
+
+    % a proof that this works can be found in Kassel, p. 318
+\end{proof}
 
 
