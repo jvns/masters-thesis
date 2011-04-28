@@ -1,7 +1,7 @@
 The setting for topological quantum computing is a quotient of the category of
 representations of a deformation of a semisimple Lie algebra. In this chapter
 we define and discuss some relevant results about the required algebraic
-structures. Everything in this section takes place over a field of
+structures. Everything in this section takes place over a field $k$ of
 characteristic 0.
 
 \section{Quantum algebra}
@@ -9,6 +9,7 @@ characteristic 0.
 In the definitions and results involving quantum groups we will frequently
 encounter so-called `quantum integers'. In this section we will provide some
 definitions and motivation.
+\todo{provide the motivation}
 
 \begin{equation}
     [n]_q = \frac{q^n - q^{-n}}{q - q^{-1}} = q^{n-1} + q^{n-3} + \cdots + q^{-n+3} + q^{-n+1}
@@ -31,7 +32,7 @@ a field $k$ is a $k$-vector space which also has the structure of a ring. Some
 important examples of $k$-algebras are: 
 
 \begin{enumerate}
-    \item The $n \times n$ matrices over $k$
+    \item The $n \times n$ matrices over $k$, $M_n(k)$
     \item The group algebra of a finite group (defined in \ref{groupalgebra})
     \item The polynomial algebra $k[x]$
     \item The universal enveloping algebra of a Lie algebra (see \ref{UnivEnvAlg})
@@ -73,8 +74,8 @@ we will use the terms interchangeably.
 The examples of quantum groups that we are interested in are obtained as
 deformations of semisimple Lie algebras. We will give some basic definitions of
 Lie algebras, ideals, simplicity, and semisimplicity, and discuss briefly the
-classification of semisimple Lie algebras. Much more detail can be found in
-\cite{Humphreys1973}
+classification of semisimple Lie algebras. More detail can be found in
+\cite{Humphreys1973}.
 
 Throughout this section $\mathfrak{g}$ will denote a Lie algebra.
 
@@ -105,9 +106,8 @@ for any $X,Y$ (Ado's theorem), so the bracket $[X,Y]$ can safely be thought of
 as the commutator $XY - YX$. 
 
 
-The subject of general Lie algebras is fascinating, but we will only be
-interested here in semisimple Lie algebras, which are a well-characterized
-class of Lie algebras. 
+We will only be interested here in semisimple Lie algebras, which are a
+well-characterized class of Lie algebras. 
 
 \begin{defn}
     A subspace $\mathfrak{h} \subset \mathfrak{g}$ of a Lie algebra is a
