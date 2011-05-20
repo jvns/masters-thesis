@@ -1,15 +1,15 @@
 \section{The quantized universal enveloping algebra $U_q(\sll(2))$}
 
+
 $U_q(\sll(2))$ is a deformation of the universal enveloping algebra
-$U(\sll(2))$ defined in \ref{UnivEnvAlg}, which in some sense approaches
-$U(\sll(2))$ as $q \to 1$. In this section we will define $U_q(\sll(2))$ and
-explain its relationship to $U(\sll(2))$.
+$U(\sll(2))$ defined in \ref{UnivEnvAlg}. In this section we will define
+$U_q(\sll(2))$ and explain its relationship to $U(\sll(2))$.
 
 
 Let $q$ be an indeterminate. $U_q(\sll(2))$ is the associative algebra over
 $\mathbb{Q}(q)$ with generators $E,F,K, K^{-1}$ and relations 
 
-\todo{should it be $\mathbb{Q}(q)$ or $\mathbb{C}(q)$?}
+\todo{should it be over $\mathbb{Q}(q)$ or $\mathbb{C}(q)$?}
 \begin{align}
     KK^{-1} &= 1 = K^{-1}K \\
     KEK^{-1} &= q^2 E \\
@@ -92,11 +92,11 @@ To see that this a $U_q(\sll(2))$-module, we can note that
 \todo{ set $U = U_q(\sll(2))$ here}
 
 \begin{equation}
-    M(\lambda) = U/(UE + U(K-\lambda))
+    M(\lambda) \simeq U/(UE + U(K-\lambda))
 \end{equation}
 
 with $v_i$ being the coset of $F^i$. It follows from this that if $M$ is a
-$U_q(\sll(2))$-module and $v \in M$ such that $Ev = 0$, $Kv = \lambda v$, there
+$U_q(\sll(2))$-module and $v \in M$ is such that $Ev = 0$, $Kv = \lambda v$, there
 is a unique homomorphism $\varphi: M(\lambda) \to M$ where $\varphi(v_0) = v$.
 If $M$ is simple, then this homomorphism is surjective and it follows that $M$
 is a quotient of $M(\lambda)$. 
@@ -145,89 +145,164 @@ $U_q(\sll(2))$. It is also possible to show that every finite dimensional
 representation of $U_q(\sll(2))$ is semisimple. In other words, the category of
 representations is semisimple.
 
-\section{Representations of $U_q(\mathfrak{g})$}
-    \subsection{$U_q(\mathfrak{g})$}
+\section{$U_q(\frakg)$}
+\label{U_q(g)}
 
-        % taken from Jantzen
+    % taken from Jantzen
 
-        Let $\mathfrak{g}$ be an arbitrary semisimple algebra. Suppose $\Pi$ is
-        a basis of the root system, and denote the entries of the Cartan matrix
-        by 
+    Let $\frakg$ be an arbitrary semisimple algebra. Suppose $\Pi$ is
+    a basis of the root system, and denote the entries of the Cartan matrix
+    by 
 
-        \begin{equation}
-            a_{\alpha\beta} = 2(\alpha, \beta) / (\alpha, \alpha).
-        \end{equation}
+    \begin{equation}
+        a_{\alpha\beta} = 2(\alpha, \beta) / (\alpha, \alpha).
+    \end{equation}
 
-        Then the Lie algebra has a presentation with $3|\Pi|$ generators
-        $x_\alpha, y_\alpha, h_\alpha$, $\alpha \in \Pi$ and the relations 
+    Then the Lie algebra has a presentation with $3|\Pi|$ generators
+    $x_\alpha, y_\alpha, h_\alpha$, $\alpha \in \Pi$ and the relations 
 
-        \begin{align}
-            \left[ h_\alpha, h_\beta \right] &= 0       &   \left[ x_\alpha, y_\beta \right] &= \delta_{\alpha\beta} h_\alpha \\
-            \left[ h_\alpha, x_\beta \right] &= a_{\alpha\beta} x_\beta  &   \left[ h_\alpha, y_\beta \right] &= -a_{\alpha\beta} y_\beta \\
-        \end{align}
+    \begin{align}
+        \left[ h_\alpha, h_\beta \right] &= 0       &   \left[ x_\alpha, y_\beta \right] &= \delta_{\alpha\beta} h_\alpha \\
+        \left[ h_\alpha, x_\beta \right] &= a_{\alpha\beta} x_\beta  &   \left[ h_\alpha, y_\beta \right] &= -a_{\alpha\beta} y_\beta \\
+    \end{align}
 
-        When constructing the algebra $U_q(\sll(2))$, we required that $q^2
-        \neq 1$. We need a slightly stronger version of this in general: set
+    Set
 
-        \begin{equation}
-            d_\alpha = \frac{(\alpha, \alpha)}{2}
-        \end{equation}
+    \begin{equation}
+        q_\alpha = q^{d_\alpha}
+    \end{equation}
 
-        We require that $q^{2d_{\alpha}} \neq 0$ for all $\alpha$. This means
-        that $q^2 \neq 0$, may also require that $q^4, q^6 \neq 0$, depending
-        on the length of the longest root in $\mathfrak{g}$.
+    and for $n \in \mathbf{Z}$,
 
-        Now set 
+    \begin{equation}
+        [n]_\alpha = [n]_{q_\alpha} = \frac{q^{nd_\alpha} - q^{-nd_\alpha}}{q^{d_\alpha} - q^{-d_\alpha}}
+    \end{equation}
 
-        \begin{equation}
-            q_\alpha = q^{d_\alpha}
-        \end{equation}
+    $[n]_\alpha^!$ and $\dbinom{n}{k}_\alpha$ are defined similarly: 
+    
+    \begin{equation}
+        [n]_\alpha^! = [n]_{q_{\alpha}}^!
+    \end{equation}
+    \begin{equation}
+        \dbinom{n}{k}_\alpha = \dbinom{n}{k}_{q_\alpha}
+    \end{equation}
 
-        and for $n \in \mathbf{Z}$,
-
-        \begin{equation}
-            [n]_\alpha = [n]_{q_\alpha} = \frac{q^{nd_\alpha} - q^{-nd_\alpha}}{q^{d_\alpha} - q^{-d_\alpha}}
-        \end{equation}
-
-        $[n]_\alpha^!$ and $\dbinom{n}{k}_\alpha$ are defined similarly: 
-        
-        \begin{equation}
-            [n]_\alpha^! = [n]_{q_{\alpha}}^!
-        \end{equation}
-        \begin{equation}
-            \dbinom{n}{k}_\alpha = \dbinom{n}{k}_{q_\alpha}
-        \end{equation}
-
-        \begin{defn}
-            The quantized enveloping algebra $U_q(\mathfrak{g})$ has generators
-            $E_\alpha, F_\alpha, K_\alpha, K_\alpha^{-1}$ for each $\alpha \in
-            \Pi$, and relations
-
-            \begin{align}
-                K_\alpha K_\alpha^{-1} =\ &1  = K_\alpha^{-1}K_\alpha \\
-                K_\alpha K_\beta &= K_\beta K_\alpha \\
-                K_\alpha E_\beta K_\alpha^{-1} &= q^{(\alpha, \beta)} E_\beta \\
-                K_\alpha F_\beta K_\alpha^{-1} &= q^{-(\alpha, \beta)} E_\beta \\
-                [E_\alpha, F_\beta] &= \delta_{\alpha\beta} \frac{K_\alpha - K_\alpha^{-1}}{ q_\alpha - q_\alpha^{-1}} 
-            \end{align}
-
-            for all $\alpha, \beta \in \Pi$, and for $a \neq \beta$
-
-            \begin{align}
-                \sum_{s=0}^{1-a_{\alpha\beta}} (-1)^s \dbinom{1-a_{\alpha\beta}}{s}_\alpha E_\alpha^{1-a_{\alpha\beta} - s} E_\beta E_\alpha^s  &= 0 \\
-                \sum_{s=0}^{1-a_{\alpha\beta}} (-1)^s \dbinom{1-a_{\alpha\beta}}{s}_\alpha F_\alpha^{1-a_{\alpha\beta} - s} F_\beta F_\alpha^s  &= 0 
-            \end{align}
-        \end{defn}
-        \subsection{A Hopf algebra structure on $U_q(\mathfrak{g})$}
-
-        We can define a Hopf algebra structure $(\Delta, \varepsilon, S)$ such
-        that for all $\alpha \in \Pi$,
+    \begin{defn}
+        The quantized enveloping algebra $U_q(\frakg)$ has generators
+        $E_\alpha, F_\alpha, K_\alpha, K_\alpha^{-1}$ for each $\alpha \in
+        \Pi$, and relations
 
         \begin{align}
-            \Delta(E_\alpha) &= E_\alpha \otimes 1 + K_\alpha \otimes E_\alpha      & \varepsilon(E_\alpha) &= 0  & S(E_\alpha) &= -K_\alpha^{-1} E_\alpha \\
-            \Delta(F_\alpha) &= F_\alpha \otimes K_\alpha^{-1} + 1 \otimes F_\alpha & \varepsilon(F_\alpha) &= 0  & S(F_\alpha) &= -F_\alpha K_\alpha \\
-            \Delta(K_\alpha) &= K_\alpha \otimes K_\alpha                           & \varepsilon(K_\alpha) &= 1  & S(K_\alpha) &= K_\alpha^{-1}
+            K_\alpha K_\alpha^{-1} =\ &1  = K_\alpha^{-1}K_\alpha \\
+            K_\alpha K_\beta &= K_\beta K_\alpha \\
+            K_\alpha E_\beta K_\alpha^{-1} &= q^{(\alpha, \beta)} E_\beta \\
+            K_\alpha F_\beta K_\alpha^{-1} &= q^{-(\alpha, \beta)} E_\beta \\
+            [E_\alpha, F_\beta] &= \delta_{\alpha\beta} \frac{K_\alpha - K_\alpha^{-1}}{ q_\alpha - q_\alpha^{-1}} 
         \end{align}
-    \subsection{Representation theory of $U_q(\mathfrak{g})$}
+
+        for all $\alpha, \beta \in \Pi$, and for $a \neq \beta$
+
+        \begin{align}
+            \sum_{s=0}^{1-a_{\alpha\beta}} (-1)^s \dbinom{1-a_{\alpha\beta}}{s}_\alpha E_\alpha^{1-a_{\alpha\beta} - s} E_\beta E_\alpha^s  &= 0 \\
+            \sum_{s=0}^{1-a_{\alpha\beta}} (-1)^s \dbinom{1-a_{\alpha\beta}}{s}_\alpha F_\alpha^{1-a_{\alpha\beta} - s} F_\beta F_\alpha^s  &= 0 
+        \end{align}
+    \end{defn}
+    \subsection{A Hopf algebra structure on $U_q(\frakg)$}
+
+    We can define a Hopf algebra structure $(\Delta, \varepsilon, S)$ such
+    that for all $\alpha \in \Pi$,
+
+    \begin{align}
+        \Delta(E_\alpha) &= E_\alpha \otimes 1 + K_\alpha \otimes E_\alpha      & \varepsilon(E_\alpha) &= 0  & S(E_\alpha) &= -K_\alpha^{-1} E_\alpha \\
+        \Delta(F_\alpha) &= F_\alpha \otimes K_\alpha^{-1} + 1 \otimes F_\alpha & \varepsilon(F_\alpha) &= 0  & S(F_\alpha) &= -F_\alpha K_\alpha \\
+        \Delta(K_\alpha) &= K_\alpha \otimes K_\alpha                           & \varepsilon(K_\alpha) &= 1  & S(K_\alpha) &= K_\alpha^{-1}
+    \end{align}
+\section{Representation theory of $U_q(\frakg)$}
+
+\section{Setting $q$ to be a root of unity}
+
+There are two different ways to set $q$ to be a complex root of unity $\epsilon
+= e^{2\pi i/\ell}$. The algebras that result and their representation theories
+are significantly different. In this section and throughtout we will assume
+$\ell$ to be odd. 
+
+The first way is to define an algebra using the same generators and relations
+as $U_q(\frakg)$ in \ref{U_q(g)}, setting $q = \epsilon$. This is not the
+case we will be interested in.
+
+The second is obtained as follows. Define $\mathcal{A} = \mathbb{Z}[q,
+q^{-1}]$, and $U_\mathcal{A}^{res}(\frakg)$ be the
+$\mathcal{A}$-subalgebra of $U_q(\frakg)$ generated by $E_i^{(n)},
+F_i^{(n)}, K_i, K_i^{-1}$ for $n \geq 0$ and all $i$, where
+
+\begin{align}
+    E_i^{(n)} = \frac{E_i^n}{[n]^!_{q_i}} \\
+    F_i^{(n)} = \frac{F_i^n}{[n]^!_{q_i}} 
+\end{align}
 
 
+Define 
+\begin{equation}
+    U_\epsilon^{res}(\frakg) = U_\mathcal{A}^{res}(\frakg) \otimes_A \mathbb{Q}(\epsilon)
+\end{equation}
+
+If $\gamma$ is not a root of unity, then $U_\gamma^{res}(\frakg)
+\otimes_{\mathbb{Q}(\gamma)} \mathbb{C}$ and $U_\gamma(\frakg)$ are
+isomorphic.
+
+\begin{lemma}
+    In $U_\epsilon^{res}(\frakg)$, $E_i^\ell = F_i^\ell = 0$ for all $i$
+\end{lemma}
+\begin{proof}
+    $E_i^\ell = [l]_{q_i}^! E_i^{(l)} = 0$ as $[l]_{q_i}^! = 0$. Similarly for $F_i^\ell$.
+\end{proof}
+
+$E_i^\ell \neq 0$ in $U_\epsilon(\frakg)$. It is therefore not surprising that
+the representation theories of $U_\epsilon(\frakg)$ and
+$U_\epsilon^{res}(\frakg)$ are very different.
+
+
+\section{The representation theory of $U_\epsilon^{res}(\frakg)$}
+
+Recall that for $U_q(\frakg)$ the irreducible representations $V_q(\lambda)$
+were indexed by highest weights $\lambda$. We can use these representations to
+define representations of $U_\epsilon^{res}(\frakg)$ as follows:
+
+\todo{explain about weights, $v_\lambda$}
+
+Let $V_q(\lambda)$ be the irreducible $U_q(\frakg)$-module with highest weight
+$\lambda$. Let $V_\mathcal{A}^{res}(\lambda)$ be the
+$U_\mathcal{A}^{res}(g)$-submodule of $V_q(\lambda)$ generated by $v_\lambda$,
+and define the \emph{Weyl module}
+
+\begin{equation}
+    W_\epsilon^{res}(\lambda) = V_\mathcal{A}^{res}(\lambda) \otimes_\mathcal{A} \mathbb{C}
+\end{equation}
+
+via the homomorphism $A \to \mathbb{C}$, $q \mapsto \epsilon$.
+
+\begin{claim}
+    $W_\epsilon^{res}(\lambda)$ is irreducible if either 
+    \begin{enumerate}
+            \todo{fix co-root notation}
+        \item $\left< \lambda + \rho, \alpha^v\right> < \ell$ for all positive
+            roots $\alpha$
+        \item $\lambda = (\ell - 1) \rho + \ell \mu$ for some $\mu \in P^+$
+    \end{enumerate}
+    \todo{explain all the symbols here}
+\end{claim}
+
+\section{The Representation theory of $U_\epsilon^{res}(\sll(2))$}
+
+In this section we will explore the representation theory of
+$U_\epsilon^{res}(\frakg)$ described in the previous section explicitly for the
+case $\frakg = \sll(2)$.
+
+The highest weights for $\sll(2)$ are integers $n \geq 0$. From the definition
+in the previous section, it is not hard to obtain:
+
+\begin{align}
+    Ev_i &= [n-i+1]_\epsilon v_{i-1} \\
+    Fv_i &= [i+1]_\epsilon v_{i+1} \\
+    Kv_i &= \epsilon^{n-2i}
+\end{align}

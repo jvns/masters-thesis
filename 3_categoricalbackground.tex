@@ -1,4 +1,4 @@
-Throughout we will again be working over a field $k$ of characteristic 0.
+Throughout we will be working over a field $k$ of characteristic 0.
 
 \section{Monoidal Categories}
 \begin{defn}
@@ -101,7 +101,7 @@ To any composition of $\alpha's, \lambda's, \rho's$, assign an element of the
 braid group $B_n$ as follows:
 
 \begin{align}
-    \alpha, \lambda, \rho &\mapsto 1
+    \alpha, \lambda, \rho &\mapsto 1 \\
     \sigma_{V_{i_k}, V_{i_{k+1}}} \mapsto b_k
 \end{align}
 
@@ -166,13 +166,13 @@ We define the dimension of an object $V$ to be $\dim V = \tr \id_V$.
 
     \begin{enumerate}
     \renewcommand{\labelenumi}{\roman{enumi})}
-        \item All the hom sets $\Hom(A,B)$ are $k$-vector spaces, and the compositions
+        \item All the hom sets $\Hom(A,B)$ are $k$-vector spaces, and the composition
             
             \begin{equation}
                 (\varphi, \psi) \mapsto \varphi \circ \psi
             \end{equation}
 
-            are $k$-bilinear.
+            is $k$-bilinear.
         \item There is a zero object $\mathbf{0} \in \Ob \mathcal{C}$ such that
             $\Hom(0,V) = \Hom(V,0) = 0$ for every object $V$
         \item Finite direct sums exist in $\mathcal{C}$
@@ -216,6 +216,7 @@ We define the dimension of an object $V$ to be $\dim V = \tr \id_V$.
     \end{equation}
 
     We call each equation of this type a \emph{fusion rule}. 
+    \todo{why are we making this definition?}
 
 \section{Modular Tensor Categories}
 
@@ -262,12 +263,10 @@ for every simple object $X,Y$.
 
 \begin{example}
     An elementary class of examples of modular tensor categories can be
-    obtained via the quantum double construction as follows. This is a simple
-    example of Drinfeld's quantum double construction which can be applied to
-    any finite dimensional Hopf algebra.
+    obtained as follows. This is a simple example of Drinfeld's quantum double
+    construction which can be applied to any finite dimensional Hopf algebra.
 
-    \todo{ does it need to be finite dimensional?}
-
+    \todo{explain the quantum double construction later?}
 
     Recall the Hopf algebra $k[G]$ of any finite group $G$ from
     \ref{groupalgebra} with basis $\left\{ v_g \right\}_{g \in G}$ and
