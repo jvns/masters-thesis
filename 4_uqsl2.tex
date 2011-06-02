@@ -1,56 +1,69 @@
-\section{The quantized universal enveloping algebra $U_q(\sll(2))$}
+\section{The quantum group $U_q(\sll(2))$}
+\label{UqSL2}
 
 
-$U_q(\sll(2))$ is a deformation of the universal enveloping algebra
-$U(\sll(2))$ defined in \ref{UnivEnvAlg}. In this section we will define
-$U_q(\sll(2))$ and explain its relationship to $U(\sll(2))$.
+The quantum group $U_q(\sll(2))$ is a deformation of the universal enveloping
+algebra $U(\sll(2))$ defined in \ref{UnivEnvAlg}.  In this section we will
+define the Hopf algebra $U_q(\sll(2))$ and note some relations between its
+generators.  Any missing proofs can be found in \cite{Kassel1994}. 
+\todo{fix citation}
 
 
+\begin{defn}
+\label{Uqsl2Def}
 Let $q$ be an indeterminate. $U_q(\sll(2))$ is the associative algebra over
-$\mathbb{Q}(q)$ with generators $E,F,K, K^{-1}$ and relations 
+$\mathbb{Q}(q)$ with generators $X^+,X^-,K, K^{-1}$ and relations 
 
 \todo{should it be over $\mathbb{Q}(q)$ or $\mathbb{C}(q)$?}
 \begin{align}
     KK^{-1} &= 1 = K^{-1}K \\
-    KEK^{-1} &= q^2 E \\
-    KFK^{-1} &= q^{-2} F \\
-    [E,F] &= \frac{K - K^{-1}}{q - q^{-1}}
+    K X^+ K^{-1} &= q^2  X^+  \\
+    KX^-K^{-1} &= q^{-2} X^- \\
+    [ X^+ ,X^-] &= \frac{K - K^{-1}}{q - q^{-1}}
+\end{align}
+\end{defn}
+
+In general $ X^+ $ and $X^-$ should be thought of as analogs of $X$ and $Y$ in
+$U(\sll(2))$. To see the relationship between $U_q(\sll(2))$, we will make use
+of an alternate presentation of $U_q(\sll(2))$: Define $U'_q(\sll(2))$ to be
+the associative algebra with generators $ X^+ ,X^-,L,K,K^{-1}$ and relations
+
+\begin{align}
+    KK^{-1} &= 1 &  K^{-1}K  =1 \\
+    KEK^{-1} &= q^2 E & KFK^{-1} &= q^{-2} F \\
+    [E,F] &= L  & (q - q^{-1})L &= K-K^{-1} \\
+    [L,E] &= q(EK + K^{-1}E) & [L,F] = -q^{-1}(FK + K^{-1}F)
 \end{align}
 
-% not sure if this is still useful:
-%
-% There is a unique algebra automorphism of $U_q(\sll(2))$ such that 
-% \begin{equation}
-%     \omega(E) = F, \omega(F) = E, \omega(K) = K^{-1}
-% \end{equation}
-% 
-% This is called the \emph{Cartan automorphism}. We will use this later when
-% constructing representations of $U_q(\sll(2))$.
+A calculation shows that $U_q(\sll(2)) \simeq U_q'(\sll(2)$. If we define the
+algebra $U_1'(\sll(2))$ over $\mathbb{C}$ having the same generators and
+relation as $U_q'(\sll(2))$ with $q$ replaced by 1, then it is clear that
+$U_1'(\sll(2)) /(K-1) \simeq U(\sll(2))$. This is the justification for calling
+$U_q(\sll(2))$ a `deformation' of $U(\sll(2))$.
 
 Before proceeding, we will note some relations between the generators
-$E,F,K,K^{-1}$ which will be useful later on. The following can be checked
-easily by induction:
+$ X^+ ,X^-,K,K^{-1}$ which will be useful later on. The following can be checked
+by induction:
 
 \begin{align}
     \label{EFrelations}
-    EF^s = F^sE + [s]_q F^{s-1} \frac{Kq^{1-s} - K^{-1} q^{-(1-s)}}{q-q^{-1}} \\
-    FE^s = E^sF - [s]_q E^{s-1} \frac{Kq^{s-1} - K^{-1} q^{-(s-1)}}{q-q^{-1}}
+     X^+ (X^-)^s = (X^-)^s X^+  + [s]_q (X^-)^{s-1} \frac{Kq^{1-s} - K^{-1} q^{-(1-s)}}{q-q^{-1}} \\
+    X^- (X^+)^s =  (X^+)^sX^- - [s]_q  (X^+)^{s-1} \frac{Kq^{s-1} - K^{-1} q^{-(s-1)}}{q-q^{-1}}
 \end{align}
 
-\section{A Hopf Algebra Structure on $U_q(\sll(2))$}
 We can define a Hopf algebra structure on $U_q(\sll(2))$ as follows:
 
 % from Kassel, p. 140
+The comultiplication and counit are given by
 \begin{align}
-    \Delta(E) &= 1 \otimes E + E \otimes K &  \Delta(F) &= K^{-1} \otimes F + F \otimes 1 \\
+    \Delta(X^+) &= 1 \otimes  X^+  +  X^+  \otimes K &  \Delta(X^-) &= K^{-1} \otimes X^- + X^- \otimes 1 \\
     \Delta(K) &= K \otimes K &  \Delta(K^{-1}) &= K^{-1} \otimes K^{-1}\\ 
-    \varepsilon(E) &= \varepsilon(F) = 0 &  \varepsilon(K) &= \varepsilon(K^{-1}) = 1
+    \varepsilon( X^+ ) &= \varepsilon(X^-) = 0 &  \varepsilon(K) &= \varepsilon(K^{-1}) = 1
 \end{align}
 
-and antipode defined by 
-
+and the antipode by
 \begin{align}
-    S(E) &= -EK^{-1} & S(F)      &= -KF \\
+    S(X^+) &= - X^+ K^{-1} & S(X^-)      &= -KX^- \\
     S(K) &= K^{-1}   & S(K^{-1}) &= K 
 \end{align}
 It is straightforward to check that this defines a Hopf algebra structure. 
@@ -58,48 +71,53 @@ It is straightforward to check that this defines a Hopf algebra structure.
 \section{Representations of $U_q(\sll(2))$}
 
 The representation theory of $U_q(\sll(2))$ bears a striking resemblance to
-that of $\sll(2)$. 
+that of $\sll(2)$. That is, each representation of $U_q(\sll(2))$ has a highest
+weight vector and the representations of $U_q(\sll(2))$ are classified by
+highest weights in much the same way as those of $\sll(2)$. The proofs of these
+facts are also analogous to those in $\sll(2)$. We will sketch the
+classification of the representations of $U_q(\sll(2))$. More details can be
+found in \cite{Jantzen1996}.
+
+\todo{say what a highest weight vector is}
 
 \begin{claim}
     Let $M$ be a finite dimensional $U_q(\sll(2))$-module. Then there is a
-    vector $v \in M$ such that $Ev = 0$. 
+    vector $v \in M$ such that $ X^+ v = 0$. 
 \end{claim}
 
 \todo{ do I need to prove that $K$ has eigenvectors?}
 
 \begin{proof}
-    Let $v_0$ be an eigenvector of $K$ with eigenvalue $\lambda$. $KEK^{-1} =
-    q^2 E$, so it follows that $E^i v_0$ is an eigenvector of $K$ with
+    Let $v_0$ be an eigenvector of $K$ with eigenvalue $\lambda$. $K X^+ K^{-1} =
+    q^2  X^+$, so it follows that $(X^+)^i v_0$ is an eigenvector of $K$ with
     eigenvalue $q^{2i}\lambda$. Each value $q^{2i}\lambda$ is different,
     therefore $K$ has infinitely many eigenvectors. 
 
-    This is impossible, so some $E^i v_0$ must be zero.
+    This is impossible, so some $(X^+)^i v_0$ must be zero.
 \end{proof}
 
 For any $\lambda \in k, \lambda \neq 0$ there is an infinite dimensional
 $U_q(\sll(2))$-module $M(\lambda)$ with basis $v_0, v_1, v_2, \ldots$ such that
 for any $i$,
 \begin{align}
-    Kv_i &= \lambda q^{-2i}v_i \\
-    Fv_i &= v_{i+1} \\
-    Ev_i &= \begin{cases} 0 & \text{if $i = 0$} \\
+    Kv_i &= \lambda q^{n-2i}v_i \\
+    X^-v_i &= v_{i+1} \\
+     X^+ v_i &= \begin{cases} 0 & \text{if $i = 0$} \\
                           [i]_q \frac{\lambda q^{1-i} - \lambda^{-1}q^{i-1}}{q - q^{-1}}v_{i-1} & \text{else}
             \end{cases}
 \end{align}
 
 To see that this a $U_q(\sll(2))$-module, we can note that 
 
-\todo{ set $U = U_q(\sll(2))$ here}
-
 \begin{equation}
-    M(\lambda) \simeq U/(UE + U(K-\lambda))
+    M(\lambda) \simeq U_q(\sll(2))/(U_q(\sll(2)) X^+  + U_q(\sll(2))(K-\lambda))
 \end{equation}
 
-with $v_i$ being the coset of $F^i$. It follows from this that if $M$ is a
-$U_q(\sll(2))$-module and $v \in M$ is such that $Ev = 0$, $Kv = \lambda v$, there
+with $v_i$ being the coset of $(X^-)^i$. It follows from this that if $M$ is a
+$U_q(\sll(2))$-module and $v \in M$ is such that $X^+ v = 0$ and $Kv = \lambda v$, there
 is a unique homomorphism $\varphi: M(\lambda) \to M$ where $\varphi(v_0) = v$.
-If $M$ is simple, then this homomorphism is surjective and it follows that $M$
-is a quotient of $M(\lambda)$. 
+If $M$ is simple, then this homomorphism must be  surjective and it follows
+that $M$ is a quotient of $M(\lambda)$. 
 
 We now have that 
 \begin{claim}
@@ -120,21 +138,21 @@ This leads us to the following characterization (details can be found in \cite{J
 
 For each integer $n \geq 0$, there are two unique (up to isomorphism)
 representations of $U_q(\sll(2))$ of dimension $n+1$. 
-The representations are $V(n,+)$ with basis $\left\{ v^+_0, \ldots, v^+_n
-\right\}$ , and $V(n,-)$ with basis $\left\{ v^-_0, \ldots, v^-_n \right\}$
+The representations are $V_q(n)$ with basis $\left\{ v^+_0, \ldots, v^+_n
+\right\}$ , and $V_q^-(n)$ with basis $\left\{ v^-_0, \ldots, v^-_n \right\}$
 with action defined by 
 
 % from Kassel, p. 101
 \begin{align*}
     &K v^+_i = q^{n-2i} v^+_i  &
     &K v^-_i = -q^{n-2i} v^-_i \\
-    &F v^+_i = \begin{cases} [i+1]_qv_{i+1}& \text{ if $i < n$} \\ 0& \text{ if $i = n$} \end{cases} &
-    &F v^-_i = \begin{cases} [i+1]_qv'_{i+1}& \text{ if $i < n$} \\ 0& \text{ if $i = n$} \end{cases} \\
-    &E v^+_i = \begin{cases} 
+    &X^- v^+_i = \begin{cases} [i+1]_qv_{i+1}& \text{ if $i < n$} \\ 0& \text{ if $i = n$} \end{cases} &
+    &X^- v^-_i = \begin{cases} [i+1]_qv'_{i+1}& \text{ if $i < n$} \\ 0& \text{ if $i = n$} \end{cases} \\
+    & X^+  v^+_i = \begin{cases} 
                      [n-i+1]_qv_{i-1}& \text{ if $i > 0$} \\ 
                     0& \text{ if $i = 0$} 
              \end{cases} &
-    &E v^-_i = \begin{cases} 
+    & X^+  v^-_i = \begin{cases} 
                     -[n-i+1]_q v'_{i-1}& \text{ if $i > 0$} \\ 
                     0& \text{ if $i = 0$} 
              \end{cases}
@@ -142,8 +160,11 @@ with action defined by
 
 By the proof sketched above, these are the only representations of
 $U_q(\sll(2))$. It is also possible to show that every finite dimensional
-representation of $U_q(\sll(2))$ is semisimple. In other words, the category of
-representations is semisimple.
+representation of $U_q(\sll(2))$ is semisimple.  Note that the representations
+$V_q^-(n)$ can be obtained by $V_q(n)$ by tensoring with the one-dimensional
+representation $V_q^-(0)$. We can therefore restrict our attention to the
+representations $V_q(n)$.
+
 
 \section{$U_q(\frakg)$}
 \label{U_q(g)}
@@ -188,79 +209,35 @@ representations is semisimple.
     \end{equation}
 
     \begin{defn}
-        The quantized enveloping algebra $U_q(\frakg)$ has generators
-        $E_\alpha, F_\alpha, K_\alpha, K_\alpha^{-1}$ for each $\alpha \in
+    \label{UqgDef}
+        The quantum group $U_q(\frakg)$ has generators
+        $ X^+ _\alpha, X^-_\alpha, K_\alpha, K_\alpha^{-1}$ for each $\alpha \in
         \Pi$, and relations
 
         \begin{align}
             K_\alpha K_\alpha^{-1} =\ &1  = K_\alpha^{-1}K_\alpha \\
             K_\alpha K_\beta &= K_\beta K_\alpha \\
-            K_\alpha E_\beta K_\alpha^{-1} &= q^{(\alpha, \beta)} E_\beta \\
-            K_\alpha F_\beta K_\alpha^{-1} &= q^{-(\alpha, \beta)} E_\beta \\
-            [E_\alpha, F_\beta] &= \delta_{\alpha\beta} \frac{K_\alpha - K_\alpha^{-1}}{ q_\alpha - q_\alpha^{-1}} 
+            K_\alpha  X^+ _\beta K_\alpha^{-1} &= q^{(\alpha, \beta)}  X^+ _\beta \\
+            K_\alpha X^-_\beta K_\alpha^{-1} &= q^{-(\alpha, \beta)}  X^+ _\beta \\
+            [ X^+ _\alpha, X^-_\beta] &= \delta_{\alpha\beta} \frac{K_\alpha - K_\alpha^{-1}}{ q_\alpha - q_\alpha^{-1}} 
         \end{align}
 
         for all $\alpha, \beta \in \Pi$, and for $a \neq \beta$
 
         \begin{align}
-            \sum_{s=0}^{1-a_{\alpha\beta}} (-1)^s \dbinom{1-a_{\alpha\beta}}{s}_\alpha E_\alpha^{1-a_{\alpha\beta} - s} E_\beta E_\alpha^s  &= 0 \\
-            \sum_{s=0}^{1-a_{\alpha\beta}} (-1)^s \dbinom{1-a_{\alpha\beta}}{s}_\alpha F_\alpha^{1-a_{\alpha\beta} - s} F_\beta F_\alpha^s  &= 0 
+            \sum_{s=0}^{1-a_{\alpha\beta}} (-1)^s \dbinom{1-a_{\alpha\beta}}{s}_\alpha  (X^+)_\alpha^{1-a_{\alpha\beta} - s}  X^+_\beta  (X^+)_\alpha^s  &= 0 \\
+            \sum_{s=0}^{1-a_{\alpha\beta}} (-1)^s \dbinom{1-a_{\alpha\beta}}{s}_\alpha (X^-)_\alpha^{1-a_{\alpha\beta} - s} (X^-)_\beta (X^-)_\alpha^s  &= 0 
         \end{align}
     \end{defn}
-    \subsection{A Hopf algebra structure on $U_q(\frakg)$}
 
-    We can define a Hopf algebra structure $(\Delta, \varepsilon, S)$ such
-    that for all $\alpha \in \Pi$,
+We can define a Hopf algebra structure $(\Delta, \varepsilon, S)$ such
+that for all $\alpha \in \Pi$,
 
     \begin{align}
-        \Delta(E_\alpha) &= E_\alpha \otimes 1 + K_\alpha \otimes E_\alpha      & \varepsilon(E_\alpha) &= 0  & S(E_\alpha) &= -K_\alpha^{-1} E_\alpha \\
-        \Delta(F_\alpha) &= F_\alpha \otimes K_\alpha^{-1} + 1 \otimes F_\alpha & \varepsilon(F_\alpha) &= 0  & S(F_\alpha) &= -F_\alpha K_\alpha \\
+        \Delta( X^+ _\alpha) &=  X^+ _\alpha \otimes 1 + K_\alpha \otimes  X^+ _\alpha      & \varepsilon( X^+ _\alpha) &= 0  & S( X^+ _\alpha) &= -K_\alpha^{-1}  X^+ _\alpha \\
+        \Delta(X^-_\alpha) &= X^-_\alpha \otimes K_\alpha^{-1} + 1 \otimes X^-_\alpha & \varepsilon(X^-_\alpha) &= 0  & S(X^-_\alpha) &= -X^-_\alpha K_\alpha \\
         \Delta(K_\alpha) &= K_\alpha \otimes K_\alpha                           & \varepsilon(K_\alpha) &= 1  & S(K_\alpha) &= K_\alpha^{-1}
     \end{align}
-\section{Representation theory of $U_q(\frakg)$}
-
-\section{Setting $q$ to be a root of unity}
-
-There are two different ways to set $q$ to be a complex root of unity $\epsilon
-= e^{2\pi i/\ell}$. The algebras that result and their representation theories
-are significantly different. In this section and throughtout we will assume
-$\ell$ to be odd. 
-
-The first way is to define an algebra using the same generators and relations
-as $U_q(\frakg)$ in \ref{U_q(g)}, setting $q = \epsilon$. This is not the
-case we will be interested in.
-
-The second is obtained as follows. Define $\mathcal{A} = \mathbb{Z}[q,
-q^{-1}]$, and $U_\mathcal{A}^{res}(\frakg)$ be the
-$\mathcal{A}$-subalgebra of $U_q(\frakg)$ generated by $E_i^{(n)},
-F_i^{(n)}, K_i, K_i^{-1}$ for $n \geq 0$ and all $i$, where
-
-\begin{align}
-    E_i^{(n)} = \frac{E_i^n}{[n]^!_{q_i}} \\
-    F_i^{(n)} = \frac{F_i^n}{[n]^!_{q_i}} 
-\end{align}
-
-
-Define 
-\begin{equation}
-    U_\epsilon^{res}(\frakg) = U_\mathcal{A}^{res}(\frakg) \otimes_A \mathbb{Q}(\epsilon)
-\end{equation}
-
-If $\gamma$ is not a root of unity, then $U_\gamma^{res}(\frakg)
-\otimes_{\mathbb{Q}(\gamma)} \mathbb{C}$ and $U_\gamma(\frakg)$ are
-isomorphic.
-
-\begin{lemma}
-    In $U_\epsilon^{res}(\frakg)$, $E_i^\ell = F_i^\ell = 0$ for all $i$
-\end{lemma}
-\begin{proof}
-    $E_i^\ell = [l]_{q_i}^! E_i^{(l)} = 0$ as $[l]_{q_i}^! = 0$. Similarly for $F_i^\ell$.
-\end{proof}
-
-$E_i^\ell \neq 0$ in $U_\epsilon(\frakg)$. It is therefore not surprising that
-the representation theories of $U_\epsilon(\frakg)$ and
-$U_\epsilon^{res}(\frakg)$ are very different.
-
 
 \section{The representation theory of $U_\epsilon^{res}(\frakg)$}
 
@@ -284,15 +261,65 @@ via the homomorphism $A \to \mathbb{C}$, $q \mapsto \epsilon$.
 \begin{claim}
     $W_\epsilon^{res}(\lambda)$ is irreducible if either 
     \begin{enumerate}
-            \todo{fix co-root notation}
-        \item $\left< \lambda + \rho, \alpha^v\right> < \ell$ for all positive
+        \item $\left< \lambda + \rho, \hat{\alpha}\right> < \ell$ for all positive
             roots $\alpha$
         \item $\lambda = (\ell - 1) \rho + \ell \mu$ for some $\mu \in P^+$
     \end{enumerate}
     \todo{explain all the symbols here}
 \end{claim}
 
+
+\section{Setting $q$ to be a root of unity}
+
+Models of topological quantum computation arise from the representations of
+quantum groups $U_q(\frakg)$ at roots of unity. There are two ways to set $q$ to
+be a complex  number  $\epsilon$, which result in different algebras when
+$\epsilon$ is a root of unity. We will describe these two ways for $\frakg =
+\sll(2)$ here. The first and most obvious way is as follows: 
+
+For any $\epsilon \in \mathbb{C}$ such that $\epsilon ^2 \neq 0,1$, set $q =
+\epsilon$ in the definition (\ref{Uqsl2Def}) of $U_q(\sll(2)$. Denote the
+algebra obtained in this way by $U_\epsilon(\sll(2))$. 
+
+The second way is to let $\mathcal{A} = \mathbb{Z}[q,q^{-1}]$ and define a
+`restricted' $\mathcal{A}$-subalgebra $U_\mathcal{A}^{res}(\sll(2))$ to be the
+$\mathcal{A}$-subalgebra of $U_q(\sll(2))$ generated by $ X^+$ ,$X^-$,$K$,$K^{-1}$, $(X^+) ^{(n)}$,
+$(X^-)^{(n)}$, where
+
+
+\begin{align}
+     (X^+)_i^{(n)} = \frac{ (X^+)_i^n}{[n]^!_{q_i}} \\
+    (X^-)_i^{(n)} = \frac{(X^-)_i^n}{[n]^!_{q_i}} 
+\end{align}
+
+
+Define 
+\begin{equation}
+    U_\epsilon^{res}(\frakg) = U_\mathcal{A}^{res}(\frakg) \otimes_A \mathbb{Q}(\epsilon)
+\end{equation}
+
+If $\epsilon$ is not a root of unity, then $U_\epsilon^{res}(\frakg)
+\otimes_{\mathbb{Q}(\epsilon)} \mathbb{C}$ and $U_\epsilon(\frakg)$ are
+isomorphic. When $\epsilon$ is an $\ell^{th}$ root of unity, $\ell \geq 3$,
+
+\begin{lemma}
+    In $U_\epsilon^{res}(\frakg)$, $ (X^+)_i^\ell = (X^-)_i^\ell = 0$ for all $i$
+\end{lemma}
+\begin{proof}
+    $ (X^+)_i^\ell = [l]_{q_i}^!  (X^+)_i^{(l)} = 0$ as $[l]_{q_i}^! = 0$. Similarly for $(X^-)_i^\ell$.
+\end{proof}
+
+$(X^+)_i^\ell \neq 0$ in $U_\epsilon(\frakg)$, so it is clear that these algebras
+are not isomorphic when $q$ is a root of unity. We will not study the
+representation theory of $U_\epsilon(\frakg)$ here, but details can be found in
+\cite{Kassel1994} or \cite{Jantzen1995}. The representation theory of
+$U_\epsilon^{res}(\sll(2))$, discussed in the next section, will give us models
+of topological quantum computing. 
+
 \section{The Representation theory of $U_\epsilon^{res}(\sll(2))$}
+\label{RepTheoryofResSL2}
+
+Recall that for $U_q(\frakg)$ the irreducible representations $V_q(n)$ of type $\mathbb{1}$
 
 In this section we will explore the representation theory of
 $U_\epsilon^{res}(\frakg)$ described in the previous section explicitly for the
@@ -302,7 +329,70 @@ The highest weights for $\sll(2)$ are integers $n \geq 0$. From the definition
 in the previous section, it is not hard to obtain:
 
 \begin{align}
-    Ev_i &= [n-i+1]_\epsilon v_{i-1} \\
-    Fv_i &= [i+1]_\epsilon v_{i+1} \\
+     X^+ v_i &= [n-i+1]_\epsilon v_{i-1} \\
+    X^-v_i &= [i+1]_\epsilon v_{i+1} \\
     Kv_i &= \epsilon^{n-2i}
 \end{align}
+
+\section{A braiding for $U_q(\sll(2))$}
+
+
+In this section we will give a braiding $\sigma_{V,W}: V \otimes W \to W
+\otimes V$ for irreducible representations $V,W$ of $U_q(\sll(2))$. This
+braiding does not come from a universal $R$-matrix for $U_q(\sll(2))$ as
+discussed earlier, but is derived from a universal $R$-matrix for a larger
+algebra. Details of this construction can be found in Chari \& Pressley.
+
+%todo: make this a real citation
+%todo{discuss this earlier.}
+
+Define 
+
+\begin{equation}
+\tilde{R}_q = \sum_{t=0}^\infty q^{\frac{1}{2} t(t+1)} \frac{(1-q^{-2})^t}{[t]_q^{!}} ((X^+)^t \otimes (X^-)^t)
+\end{equation}
+
+This will be our ``universal $R$-matrix''. Of course, this is not an element of
+$U_q(\sll(2)) \otimes U_q(\sll(2))$as the sum is infinite; it lies in a
+completion of $U_q(\sll(2)) \otimes U_q(\sll(2))$. However, each of the terms
+in the sum is an element of $U_q(\sll(2)) \otimes U_q(\sll(2))$, and for any
+irreducible finite dimensional representations $\rho_V : U_q(\sll(2)) \to
+\End(V)$, $\rho_W : U_q(\sll(2)) \to \End(W)$, all but finitely many terms in the
+sum act as zero on $V \otimes W$. In other words, $\rho_V \otimes \rho_W
+(\tilde{R}_q) \in \End(V \otimes W)$. This will allow us to construct a
+braiding.
+
+
+Define an invertible operator $E_{V,W}$ on $V \otimes W$ which acts as
+$\lambda\mu$ on the weight subspace $V^\lambda \otimes W^\mu$. As remarked
+earlier, $\rho_V \otimes \rho_W (\tilde{R}_q) $ is a well-defined element of
+$\End(V \otimes W)$. Let 
+
+\begin{equation}
+R_{V,W} = E_{V,W} \rho_V \otimes \rho_W (\tilde{R}_q)
+\end{equation}
+
+\begin{claim}
+For any $x \in U_q(\sll(2))$, $V,W$ irreducible representations of $U_q(\sll(2))$
+\begin{enumerate}
+\item $R_{V,W} (\rho_V \otimes \rho_W) (\Delta(x)) R^{-1}_{V,W} = (\rho_{V} \otimes \rho_W)(\Delta^{op}(x))$
+\item $R_{V,W}$  satisfies the Yang-Baxter equation: 
+
+\begin{equation}
+R_{12} R_{13} R_{23} = R_{23} R_{13} R_{12}
+\end{equation}
+\end{enumerate}
+\end{claim}
+
+We have therefore that 
+
+\begin{theorem}
+The category of finite dimensional $U_q(\sll(2))$-modules of type $\mathbb{1}$ is a braided monoidal category, with braiding isomorphisms given by 
+
+\begin{equation}
+\sigma_{V,W}(v \otimes w) = R_{V,W}(w \otimes v)
+\end{equation}
+\end{theorem}
+
+
+
