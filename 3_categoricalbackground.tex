@@ -1,4 +1,5 @@
-Throughout we will be working over a field $k$ of characteristic 0.
+Throughout we will be working over a field $k$ of characteristic 0. We will
+assume some basic category theory background throughout. 
 
 \section{Monoidal Categories}
 \begin{defn}
@@ -260,56 +261,6 @@ for every simple object $X,Y$.
 \begin{theorem}
     $\mathbf{Z}_2(\mathcal{C})$ is trivial if and only if the matrix $s$ is invertible.  \todo{find a citation for this}
 \end{theorem}
-
-\begin{example}
-    An elementary class of examples of modular tensor categories can be
-    obtained as follows. This is a simple example of Drinfeld's quantum double
-    construction which can be applied to any finite dimensional Hopf algebra.
-
-    \todo{explain the quantum double construction later?}
-
-    Recall the Hopf algebra $k[G]$ of any finite group $G$ from
-    \ref{groupalgebra} with basis $\left\{ v_g \right\}_{g \in G}$ and
-
-    \begin{align}
-        &\text{multiplication }   & v_g v_h = v_{gh} \\
-        &\text{unit }             & e \\
-        &\text{comultiplication } & \Delta(v_g) = v_g \otimes v_g \\
-        &\text{counit }           & \varepsilon(v_g) = 1 \\
-        &\text{antipode }         & S(v_g) = v_{g^-1}
-    \end{align}
-
-    The dual Hopf algebra to $k[G]$ is the function algebra $F(G)$ with basis
-    $\left\{ \delta_g : g \in G \right\}$ of functions
-
-    \begin{equation}
-        \delta_g(x) = \delta_{g,x} = \begin{cases} 1 &\text{for $g = x$} \\ 0 &\text{for $g \neq x$} \end{cases}
-    \end{equation}
-
-    \begin{align}
-        &\text{multiplication} &\delta_g \delta_h = \delta_{g,h} \delta_g\\
-        &\text{unit}           &\sum_{g \in G} \delta_g \\
-        &\text{comultiplication} &\Delta(\delta_g) = \sum_{g_1 g_2 = g} \delta_{g_1} \otimes \delta_{g_2}\\
-        &\text{counit}           &\varepsilon(\delta_g) = \delta_{e,g} \\
-        &\text{antipode}         &S(\delta_g) = \delta_{g^-1}
-    \end{align}
-
-
-    The quantum double $D(G)$ of $k(G)$ can be described as follows: 
-    
-    $D(G)$ is the Hopf algebra with vector space $F(G) \otimes_k k[G]$ and 
-
-    \begin{align}
-        &\text{multiplication} &(\delta_g\otimes v_x) (\delta_h \otimes v_y) = \delta_{gx,xh} (\delta_g \otimes v_{xy})\\
-        &\text{unit}           &\sum_{g \in G} \delta_g  \otimes v_e\\
-        &\text{comultiplication} &\Delta(\delta_g \otimes v_x) = \sum_{g_1 g_2 = g} (\delta_{g_1} \otimes v_x) \otimes (\delta_{g_2} \otimes v_x) \\
-        &\text{counit}           &\varepsilon(\delta_g \otimes v_x) = \delta_{e,g} \\
-        &\text{antipode}         &S(\delta_g \otimes v_x) = \delta_{x^{-1}g^-1 x} \otimes v_{x^{-1}}
-    \end{align}
-
-
-\end{example}
-
 
 \section{The Category of Representations of a Hopf Algebra}
 
