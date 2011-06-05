@@ -132,6 +132,43 @@ algebras.
     algebras.
 \end{defn}
 
+\subsection{Representations of Semisimple Lie Algebras}
+
+Here we will describe some of the representation theory of semisimple Lie
+algebras, in particular defining roots and weights and inner produts of roots.
+We will need this theory when discussing the representation theory of the
+quantum groups in Chapter \ref{chap:uqsl2}. For more information about Lie
+algebras, \cite{Hall2003} is an excellent reference for complex Lie algebras, and
+\cite{Humphreys1973} for the more general case of Lie algebras over a field of
+arbitrary characteristic. Here we will work over $\mathbb{C}$.
+
+In a general semisimple Lie algebra, the \emph{Cartan subalgebra} $\mathfrak{h}$
+will take the place of the matrix $H$: instead of taking eigenvectors of $H$ as
+basis vectors for our representation, we take vectors which are simultaneous
+eigenvectors of every element of $\mathfrak{h}$.
+
+\begin{defn}
+    If $\frakg$ is a complex semisimple Lie algebra, then a \emph{Cartan
+        subalgebra} of $\frakg$ is a complex subspace $\mathfrak{h}$ of
+        $\frakg$ such that: 
+    \begin{enumerate}
+        \renewcommand{\labelenumi}{\roman{enumi})}
+        \item $\left[ H_1, H_2 \right] = 0$ for all $H_1, H_2 \in \mathfrak{h}$
+        \item For all $X \in \frakg$, if $\left[ H,X \right] = 0$, for all $H
+            \in \mathfrak{h}$, then $X \in \mathfrak{h}$
+        \item $\ad_H$ is diagonalizable for all $H \in \mathfrak{h}$
+    \end{enumerate}
+\end{defn}
+
+\begin{defn}
+A \emph{root} of $\frakg$ is a nonzero linear functional $\alpha$ on $\mathfrak{h}$ such that there exists a nonzero element $X \in \frakg$ with 
+
+\begin{equation}
+\left[ H,X \right] = \alpha(H)X
+\end{equation}
+for all $H \in \mathfrak{g}$
+\end{defn}
+
 \section{Representations of $\sll(2)$}
 
 A \emph{representation} of a Lie algebra $\mathfrak{g}$ is a vector space $V$
