@@ -49,14 +49,10 @@ fairly natural thing to do.  \todo{ why, really?}
 % when citing, say something like: originally done by Anderson & P, there's
 % something more accessible by Sawin
 
-The first step is to restrict our attention to the subcategory of \emph{tilting
-modules}. We will define tilting modules, describe some results classifying the
-tilting modules in $U_q(\mathfrak{g})$, and finally list the tilting modules in
-the category $\mathcal{C}(\sll(2), \ell)$.
 
 \todo{ define Weyl modules}
 \begin{defn}
-    Suppose $M$ is a $U_q(\mathfrak{g})$-module. A \emph{Weyl filtration} $M$
+    Suppose $M$ is a $U_q(\sll(2))$-module. A \emph{Weyl filtration} for $M$
     is a sequence of submodules 
 
     \begin{equation}
@@ -70,35 +66,40 @@ the category $\mathcal{C}(\sll(2), \ell)$.
     A $U_q(\sll(2))$-module $M$ is called \emph{tilting} if both $M$ and $M^*$ have Weyl filtrations.
 \end{defn}
 
+The following proposition lists some properties of tilting modules which will
+be important.
 
-\begin{theorem}
-    Every tilting module is a direct sum of indecomposable tilting modules.
-    Every indecomposable tilting module is isomorphic to some $T_\lambda$, the
-    unique indecomposable tilting module with a maximal vector of weight
-    $\lambda$.
-\end{theorem}
+\begin{prop}
+\begin{enumerate}
+    \renewcommand{\labelenumi}{\roman{enumi})}
+    \item The dual of any tilting module is tilting.
+    \item The direct sum of two tilting modules is tilting
+    \item Any direct summand of a tilting module is tilting
+    \item The tensor product of two tilting modules is tilting
+\end{enumerate}
+\end{prop}
 
+We can therefore restrict our attention to the indecomposable tilting modules.
+The indecomposable tilting modules for $U_z^{Res}$ are indexed by integers $n
+\geq 0$. The tilting module $T_z(n)$ can be described explicitly as follows.
 
+$T_z(n)$ has basis $\left\{ t_0, \ldots, t_n \right\} \bigcup \left\{ t'_0,
+    \ldots, t'_{r} \right\}$, where $r = 2\ell - 2 - n$, and the following
+    action:
 
-\begin{lemma}
-    A tilting module $T$ is negligible if and only if its quantum dimension is 0.
-\end{lemma}
-
-\todo{ actually define this region}
-Define the region $\Lambda^\ell$.
-
-The following two theorems provide a characterization of the tilting modules
-sufficient for our purposes.
-
-\begin{theorem}
-For any $\lambda \notin \Lambda^\ell$, $T^\lambda$ is negligible. 
-\end{theorem}
-
-\begin{theorem}
-For any $\lambda \in \Lambda^\ell$, $T^\lambda = W^\lambda$.
-\end{theorem}
-
-
+\begin{align*}
+    Kt_i &= z^{n-2i} t_i \\
+    X^+ t_i &= [n-i+1]_z t_{i-1} \\
+    (X^+)^{(\ell)} t_i &= ( (n-i)_1) + 1) t_{i-\ell} \\
+    X^-t_i &= [i+1]_z t_{i+1} \\
+    (X^-)^{(\ell)} t_i &= ( i_1 + 1) t_{i+\ell} \\
+    Kt'_i &= z^{r-2i} t'_i \\
+    X^+ t'_i &= [r-i+1]_z t'_{i-1}  + \dbinom{n + i - \ell}{i}_z t_{n+i-\ell} &\text{ for $0 < i \leq r$}\\
+    X^+ t'_0 &= [n - \ell + 1]_z t_{n-\ell} \\
+    X^-t'_i &= [i+1]_z t'_{i+1} &\text{ for $0 \leq i < r$}\\
+    X^- t'_r &= \dbinom{\ell - 1}{n - \ell + 1}_z t_\ell \\
+    (X^\pm)^{(\ell)} t'_i  &= 0
+\end{align*}
 
 \section{Construction of the MTC}
 \label{MTC-construction}
