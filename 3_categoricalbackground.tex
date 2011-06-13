@@ -19,20 +19,6 @@ assume some basic category theory background throughout.
                 \alpha_{UVW} (U \otimes V) \otimes W \isomto U \otimes (V \otimes W)
             \end{equation}
 
-            which satisfy the associativity property :
-
-            \begin{equation}
-                \xymatrix{
-&  (A \otimes (B \otimes C)) \otimes D \ar[rd]^-{\alpha_{A, B \otimes C, D}} & \\
-( (A \otimes B) \otimes C ) \otimes D \ar[ru]^-{\alpha_{A,B,C}\otimes 1_D}  \ar[d]^-{\alpha_{A \otimes B, C, D}} & & A \otimes ( (B \otimes C) \otimes D) \ar[d]^-{1_A \otimes \alpha_{B,C,D}} \\
-                (A \otimes B) \otimes (C \otimes D) \ar[rr]^- {\alpha_{A,B,C \otimes D}} & & A \otimes (B \otimes (C \otimes D))
-                }
-            \end{equation}
-
-            commutes for all objects $A,B,C,D$.
-
-            \todo{ add the triangle condition, say that this next thing is a theorem.}
-
         \item if $X_1, X_2$ are two objects obtained from $V_1 \otimes V_2
             \otimes \cdots V_n$ by inserting 1s and brackets, then all
             isomorphisms $\varphi: X_1 \isomto X_2$ composed of $\alpha$'s,
@@ -248,7 +234,7 @@ We define the dimension of an object $V$ to be $\dim V = \tr \id_V$.
 \end{defn}
 
 %Why are these categories called modular? 
-%\todo{ finish this }
+\todo{ finish this }
 
 In any semisimple rigid braided tensor category, define
 

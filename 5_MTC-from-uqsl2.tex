@@ -1,25 +1,26 @@
 % from Bakalov & Kirillov, section 3.3
-We will denote the category of representations of $U_z^{res}(\mathfrak{g})$ at a
-$\ell^\text{th}$ root of unity $z$ by $\mathcal{C}(\mathfrak{g}, \ell)$. We
+We will denote the category of representations of $U_z^{res}(\mathfrak{g})$ at
+a $\ell^\text{th}$ root of unity $z$ by $\mathcal{C}(\mathfrak{g}, \ell)$. We
 know that $\mathcal{C}(\sll(2), \ell)$ is a rigid monoidal category since
-$U_z^{res}(\frakg)$ is a Hopf algebra. $\mathcal{C}(\sll(2), \ell)$ is also
-braided. However, we saw in \ref{RepTheoryofResSL2} that $\mathcal{C}(\sll(2),
-\ell)$ is not semisimple: the Weyl modules $W_z^{res}(n)$ are not in general
-completely reducible. The same is true in $\mathcal{C}(\frakg, \ell)$.  We will
-discuss in this section how to obtain a modular tensor category from
-$\mathcal{C}(\frakg, \ell)$. this category's simple objects will be our anyons,
-and each such category is a topological quantum computing theory. 
+$U_z^{res}(\sll(2))$ is a Hopf algebra. $\mathcal{C}(\sll(2), \ell)$ is also
+braided, as we saw in \ref{section:braiding}. However, we saw in
+\ref{section:RepTheoryofResSL2} that $\mathcal{C}(\sll(2), \ell)$ is not
+semisimple: the Weyl modules $W_z^{res}(n)$ are not in general completely
+reducible.   We will discuss in this section how to obtain a modular tensor
+category from $\mathcal{C}(\sll(2), \ell)$. this category's simple objects will
+be our anyons, and each such category is a topological quantum computing
+theory.
 \todo{Why is it a Hopf algebra? Show this somewhere.}
 
 
 
 \section{Quantum trace}
 
-The Hopf algebra structure on $U_q(\mathfrak{g})$, coupled with the $R$-matrix,
-gives the category of representations $\mathcal{C}(\mathfrak{g}, \ell)$ the
-structure of a ribbon category. There is therefore a well-defined trace of an
-endomorphism in the category. This is distinct from the usual trace of an
-vector space endomorphism. 
+The Hopf algebra structure on $U_q(\mathfrak{g})$, together with the braiding
+discussed in the last section gives the category of representations
+$\mathcal{C}(\mathfrak{g}, \ell)$ the structure of a ribbon category. There is
+therefore a well-defined trace of an endomorphism in the category, which is
+different from the usual trace of an vector space endomorphism. 
 
 We will denote the trace of a morphism $f$ by $\tr_q(f)$.
 
@@ -31,26 +32,22 @@ In the case $U_q(\sll(2))$, the quantum trace is given by
 
 where $\tr$ is the usual trace of a vector space endomorphism.
 
-\section{Negligible morphisms}
-\todo{ sort out which things should be theorems and which things should be lemmas}
-To make this subcategory into a modular tensor categories, we will need to
-quotient this category by the modules with quantum dimension zero. This is a
-fairly natural thing to do.  \todo{ why, really?}
+For any object $M$ of $\mathcal{C}(\mathfrak{g}, \ell)$, we define the quantum dimension $\dim_q(M)$ to be 
 
-\begin{defn}
-    A morphism $f: T_1 \to T_2$ is \emph{negligible} if $\tr_q(fg) = 0$ for any $g: T_2 \to T_1$
-\end{defn}
+\begin{equation}
+    \dim_q(M) = \tr(\id_M)
+\end{equation}
 
+For example, we can see from the definition of the Weyl module $W_z^{res}(n)$
+that $\dim_q(W_z^{res}(n)) = [n+1]_z$. In particular we see that
+$\dim_q(W_z^{res}(\ell - 1)) = 0$, so objects other than the zero object can
+have quantum dimension zero. 
 
-\begin{defn}
-    A module $T$ is \emph{negligible} if all of its endomorphisms are negligible.
-\end{defn}
 \section{Tilting modules} 
 % when citing, say something like: originally done by Anderson & P, there's
 % something more accessible by Sawin
 
 
-\todo{ define Weyl modules}
 \begin{defn}
     Suppose $M$ is a $U_q(\sll(2))$-module. A \emph{Weyl filtration} for $M$
     is a sequence of submodules 
@@ -80,11 +77,12 @@ be important.
 \end{prop}
 
 We can therefore restrict our attention to the indecomposable tilting modules.
-The indecomposable tilting modules for $U_z^{Res}$ are indexed by integers $n
-\geq 0$. The tilting module $T_z(n)$ can be described explicitly as follows.
+The indecomposable tilting modules for $U_z^{res}$ are indexed by integers $n
+\geq 0$. The tilting modules $T_z(n)$ for $0 \leq n < 2\ell - 2$ can be
+described explicitly as follows.
 
 $T_z(n)$ has basis $\left\{ t_0, \ldots, t_n \right\} \bigcup \left\{ t'_0,
-    \ldots, t'_{r} \right\}$, where $r = 2\ell - 2 - n$, and the following
+    \ldots, t'_{r} \right\}$, where $r = 2\ell - 2 - n$, and has the following
     action:
 
 \begin{align*}
@@ -100,6 +98,83 @@ $T_z(n)$ has basis $\left\{ t_0, \ldots, t_n \right\} \bigcup \left\{ t'_0,
     X^- t'_r &= \dbinom{\ell - 1}{n - \ell + 1}_z t_\ell \\
     (X^\pm)^{(\ell)} t'_i  &= 0
 \end{align*}
+
+\todo{put a nice picture here}
+
+It is easy to see that the $T_z(n)$ are indecomposable, and that $\left\{ t_0,
+\ldots, t_n \right\}$ span a submodule isomorphic to $W_z^{res}(n)$. The
+quotient is spanned by $\left\{ t'_0, \ldots, t'_r \right\}$ and is
+isomorphic to $W_z^{res}(r)$. It is therefore clear that $T_z(n)$ has a Weyl
+filtration. 
+
+Given this definition, it is easy to compute the quantum dimension of $T_z(n)$: 
+
+\begin{equation}
+    \dim_q(T_z(n)) = \begin{cases} [n+1]_z &\text{ for $0 \leq n < \ell$} \\
+                                   [n+1]_z + [2\ell-n-1]_z = 0 &\text{ for $\ell \leq n < 2\ell - 2$}
+                     \end{cases}
+\end{equation}
+
+In fact, \cite{andersen1992} shows that 
+\begin{prop}
+$\dim_q(T_z(n)) \neq 0$ if and only if $n < \ell - 1$
+\end{prop}
+
+which gives us $\dim_q(T_z(n))$ for all $n$.
+
+We would like to know how to decompose tensor products of irreducible modules. 
+
+\begin{prop}
+    For any tilting modules $T_1, T_2$, 
+
+    \begin{equation}
+            T_1 \otimes T_2 \simeq \left(\bigoplus_{n=0}^{\ell - 2} V_z^{res}(n)^{\otimes m_n}\right) \oplus Z
+    \end{equation}
+    where $m_n \in \mathbb{Z}$, and $\tr_q(f) = 0$ for all $f: Z \to Z$.
+\end{prop}
+\begin{proof}
+%todo
+\end{proof}
+%This tensor product will not decompose as a direct
+%sum of irreducible modules in general as with the irreducible representations
+%of $\sll(2)$, but it does decompose as a direct sum of irreducible modules and
+%tilting modules $T$ with $\dim_q(T) = 0$.
+
+ With the definition of these
+tilting modules in place, we can give the decomposition of the tensor products
+of the irreducible $U_z^{res}$-modules $V_z^{res}(n) \otimes V_z^{res}(m)$ for
+$0 \leq m,n \leq \ell - 1$. 
+
+\begin{prop}
+Suppose $0 \leq m,n \leq \ell - 1$. Then
+
+\begin{equation}
+V_z^{res}(n) \otimes V_{z}^{res}(m) \simeq \bigoplus_{i=|n-m| \atop i + n + m \text{ even}}^{n+m} V_z^{res}(i) 
+\end{equation}
+
+if $n+m \leq \ell - 2$, and 
+
+\begin{equation}
+V_z^{res}(n) \otimes V_{z}^{res}(m) \simeq \bigoplus_{i=|n-m| \atop i + n + m \text{ even}}^{2\ell - 4 - n - m} V_z^{res}(i) 
+                                    \oplus \bigoplus_{i = \ell - 1 \atop i + n + m \text{ even}} ^{n + m} T_z(i)
+\end{equation}
+
+for $\ell - 1 \leq n + m < 2\ell - 2$
+\end{prop}
+
+We will now construct a new tensor product $\bar{\otimes}$ by ``discarding''
+those indecomposable tilting modules $T$ for which $\dim_q(T) = 0$.
+
+
+Let $\tilt$ be the full subcategory of $\mathcal{C}(\sll(2), \ell)$ whose
+objects are the tilting modules modules for $U_z^{res}$. Define 2 full
+subcategories of $\tilt$: $\overline{\tilt}$ consisting of the
+irreducible tilting modules $\{T_z(0), \ldots, T_z(\ell - 2)\}$ and $\tilt'$
+consisting of the tilting modules with quantum dimension zero. 
+\todo{figure why the $\ell$ isn't showing up.}
+
+Then $\tilt= \tilt' \oplus \overline{\tilt}$. \todo{why?}
+
 
 \section{Construction of the MTC}
 \label{MTC-construction}

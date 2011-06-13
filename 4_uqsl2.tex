@@ -1,6 +1,6 @@
 \todo{This could use some general improvement.}
 Models of topological quantum computing arise from the representations of
-certain Hopf algebras called quantum gorups. There is no agreed-upon definition
+certain Hopf algebras called quantum groups. There is no agreed-upon definition
 for the term ``quantum group'': rather there are various classes of Hopf
 algebras which are referred to as quantum groups. In particular quantum groups
 are normally neither commutative nor cocommutative. The quantum groups we will
@@ -22,7 +22,6 @@ The quantum group $U_q(\sll(2))$ is a deformation of the universal enveloping
 algebra $U(\sll(2))$ defined in \ref{UnivEnvAlg}.  In this section we will
 define the Hopf algebra $U_q(\sll(2))$ and note some relations between its
 generators.  Any missing proofs can be found in \cite{Kassel1994}. 
-\todo{fix citation}
 
 
 \begin{defn}
@@ -30,7 +29,6 @@ generators.  Any missing proofs can be found in \cite{Kassel1994}.
 Let $q$ be an indeterminate. $U_q(\sll(2))$ is the associative algebra over
 $\mathbb{Q}(q)$ with generators $X^+,X^-,K, K^{-1}$ and relations 
 
-\todo{should it be over $\mathbb{Q}(q)$ or $\mathbb{C}(q)$?}
 \begin{align}
     KK^{-1} &= 1 = K^{-1}K \\
     K X^+ K^{-1} &= q^2  X^+  \\
@@ -230,7 +228,7 @@ $U_z^{res}(\sll(2))$, discussed in the next section, will give us models
 of topological quantum computing. 
 
 \section{The Representation theory of $U_z^{res}(\sll(2))$}
-\label{RepTheoryofResSL2}
+\label{section:RepTheoryofResSL2}
 
 Throughout this section we will abbreviate $U_z^{res}(\sll(2))$ to $U_z^{res}$.
 $z$ will be assumed to be an $\ell^{th}$ root of unity, where $\ell$ is odd.
@@ -294,6 +292,7 @@ $V_z^{res(n)} \simeq V_z^{res}(n_0) \otimes V_{z}^{res}(\ell n_1)$
 \end{theorem}
 
 \section{A braiding for $U_q(\sll(2))$}
+\label{section:braiding}
 
 
 In this section we will give a braiding $\sigma_{V,W}: V \otimes W \to W
@@ -302,7 +301,6 @@ braiding does not come from a universal $R$-matrix for $U_q(\sll(2))$ as
 discussed earlier, but is derived from a universal $R$-matrix for a larger
 algebra. Details of this construction can be found in \cite{CP}.
 
-\todo{discuss this earlier.}
 
 Define 
 
