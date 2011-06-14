@@ -44,9 +44,17 @@ $\dim_q(W_z^{res}(\ell - 1)) = 0$, so objects other than the zero object can
 have quantum dimension zero. 
 
 \section{Tilting modules} 
-% when citing, say something like: originally done by Anderson & P, there's
-% something more accessible by Sawin
 
+We saw earlier that tensor products of irreducible $U_q(\sll(2))$-modules
+$V_q(n)$ decompose as a direct sum of irreducible modules. This will not be the
+case for irreducible $U_z^{res}$-modules. However, $V_z^{res}(n)\otimes
+V_z^{res}(m)$ decomposes as a direct sum of indecomposable \emph{tilting
+modules}. 
+\todo{find out who defined these things originally and why}
+
+In this section we will define these modules, define what they are explicitly
+in certain cases, and give a decomposition for $V^{res}_z(n) \otimes
+V_z^{res}(m)$ for $0 \leq n,m \leq \ell - 1$.
 
 \begin{defn}
     Suppose $M$ is a $U_q(\sll(2))$-module. A \emph{Weyl filtration} for $M$
@@ -63,23 +71,23 @@ have quantum dimension zero.
     A $U_q(\sll(2))$-module $M$ is called \emph{tilting} if both $M$ and $M^*$ have Weyl filtrations.
 \end{defn}
 
-The following proposition lists some properties of tilting modules which will
-be important.
+Let $\tilt$ be the full subcategory of $\mathcal{C}(\sll(2), \ell)$ whose
+objects are the tilting modules modules for $U_z^{res}$.  
 
 \begin{prop}
-\begin{enumerate}
-    \renewcommand{\labelenumi}{\roman{enumi})}
-    \item The dual of any tilting module is tilting.
-    \item The direct sum of two tilting modules is tilting
-    \item Any direct summand of a tilting module is tilting
-    \item The tensor product of two tilting modules is tilting
-\end{enumerate}
+    $\tilt$ is closed under direct sums, tensor products, duals, and taking direct summands.
 \end{prop}
+\begin{proof}
+    It is easy to see that $\tilt$ is closed under direct sums, duals, and
+    taking direct summands. It is much harder to show that the tensor product
+    of tilting modules is tilting, and the proof can be found in \cite{Andersen1992}.
+\end{proof}
 
 We can therefore restrict our attention to the indecomposable tilting modules.
 The indecomposable tilting modules for $U_z^{res}$ are indexed by integers $n
-\geq 0$. The tilting modules $T_z(n)$ for $0 \leq n < 2\ell - 2$ can be
-described explicitly as follows.
+\geq 0$ (corresponding to their maximal weights), and the tilting modules
+$T_z(n)$ for $0 \leq n < 2\ell - 2$ can be described explicitly as follows
+(\cite{CP}). 
 
 $T_z(n)$ has basis $\left\{ t_0, \ldots, t_n \right\} \bigcup \left\{ t'_0,
     \ldots, t'_{r} \right\}$, where $r = 2\ell - 2 - n$, and has the following
@@ -105,47 +113,54 @@ It is easy to see that the $T_z(n)$ are indecomposable, and that $\left\{ t_0,
 \ldots, t_n \right\}$ span a submodule isomorphic to $W_z^{res}(n)$. The
 quotient is spanned by $\left\{ t'_0, \ldots, t'_r \right\}$ and is
 isomorphic to $W_z^{res}(r)$. It is therefore clear that $T_z(n)$ has a Weyl
-filtration. 
+filtration. Note that for $0 \leq n \leq \ell -1$, $T_z(n) = W_z^{res}(n) = V_{z}^{res}(n)$.
 
 Given this definition, it is easy to compute the quantum dimension of $T_z(n)$: 
 
 \begin{equation}
-    \dim_q(T_z(n)) = \begin{cases} [n+1]_z &\text{ for $0 \leq n < \ell$} \\
+    \dim_q(T_z(n)) = \begin{cases} [n+1]_z &\text{ for $0 \leq n \leq \ell-1$} \\
                                    [n+1]_z + [2\ell-n-1]_z = 0 &\text{ for $\ell \leq n < 2\ell - 2$}
                      \end{cases}
 \end{equation}
 
-In fact, \cite{andersen1992} shows that 
+In fact, \cite{Andersen1992} shows that 
 \begin{prop}
 $\dim_q(T_z(n)) \neq 0$ if and only if $n < \ell - 1$
 \end{prop}
 
 which gives us $\dim_q(T_z(n))$ for all $n$.
 
-We would like to know how to decompose tensor products of irreducible modules. 
+A useful corollary of the above proposition is the following:
 
-\begin{prop}
+\begin{corollary}
+\label{theorem:tensortilting}
     For any tilting modules $T_1, T_2$, 
 
     \begin{equation}
-            T_1 \otimes T_2 \simeq \left(\bigoplus_{n=0}^{\ell - 2} V_z^{res}(n)^{\otimes m_n}\right) \oplus Z
+            T_1 \otimes T_2 \simeq \left(\bigoplus_{k=0}^{\ell - 2} V_z^{res}(k)^{\otimes m_k}\right) \oplus Z
     \end{equation}
-    where $m_n \in \mathbb{Z}$, and $\tr_q(f) = 0$ for all $f: Z \to Z$.
-\end{prop}
+    where $m_k \in \mathbb{Z}$, and $\dim_q(Z) = 0$
+\end{corollary}
 \begin{proof}
-%todo
-\end{proof}
-%This tensor product will not decompose as a direct
-%sum of irreducible modules in general as with the irreducible representations
-%of $\sll(2)$, but it does decompose as a direct sum of irreducible modules and
-%tilting modules $T$ with $\dim_q(T) = 0$.
+\begin{equation}
+    T_1 \otimes T_2 \simeq \bigoplus_{k=0}^{\infty} T_z(k)^{\otimes n_k} =
+    \bigoplus_{k=0}^{\ell-2} V_z^{res}(k)^{\otimes n_k} \oplus
+    \bigoplus_{k=\ell-1}^{\infty} T_z(k)^{\otimes n_k}
+\end{equation}
 
- With the definition of these
-tilting modules in place, we can give the decomposition of the tensor products
-of the irreducible $U_z^{res}$-modules $V_z^{res}(n) \otimes V_z^{res}(m)$ for
-$0 \leq m,n \leq \ell - 1$. 
+Take $Z = \displaystyle\bigoplus_{k=\ell-1}^{\infty} T_z(k)^{\otimes n_k}$.
+\end{proof}
+
+We can now give a decomposition of $V_z^{res}(n) \otimes V_z^{res}(m)$ into
+indecomposable modules for $0 \leq n,m \leq \ell-1$.  This tensor product will
+not decompose as a direct sum of irreducible modules in general as with the
+irreducible representations of $\sll(2)$. However, it follows from the above
+proposition that it does decompose as a direct sum of irreducible modules and
+tilting modules $T$ with $\dim_q(T) = 0$.
 
 \begin{prop}
+\label{theorem:decomposition}
+\todo{Proof of this involves some Weyl character formula calculations: should I mention them at all?}
 Suppose $0 \leq m,n \leq \ell - 1$. Then
 
 \begin{equation}
@@ -162,41 +177,38 @@ V_z^{res}(n) \otimes V_{z}^{res}(m) \simeq \bigoplus_{i=|n-m| \atop i + n + m \t
 for $\ell - 1 \leq n + m < 2\ell - 2$
 \end{prop}
 
-We will now construct a new tensor product $\bar{\otimes}$ by ``discarding''
-those indecomposable tilting modules $T$ for which $\dim_q(T) = 0$.
-
-
-Let $\tilt$ be the full subcategory of $\mathcal{C}(\sll(2), \ell)$ whose
-objects are the tilting modules modules for $U_z^{res}$. Define 2 full
-subcategories of $\tilt$: $\overline{\tilt}$ consisting of the
-irreducible tilting modules $\{T_z(0), \ldots, T_z(\ell - 2)\}$ and $\tilt'$
-consisting of the tilting modules with quantum dimension zero. 
-\todo{figure why the $\ell$ isn't showing up.}
-
-Then $\tilt= \tilt' \oplus \overline{\tilt}$. \todo{why?}
-
 
 \section{Construction of the MTC}
 \label{MTC-construction}
 
-We construct the modular tensor category that we will use to do topological
-computing by restricting our attention to the subcategory of tilting modules of
-$U_q(\mathfrak{g})$, and quotienting by the negligible morphisms. We can do
-this because the hom sets $Hom(V,W)$ are vector spaces:
 
-\todo{ change the notation here, I guess}
-\begin{defn}
-    Define the category $\mathcal{C}^\text{int}$ be the category with objects tilting modules and morphisms 
+We will now construct a new tensor product $\bar{\otimes}$ by ``discarding''
+those indecomposable tilting modules $T$ for which $\dim_q(T) = 0$.
 
-    \begin{equation*}
-        \Hom(V,W) = \Hom_T(V,W) / \text{negligible morphisms}
-    \end{equation*}
+%todo{use better notation than \cite{CP} here for $\overline{\tilt}$}
+Define 2 full subcategories of $\tilt$: $\overline{\tilt}$ consisting of the
+irreducible tilting modules $\{T_z(0), \ldots, T_z(\ell - 2)\}$ and $\tilt'$
+consisting of the tilting modules with quantum dimension zero. 
 
-\end{defn}
+Then $\tilt= \tilt' \oplus \overline{\tilt}$. %todo{why?}
+
+
+Define a `truncated' tensor product on $\overline{tilt}$ as follows:
+
+if $T_1 \otimes T_2 \simeq \left(\bigoplus_{k=0}^{\ell - 2} V_z^{res}(k)^{\otimes m_k}\right) \oplus Z$ as in \ref{theorem:tensortilting}, define 
+
+\begin{equation}
+T_1 \overline{\otimes} T_2 =  \left(\bigoplus_{k=0}^{\ell - 2} V_z^{res}(k)^{\otimes m_k}\right) 
+\end{equation}
+%todo{of course, it's not obvious yet that this is a tensor product}
+
+\todo{definition of $\overline{\otimes}$ bogus. Fix up.}
+The category $\overline{\tilt}$ with the tensor product $\overline{\otimes}$ is
+a braided monoidal category. Call this category $\mathcal{C}^{\text{int}}$.
+%todo{some notation cleanup.}
 
 The category $\mathcal{C}^\text{int}$ has the following properties:
 \begin{enumerate}
-    \item An object $T$ is negligible if and only if it is isomorphic to 0 in $\mathcal{C}^\text{int}$
     \item  $\mathcal{C}^\text{int}$ is a ribbon category
     \item Any object $T$ in $\mathcal{C}^\text{int}$ is isomorphic to a direct sum of Weyl modules.
     \item $\mathcal{C}^\text{int}$ is a semisimple abelian category. 
@@ -204,15 +216,15 @@ The category $\mathcal{C}^\text{int}$ has the following properties:
 \end{enumerate}
 
 $\mathcal{C}^\text{int}$ is in fact a modular tensor category. A proof of this
-can be found in \cite{Kirillov} 
+can be found in \cite{Kirillov}. \todo{do MTC proof here.}
  
 \section{Fusion rules}
 
-The fusion rules for $U_q(\sll(2))$ are given by 
+We have from Prop \ref{theorem:decomposition} that the fusion rules for
+$\mathcal{C}^\text{int}$ are given by 
 
-\todo{ notation is inconsistent here}
 \begin{equation}
-    V_m \otimes V_n \simeq \sum_i N_{mn}^i V_i
+    V_z^{res}(m) \otimes V_z^{res}(n) \simeq \sum_i N_{mn}^i V_i
 \end{equation}
 
 where 
