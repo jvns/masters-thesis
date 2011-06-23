@@ -18,16 +18,15 @@ discuss briefly the general case, an exposition of which can be found in
 \label{UqSL2}
 
 
-The quantum group $U_q(\sll(2))$ is a deformation of the universal enveloping
-algebra $U(\sll(2))$ defined in \ref{UnivEnvAlg}.  In this section we will
-define the Hopf algebra $U_q(\sll(2))$ and note some relations between its
-generators.  Any missing proofs can be found in \cite{Kassel1994}. 
-
+The quantum group $U_q(\sll(2))$ is Hopf algebra which is a deformation of the
+universal enveloping algebra $U(\sll(2))$ defined in \ref{example:UEA}.  In this
+section we will define the algebra $U_q(\sll(2))$, explain its relationship to 
+$U(\sll(2))$, and give the Hopf algebra structure on $U_q(\sll(2))$.
 
 \begin{defn}
 \label{Uqsl2Def}
 Let $q$ be an indeterminate. $U_q(\sll(2))$ is the associative algebra over
-$\mathbb{Q}(q)$ with generators $X^+,X^-,K, K^{-1}$ and relations 
+$\mathbb{C}(q)$ with generators $X^+,X^-,K, K^{-1}$ and relations 
 
 \begin{align}
     KK^{-1} &= 1 = K^{-1}K \\
@@ -37,9 +36,11 @@ $\mathbb{Q}(q)$ with generators $X^+,X^-,K, K^{-1}$ and relations
 \end{align}
 \end{defn}
 
-In general $ X^+ $ and $X^-$ should be thought of as analogs of $X$ and $Y$ in
-$U(\sll(2))$. To see the relationship between $U_q(\sll(2))$, we will make use
-of an alternate presentation of $U_q(\sll(2))$: Define $U'_q(\sll(2))$ to be
+In general $ X^+ $ and $X^-$ should be thought of as the analogs of $X$ and $Y$
+in $U(\sll(2))$: in fact $X^+$ and $X^-$ act as raising and lowering operators
+in representations of $U_q(\sll(2))$ the same way as $X,Y$ in $U(\sll(2))$. To
+see the relationship between $U_q(\sll(2))$ and $U(\sll(2))$, we will make use
+of an alternate presentation of $U_q(\sll(2))$.  Define $U'_q(\sll(2))$ to be
 the associative algebra with generators $ X^+ ,X^-,L,K,K^{-1}$ and relations
 
 \begin{align}
@@ -51,19 +52,10 @@ the associative algebra with generators $ X^+ ,X^-,L,K,K^{-1}$ and relations
 
 A calculation shows that $U_q(\sll(2)) \simeq U_q'(\sll(2)$. If we define the
 algebra $U_1'(\sll(2))$ over $\mathbb{C}$ having the same generators and
-relation as $U_q'(\sll(2))$ with $q$ replaced by 1, then it is clear that
-$U_1'(\sll(2)) /(K-1) \simeq U(\sll(2))$. This is the justification for calling
-$U_q(\sll(2))$ a `deformation' of $U(\sll(2))$.
-
-Before proceeding, we will note some relations between the generators
-$X^+$ ,$X^-$,$K$,$K^{-1}$ which will be useful later on. The following can be checked
-by induction:
-
-\begin{align}
-    \label{EFrelations}
-     X^+ (X^-)^s = (X^-)^s X^+  + [s]_q (X^-)^{s-1} \frac{Kq^{1-s} - K^{-1} q^{-(1-s)}}{q-q^{-1}} \\
-    X^- (X^+)^s =  (X^+)^sX^- - [s]_q  (X^+)^{s-1} \frac{Kq^{s-1} - K^{-1} q^{-(s-1)}}{q-q^{-1}}
-\end{align}
+relations as $U_q'(\sll(2))$ with $q$ replaced by 1, then it is easily seen
+that $U_1'(\sll(2)) /(K-1) \simeq U(\sll(2))$ by sending $X^+ \mapsto X, X^-
+\mapsto Y, L \mapsto H, K \mapsto 1$. This gives some  justification for
+calling $U_q(\sll(2))$ a deformation of $U(\sll(2))$.
 
 We can define a Hopf algebra structure on $U_q(\sll(2))$ as follows:
 
@@ -80,39 +72,56 @@ and the antipode by
     S(X^+) &= - X^+ K^{-1} & S(X^-)      &= -KX^- \\
     S(K) &= K^{-1}   & S(K^{-1}) &= K 
 \end{align}
-It is straightforward to check that this defines a Hopf algebra structure. 
+It is straightforward to check that this defines a Hopf algebra structure. This
+looks quite similar to the Hopf algebra structure on $U(\sll(2))$ defined in
+\ref{example:UEA}, and in fact the isomorphism $U_1'(\sll(2)) /(K-1)
+\simeq U(\sll(2))$ is an isomorphism of Hopf algebras.
 
 \section{Representations of $U_q(\sll(2))$}
 
 The representation theory of $U_q(\sll(2))$ bears a striking resemblance to
-that of $\sll(2)$. That is, each representation of $U_q(\sll(2))$ has a highest
-weight vector and the representations of $U_q(\sll(2))$ are classified by
-highest weights in much the same way as those of $\sll(2)$. The proofs of these
-facts are also analogous to those in $\sll(2)$. We will sketch the
-classification of the representations of $U_q(\sll(2))$. More details can be
-found in \cite{Jantzen1995}.
+that of $\sll(2)$. In particular, in $U_q(\sll(2))$:
 
-\todo{say what a highest weight vector is}
+\begin{enumerate}
+    \renewcommand{\labelenumi}{\roman{enumi})}
+    \item Every finite dimensional representation is completely reducible
+    \item The eigenvectors of $K$ form a basis for any irreducible representations. We call the eigenvalues of $K$ \emph{weights}.
+    \item Each irreducible representation has a highest weight vector
+    \item The irreducible representations are classified by highest weights much as in $U(\sll(2))$.
+\end{enumerate}
+
+The proofs of these facts are also more or less analogous to those in
+$U(\sll(2))$, though not always in a straightforward way. For proofs of i),
+ii), see \ref{Kassel1994}. We will sketch the classification of the
+irreducible representations of $U_q(\sll(2))$ here.
+
+\todo{figure out why reference not showing up}
 
 \begin{claim}
-    Let $M$ be a finite dimensional $U_q(\sll(2))$-module. Then there is a
-    vector $v \in M$ such that $ X^+ v = 0$. 
+    Let $M$ be a finite dimensional $U_q(\sll(2))$-module. Then there is an
+    eigenvector $v_0 \in M$ of $K$ such that $ X^+ v_0 = 0$. We call $v_0$ a
+    \emph{highest weight vector}.
 \end{claim}
 
-\todo{ do I need to prove that $K$ has eigenvectors?}
-
 \begin{proof}
-    Let $v_0$ be an eigenvector of $K$ with eigenvalue $\lambda$. $K X^+ K^{-1} =
-    q^2  X^+$, so it follows that $(X^+)^i v_0$ is an eigenvector of $K$ with
-    eigenvalue $q^{2i}\lambda$. Each value $q^{2i}\lambda$ is different,
-    therefore $K$ has infinitely many eigenvectors. 
+    Suppose not. Let $v$ be an eigenvector of $K$ with eigenvalue $\lambda$.
+    $K X^+ = q^2  X^+ K$, so it follows that $(X^+)^i v$ is an
+    eigenvector of $K$ with eigenvalue $q^{2i}\lambda$. Each value
+    $q^{2i}\lambda$ is different, therefore $K$ has infinitely many
+    eigenvectors. 
 
-    This is impossible, so some $(X^+)^i v_0$ must be zero.
+    This is impossible, so some $(X^+)^i v$ must be zero. Let $i$ be the
+    smallest such, and choose $v_0 = (X^+)^{i-1} v$.
 \end{proof}
 
-For any $\lambda \in k, \lambda \neq 0$ there is an infinite dimensional
-$U_q(\sll(2))$-module $M(\lambda)$ with basis $v_0, v_1, v_2, \ldots$ such that
-for any $i$,
+We now have that any irreducible representation of $U_q$ is generated by a
+highest weight vector. We can now show how to classify the irreducible
+representations. 
+
+For any $\lambda \in \mathbb{C}(q), \lambda \neq 0$ there is an infinite
+dimensional $U_q(\sll(2))$-module $M(\lambda)$ called a \emph{Verma module}
+with basis $v_0, v_1, v_2, \ldots$ such that for any $i$,
+
 \begin{align}
     Kv_i &= \lambda q^{n-2i}v_i \\
     X^-v_i &= v_{i+1} \\
@@ -173,12 +182,11 @@ with action defined by
 \end{align*}
 
 By the proof sketched above, these are the only representations of
-$U_q(\sll(2))$. It is also possible to show that every finite dimensional
-representation of $U_q(\sll(2))$ is semisimple.  Note that the representations
-$V_q^-(n)$ can be obtained by $V_q(n)$ by tensoring with the one-dimensional
-representation $V_q^-(0)$. We can therefore restrict our attention to the
-representations $V_q(n)$.
-
+$U_q(\sll(2))$.  Note that the representations $V_q^-(n)$ can be obtained by
+$V_q(n)$ by tensoring with the one-dimensional representation $V_q^-(0)$:
+essentially the difference from $U(\sll(2))$ here is that there are 2
+nonisomorphic 1-dimensional representations. We can (and will) therefore
+restrict our attention to the representations $V_q(n)$.
 
 \section{Setting $q$ to be a root of unity}
 
@@ -378,7 +386,7 @@ The category of finite dimensional $U_q(\sll(2))$-modules of type $\mathbf{1}$ i
         q_\alpha = q^{d_\alpha}
     \end{equation}
 
-    and for $n \in \mathbf{Z}$,
+    and for $n \in \mathbb{Z}$,
 
     \begin{equation}
         [n]_\alpha = [n]_{q_\alpha} = \frac{q^{nd_\alpha} - q^{-nd_\alpha}}{q^{d_\alpha} - q^{-d_\alpha}}
