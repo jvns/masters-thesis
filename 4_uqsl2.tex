@@ -1,24 +1,37 @@
-\todo{This could use some general improvement.}
-Models of topological quantum computing arise from the representations of
-certain Hopf algebras called quantum groups. There is no agreed-upon definition
-for the term ``quantum group'': rather there are various classes of Hopf
-algebras which are referred to as quantum groups. In particular quantum groups
-are normally neither commutative nor cocommutative. The quantum groups we will
-be interested in are the ``Drinfel'd-Jimbo type'' quantum groups introduced by
-Drinfel'd and Jimbo \todo{find a reference}. They arise as deformations of the
-universal enveloping algebra of a semisimple Lie algebra $\frakg$.
+Models of topological quantum computation are usually presented as modular
+tensor categories for reasons explained in the introduction (or somewhere: I
+will give you a few paragraphs for that later).  One important source
+of modular tensor categories, and hence possible models of topological quantum
+computing, is quantum groups.  The category of representations of a quantum
+group does not form a modular tensor category directly, however, after suitable
+constructions, a modular tensor category can be constructed from the category
+of representations of a quantum group.  The main goal of this chapter is to
+describe the passage from representations of quantum groups to modular tensor
+categories.
+
+There is no agreed upon definition of quantum group, rather, there are a
+number of examples that are called quantum groups.  The concept arose in
+inverse scattering theory~\cite{Faddeev79} and also in earlier work by
+Yang~\cite{Yang67} on the factorizability of certain transfer matrices in
+statistical mechanics.  This was later expanded by Baxter~\cite{Baxter82}
+and led to the Yang-Baxter equation.  The abstract presentation of these
+ideas is due to M. Jimbo~\cite{Jimbo85} and V. Drinfeld~\cite{Drinfeld86}.
+Essentially quantum groups are certain kinds of Hopf algebras and are, in
+general, neither commutative nor cocommutative.  The ones of so-called
+Drinfeld-Jimbo type arise as deformations of the universal enveloping
+algebra of Lie algebras.
 
 In this chapter we will define and describe in detail the representation theory
-of the quantum group $U_q(\sll(2))$ at a root of unity, which is essential for
+of the quantum group $U_q(\sll(2))$ at a root of unity, which arises as a
+deformation of the Lie algebra $\sll(2)$. This quantum group is essential for
 understanding the setting for topological quantum computing. We will also
-discuss briefly the general case, an exposition of which can be found in
-\cite{CP}.
+discuss briefly the general case, an exposition of which can be found in \cite{CP}.
 
 \section{The quantum group $U_q(\sll(2))$}
 \label{UqSL2}
 
 
-The quantum group $U_q(\sll(2))$ is Hopf algebra which is a deformation of the
+The quantum group $U_q(\sll(2))$ is a Hopf algebra which is a deformation of the
 universal enveloping algebra $U(\sll(2))$ defined in \ref{example:UEA}.  In this
 section we will define the algebra $U_q(\sll(2))$, explain its relationship to 
 $U(\sll(2))$, and give the Hopf algebra structure on $U_q(\sll(2))$.
@@ -92,10 +105,8 @@ that of $\sll(2)$. In particular, in $U_q(\sll(2))$:
 
 The proofs of these facts are also more or less analogous to those in
 $U(\sll(2))$, though not always in a straightforward way. For proofs of i),
-ii), see \ref{Kassel1994}. We will sketch the classification of the
+ii), see \cite{Kassel1994}. We will sketch the classification of the
 irreducible representations of $U_q(\sll(2))$ here.
-
-\todo{figure out why reference not showing up}
 
 \begin{claim}
     Let $M$ be a finite dimensional $U_q(\sll(2))$-module. Then there is an
