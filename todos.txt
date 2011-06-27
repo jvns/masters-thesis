@@ -11,8 +11,7 @@ Algebraic background:
 Categorical background:
     - introduce MTCs via Muger notes. Look for a reference (perhaps there is one in your notes).
       there is one here: http://www.math.ru.nl/~mueger/PDF/20.pdf
-    - talk about fusion some (source: Kassel?)
-    - consider introducing graphical notation?
+    - give some intuition for the dual
 
 U_q(sl(2)):
     - ** talk about quantum Clebsch-Gordon (maybe this comes from [AP]?)

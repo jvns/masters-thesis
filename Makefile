@@ -20,6 +20,7 @@ clean:
 	rm -f .thesis.tex.swp
 	rm -f .thesispreview.tex.swp
 	rm -f amazing_outline_ch3.aux
+	rm -f thesis.out
 	rm -f amazing_outline_ch3.log
 	rm -f amazing_outline_ch3.pdf
 	rm -f "julia's_12_labours.aux"

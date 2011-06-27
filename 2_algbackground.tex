@@ -26,15 +26,18 @@ of unity, $[n]_q = 0$ when $\ell$ divides $n$.
 
 \section{Representations of algebras}
 
-Throughout we will need some basic definitions and results about the
-representation theory of associative algebras. An associative algebra $A$ over
-a field $k$ is a $k$-vector space which also has the structure of a ring. Some
-important examples of $k$-algebras are: 
+We will model anyons by representations of certain algebras called quantum
+groups. We therefore give a few key definitions about algebras and their
+representations here.  
+
+An associative algebra $A$ over a field $k$ is a $k$-vector space which also
+has the structure of a ring. Some important examples of $k$-algebras are: 
 
 \begin{enumerate}
+    \item $k$ itself
     \item The $n \times n$ matrices over $k$, $M_n(k)$
     \item The group algebra of a finite group (defined in \ref{example:groupalgebra})
-    \item The polynomial algebra $k[x]$
+    \item The algebra $k[x]$ of polynomials in $x$ over $k$
     \item The universal enveloping algebra of a Lie algebra (see \ref{example:UEA})
 \end{enumerate}
 
@@ -208,12 +211,29 @@ $v_0, \ldots, v_{n}$ such that
 
 
 \section{Hopf algebras}
+
+Models of topological quantum computation come from certain algebras called
+quantum groups. These quantum groups are somewhat deceptively named in that
+they are not groups. However, they are Hopf algebras, which  are a
+generalization of the group algebra of a group: they have a map called the
+antipode which generalizes the group inverse. Basically a Hopf algebra is an
+algebra which has a compatible coalgebra structure and an antipode map which
+``behaves like'' an inverse in a suitable way. If an algebra is a Hopf algebra,
+then its category of representations has additional structure, which will
+be crucial for us in our discussion of topological quantum computing. This is
+explained in \ref{section:RepHopfAlgebra}. 
+
+In this section, we define algebras and coalgebras, then bialgebras which are
+simultaneously algebras and coalgebras, then Hopf algebras which are bialgebras
+with an antipode map.
+
 \subsection{Algebras and Coalgebras}
-For a field $k$, a \emph{$k$-algebra} $A$ is a $k$-vector space with an
+We said earlier that for a field $k$, a \emph{$k$-algebra} $A$ is a $k$-vector
+space with an
 associative bilinear mapping $A \times A \to A$ which has an identity element
 $1 \in A$ such that $1\cdot x = x\cdot 1 = x$ for any $x \in A$.
 
-Put in categorical terms, a $k$-algebra is given by a triple $(A, \mu, \eta)$,
+Restated in categorical terms, a $k$-algebra is given by a triple $(A, \mu, \eta)$,
 where $A$ is a vector space, and $\mu: A \otimes A \to A$ and $\eta: k \to A$
 are linear maps satisfying the axioms:
 
@@ -351,8 +371,7 @@ Suppose $H$ is a vector space which has both an algebra structure $(H, \mu,
 A morphism of bialgebras is a map which is both a morphism of algebras and a
 morphism of coalgebras.
 \subsection{Hopf Algebras}
-
-% todo: introduce Sweedler notation??
+As we said earlier, a Hopf algebra is a bialgebra with an antipode map:
 
 \begin{defn}
     Let $(H, \mu, \eta, \Delta, \varepsilon)$ be a bialgebra. An endomorphism
@@ -382,26 +401,30 @@ morphism of coalgebras.
 
 \begin{example}
     \label{example:groupalgebra}
-    One important example of a Hopf algebra is the Hopf algebra obtained from
-    any finite group. 
+    As mentioned earlier, the group algebra $k[G]$ of any finite group is a
+    Hopf algebra. $k[G]$ has basis $\left\{ g: g \in G \right\}$ and
+    multiplication given by the group multiplication. Define
 
-    Let $G$ be a finite group. The Hopf algebra $k[G]$ is the algebra with
-    basis $\left\{ v_g: g \in G \right\}$, multiplication $v_g v_h = v_{gh}$,
-    and unit $v_1$. 
+\begin{align}
+\Delta(g) &= g \otimes g \\
+\varepsilon(g) &= 1 \\
+S(g) &= g^{-1}
+\end{align}
 
-    We can define a coalgebra structure on $k[G]$ by $\Delta(v_g) = v_g \otimes v_g$
-    and $\varepsilon(v_g) = 1$ for any $g \in G$.
-
-    The antipode $S$ is given by $S(v_g) = v_{g^{-1}}$ for any $g \in G$.
+    It is easy but useful to check that this gives a Hopf algebra structure on $k[G]$.
 
     Note that the group algebra is not commutative if the underlying group is
-    not commutative, but is always cocommutative. The examples of Hopf
-    algebras we will be interested in later are neither commutative nor
+    not commutative, but is always cocommutative. The examples of Hopf algebras
+    we will be interested in later (quantum groups) are neither commutative nor
     cocommutative. 
 \end{example}
 
 In general the antipode map can be thought of as an analog to the inverse map
-in a group. If a Hopf algebra has an antipode, it is unique, and $S^2 = \id$.
+in a group. If a bialgebra has an antipode, it is unique, and $S^2 = \id$.
+
+This next example will be quite important to us: the quantum groups we will
+study are deformations of universal enveloping algebras of semisimple Lie
+algebras.
 
 \begin{example}
     \label{example:UEA}
@@ -444,7 +467,7 @@ in a group. If a Hopf algebra has an antipode, it is unique, and $S^2 = \id$.
 
 \end{example}
 
-\subsection{Braided bialgebras and the $R$-matrix}
+\subsection{Braided Hopf algebras and the $R$-matrix}
 \label{subsection:R-matrix}
 
 In this section we will discuss braided bialgebras. This additional structure

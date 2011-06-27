@@ -1,5 +1,35 @@
-Throughout we will be working over a field $k$ of characteristic 0. We will
-assume some basic category theory background throughout. 
+In the introduction we explained that models of TQC can be presented as modular
+tensor categories.  The basic idea is that a modular tensor category is a
+semisimple category where anyon types correspond to isomorphism classes of
+simple objects. Fusing two anyons corresponds to taking the tensor product of
+two objects, and the meaning of an equation like
+
+\begin{equation}
+V_1 \otimes V_2 \simeq V_3 \oplus V_4
+\end{equation}
+
+for simple objects $V_1, V_2, V_3, V_4$ is that fusing $V_1$ with $V_2$ results in
+either an anyon of type $V_3$ or an anyon of type $V_4$ (or a superposition, of
+course).
+
+In categorical terms, a modular tensor category needs to be:
+
+\begin{itemize}
+    \item semisimple (fusing anyons results in an anyon)
+    \item monoidal (so that we can have tensor products of several anyons)
+    \item rigid (has duals)
+    \item braided (so that anyons can be exchanged: this is how computation occurs)
+    \item ribbon (has a notion of a trace)
+\end{itemize}
+
+A category with all these properties that satisfies one additional condition is
+called a modular tensor category. In this chapter, we give abstract definitions
+for all the properties a MTC needs to satisfy. We also show that the category
+of representations of any Hopf algebra is a rigid monoidal category, since the
+modular tensor categories we will be interested in are constructed from
+categories of representations of Hopf algebras.
+
+
 
 \section{Monoidal Categories}
 \begin{defn}
@@ -27,6 +57,11 @@ assume some basic category theory background throughout.
     \end{enumerate}
 
 \end{defn}
+
+In the context of topological quantum computing, the unit object should be
+thought of as the trivial anyon. The fact that $\mathbf{1} \otimes V \isomto V$
+in a natural way should be taken to mean that fusing a trivial anyon with any
+other anyon has no effect.
 
 \begin{example}
     \begin{enumerate}
@@ -71,7 +106,11 @@ is equal to $\id_{V^*}$
 \section{Braided monoidal categories}
 \label{section:Braiding}
 
-Let $\mathcal{C}$ be a monoidal category with a natural transformation 
+The central operation in topological quantum computing is that of exchanging
+two anyons. Mathematically, the structure we need to model this is that of a
+braided monoidal category: any computation done a set of anyons corresponds to
+an element of the braid group.  A braided monoidal category is a monoidal
+category $\mathcal{C}$ with a natural transformation
 
 \begin{equation}
     \sigma_{V,W} : V \otimes W \to W \otimes V
@@ -253,6 +292,7 @@ It is proved in \cite{mueger2001} that
 
 
 \section{The Category of Representations of a Hopf Algebra}
+\label{section:RepHopfAlgebra}
 
 Suppose $(H, \mu, \eta, \Delta, \varepsilon)$ is a Hopf algebra with antipode $S$. 
 
