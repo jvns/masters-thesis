@@ -1,12 +1,12 @@
-- collect what algebraic & categorical background to introduce. 
-- write up bit about tr_q(f) = tr(kf)
-Say somewhere that we're working over a field of characteristic 0.
+- write up bit about tr_q(f) = tr(kf) (write moar!)
 
 Algebraic background: 
     - write a section about quantum algebra
-    - braid group
+    - braid group (??)
     - sketch the classification of Lie algebras
-    - talk about roots and weights?
+    - explain what a root system is 
+    - introduce an inner product on roots without defining it.
+    - say what a positive root is.
 
 Categorical background:
     - introduce MTCs via Muger notes. Look for a reference (perhaps there is one in your notes).
@@ -15,18 +15,7 @@ Categorical background:
     - consider introducing graphical notation?
 
 U_q(sl(2)):
-    - Work out what V_n, the Verma modules are.  (the (V(n,_), I think))
-    - find out if the V(n,-) are Weyl modules.
-    - Find out what Weyl modules are, really. 
-    - Find out what the R-matrix is
-    - Clean up your notation. 
-    - Extract some content from the Andersen & Paradowski paper (done! Via Sawin.)
-
-    - talk about quantum Clebsch-Gordon (maybe this comes from [AP]?)
-
-    - describe this quotient in some explicit way in the sl(2) case
-        - describe the braiding morphisms explicitly 
-    - define representations of U_q(g)
+    - ** talk about quantum Clebsch-Gordon (maybe this comes from [AP]?)
     - Define the region $\Lambda^\ell$.
 
 TQC:
@@ -34,8 +23,3 @@ TQC:
       quotient category (be really explicit about the braiding morphisms)
     - sketch the proof of universality
 
-general structure:
-- get your equation numbering straight
-- get your references in place. You're going to have to cite things soon
-- put thesis backups somewhere
-- fix references
