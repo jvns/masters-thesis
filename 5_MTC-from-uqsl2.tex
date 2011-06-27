@@ -5,15 +5,15 @@ is monoidal because $U_z^{res}(\sll(2))$ is a Hopf algebra, and we saw that it
 is braided in \ref{section:braiding}. Call this category
 $\Rep_w(U_z^{res}(\sll(2)))$. This category is certainly not a modular tensor
 category: it is not semisimple, and it has infinitely many nonisomorphic simple
-objects. In this chapter we will show how to construct a modular tensor
-category from $\Rep_w(U_z^{res}(\sll(2)))$. The simple objects in this category
-will be $\left\{ W_z^{res}(0), \ldots, W_z^{res}(\ell-2) \right\}$. We
-construct this category by first restricting to the subcategory of ``tilting
-modules'' and then quotienting this subcategory. Basically the intuition is
-that we take our simple objects to be $\left\{ W_z^{res}(0), \ldots,
-W_z^{res}(\ell-2) \right\}$ and then quotient by the objects with quantum
-dimension zero.  The simple objects in this modular tensor category will
-be our anyons.
+objects. The main goal of this chapter is to describe the passage from
+representations of quantum groups to modular tensor categories.  The simple
+objects in the modular tensor category we construct will be $\left\{
+W_z^{res}(0), \ldots, W_z^{res}(\ell-2) \right\}$. We construct this category
+by first restricting to the subcategory of ``tilting modules'' and then
+quotienting this subcategory. Basically the intuition is that we take our
+simple objects to be $\left\{ W_z^{res}(0), \ldots, W_z^{res}(\ell-2) \right\}$
+and then quotient by the objects with quantum dimension zero.  The simple
+objects in this modular tensor category will be our anyons.
 
 
 
@@ -206,12 +206,16 @@ Define the category $\mathcal{C}^\text{int}$ be the category with objects tiltin
         \Hom(V,W) = \Hom_T(V,W) / \text{negligible morphisms}
     \end{equation*}
 
-Prop \ref{theorem:decomposition} gives us that this category is semisimple,
+Prop \ref{theorem:decomposition} gives us that $\tilt$ is semisimple,
 with simple objects 
 \begin{equation}
 \left\{ W_z^{res}(0), \ldots, W_z^{res}(\ell-2) \right\}
 \end{equation}
-and fusion rules given by
+
+The $\left\{ W_z^{res}(0), \ldots, W_z^{res}(\ell-2) \right\}$ are all
+nonisomorphic because they all have different quantum dimensions.
+
+The fusion rules in $\mathcal{C}^{\text{int}}$ are given by
 
 \begin{equation}
     W_z^{res}(m) \otimes W_z^{res}(n) \simeq \sum_i N_{mn}^i W_z^{res}(i)
