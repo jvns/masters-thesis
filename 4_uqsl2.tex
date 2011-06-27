@@ -63,13 +63,26 @@ $\mathbb{C}(q)$ with generators $X^+,X^-,K, K^{-1}$ and relations
     KK^{-1} &= 1 = K^{-1}K \\
     K X^+ K^{-1} &= q^2  X^+  \\
     KX^-K^{-1} &= q^{-2} X^- \\
-    [ X^+ ,X^-] &= \frac{K - K^{-1}}{q - q^{-1}}
+    [ X^+ ,X^-] &= \frac{K - K^{-1}}{q - q^{-1}} \label{equation:hadamard}
 \end{align}
 \end{defn}
 
 In general $ X^+ $ and $X^-$ should be thought of as the analogs of $X$ and $Y$
-in $U(\sll(2))$: in fact $X^+$ and $X^-$ act as raising and lowering operators
-in representations of $U_q(\sll(2))$ the same way as $X,Y$ in $U(\sll(2))$. To
+in $U(\sll(2))$. This last equation can be thought of as replacing 
+
+\begin{equation}
+[X,Y] = H
+\end{equation}
+
+with the ``quantum version''
+
+\begin{equation}
+[X^+,X^-] = [H]_q = \frac{q^H - q^{-H}}{q - q^{-1}}
+\end{equation}
+
+Of course $q^H$ does not make sense here, so we introduce a new element $K=q^H$
+and obtain \ref{equation:hadamard}. $X^+$ and $X^-$ act as raising and lowering
+operators in representations of $U_q(\sll(2))$ the same way as $X,Y$ in $U(\sll(2))$. To
 see the relationship between $U_q(\sll(2))$ and $U(\sll(2))$, we will make use
 of an alternate presentation of $U_q(\sll(2))$.  Define $U'_q(\sll(2))$ to be
 the associative algebra with generators $ X^+ ,X^-,L,K,K^{-1}$ and relations
@@ -219,6 +232,21 @@ $V_q(n)$ by tensoring with the one-dimensional representation $V_q^-(0)$:
 essentially the difference from $U(\sll(2))$ here is that there are 2
 nonisomorphic 1-dimensional representations. We can (and will) therefore
 restrict our attention to the representations $V_q(n)$.
+
+If we consider tensor products of these representations $V_q(n)$, we find
+another similarilty with the representation theory of $\sll(2)$. It is well
+known that the tensor product of two irreducible representations $V(n)$, $V(m)$
+($n \geq m$) decomposes as follows:
+
+\begin{equation}
+V(n) \otimes V(m) \simeq V(n-m) \oplus V(n-m+2)  \oplus \cdots \oplus V(n+m-2)\oplus V(n+m)
+\end{equation}
+
+Exactly the same formula holds for the irreducible representations $V_q(n)$: for any $n \geq m \geq 0$
+
+\begin{equation}
+V_q(n) \otimes V_q(m) \simeq V_q(n-m) \oplus V_q(n-m+2)  \oplus \cdots \oplus V_q(n+m-2)\oplus V_q(n+m)
+\end{equation}
 
 \section{Setting $q$ to be a root of unity}
 

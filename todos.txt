@@ -1,24 +1,19 @@
-- write up bit about tr_q(f) = tr(kf) (write moar!)
-
 Algebraic background: 
     - write a section about quantum algebra
-    - braid group (??)
     - sketch the classification of Lie algebras
     - explain what a root system is 
     - introduce an inner product on roots without defining it.
     - say what a positive root is.
+    - generally clean up the Lie algebra section
 
 Categorical background:
     - introduce MTCs via Muger notes. Look for a reference (perhaps there is one in your notes).
       there is one here: http://www.math.ru.nl/~mueger/PDF/20.pdf
-    - give some intuition for the dual
+    - give some intuition for the dual and ribbon parts: take some inspiration from Eric?
+    - reference Eric's stuff; it's pretty nice I think
 
-U_q(sl(2)):
-    - ** talk about quantum Clebsch-Gordon (maybe this comes from [AP]?)
-    - Define the region $\Lambda^\ell$.
-
-TQC:
+MTC => TQC:
     - Explain how to simulate circuit-based quantum computation in this
       quotient category (be really explicit about the braiding morphisms)
     - sketch the proof of universality
-
+    - basically do everything here =\
