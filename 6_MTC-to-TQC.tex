@@ -1,52 +1,14 @@
-\section{Overview of TQC}
-
-First we'll discuss the basic idea behind TQC.
-
-One of the fundamental problems with implementations of quantum computer is
-that it is very hard to implement quantum gates accurately. Kitaev in 1997
-propoesd an implementation of QC which exploits topological properties to make
-this easier.
-
-In our basic setup, we have a set of identical anyons which have some joint ``state''.
-
-\begin{center}
-    (picture here?)
-%    $\circ \hspace{1in} \circ\hspace{1in} \circ\hspace{1in} \circ$
-\end{center}
-
-A computation consists of exchanging the anyons in some way. If we draw such an
-exchange in 2+1 dimensions, we obtain a braid. 
-
-\begin{center}
-    (picture here?)
-\end{center}
-
-The key point here is that in this model the change in state of the anyons
-depends \emph{only} on the topological class of the braid, so minor
-pertubations of a particle's path won't affect the result of the computation at
-all. The process is thus inherently resistant to errors. 
-
-
 
 \section{The Fibonacci anyon}
+The simplest universal model of TQC, and so the most likely candidate for
+implementing TQC, is the Fibonacci anyon. We will introduce the Fibonacci
+anyon, and show how this model comes from the modular tensor category obtained
+from $U_q(\sll(2))$ for $q=e^{2\pi i/5}$ in some detail. We will also explain a
+fairly simple way to simulate quantum circuits with Fibonacci anyons, where
+fusion possibilities \todo{better term?} are the qubits.
 
-In this section we will describe the Fibonacci anyon, a simple universal model
-of topological quantum computing, and explain how it arises from the category
-of representations of $U_q(\sll(2))$ in some detail. 
+In the Fibonacci anyon model there are 2 types, labelled $\mathbf{1}$, $\tau$. $\mathbf{1}$ is the trivial type. The fusion rules are as follows: 
 
-This model consists of 2 types of anyons, with labels $1, \tau$. The permitted
-operations are 
-
-\begin{itemize}
-    \item exchanging 2 anyons
-    \item fusing 2 anyons
-\end{itemize}
-
-The category $\Fib$ is a modular tensor category, with two isomorphism classes
-of simple objects labelled by $I,\tau$, $I$ being the tensor unit. We will
-denote the tensor product by $\odot$, which represents fusion.
-
-The fusion rules are as follows:
 
 \begin{itemize}
     \item $\tau \odot \tau = I \oplus \tau$
@@ -54,23 +16,31 @@ The fusion rules are as follows:
     \item $I \odot I = I$
 \end{itemize}
 
-The $\oplus$ in the first rule should be taken to mean ``if two anyons of type
-$\tau$ fuse, then the result is either $I$ or $\tau$. $\odot$ distributes over
-$\oplus$, so for example we have 
-
+As with all TQC theories, this takes place in a MTC which we call $\Fib$. The
+MTC $\Fib$ has two isomorphism classes of simple objects labelled by
+$\mathbf{1}$, $\tau$. $\mathbf{1}$ is the tensor unit. We will denote the
+tensor product by $\odot$. The $\oplus$ in the first fusion rule above should
+be taken to mean that if two anyons of type $\tau$ fuse, then the result is an
+anyon of type either $\mathbf{1}$ or $\tau$ (or a superposition). If we compute
+$\tau \odot (\tau \odot \tau)$, we get
 \begin{equation}
     (\tau \odot \tau) \odot \tau = (\tau \oplus I) \odot \tau = (\tau \odot \tau) \oplus (I \odot \tau) = (\tau \oplus I) \oplus \tau = 2\tau \oplus I
 \end{equation}
 
-This means ``when $\tau,\tau,\tau$ fuse, the result is either $\tau$ in one of
-2 possible ways, or $I$ (in one way)''. What do we mean by ``in one of two
-possible ways?'' Well, if we draw dragrams for the fusion possibilites, we
-obtain:
-
+This means that when $\tau,\tau,\tau$ fuse, the result is either $\tau$ in one of
+2 possible ways, or $\mathbf{1}$ (in one way)''. What do we mean by ``in one of two
+possible ways?'' Well, there are 3 fusion possibilities for 3 anyons, which we
+can draw as follows 
 \begin{center}
     (draw some fusion diagrams here)
     \todo{make these diagrams}
 \end{center}
+
+So in the first and third case the end result is $\tau$, and in the second case
+$\mathbf{1}$. So we see that there are two different ways of obtaining a final
+result of $\tau$: the first two anyons can fuse with a result of either $\tau$
+or $\mathbf{1}$.
+
 
 \subsection{Where are the qubits?}
 
