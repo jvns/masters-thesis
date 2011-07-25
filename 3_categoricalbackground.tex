@@ -23,7 +23,9 @@ In categorical terms, a modular tensor category needs to be:
 \end{itemize}
 
 A category with all these properties that satisfies one additional condition is
-called a modular tensor category. In this chapter, we give abstract definitions
+called a modular tensor category. We will explain this condition and discuss
+modular tensor categories in more detail in section \ref{section:MTCs}. In
+this chapter, we give abstract definitions
 for all the properties a MTC needs to satisfy. We also show that the category
 of representations of any Hopf algebra is a rigid monoidal category, since the
 modular tensor categories we will be interested in are constructed from
@@ -41,7 +43,7 @@ categories of representations of Hopf algebras.
         \item a unit object $\mathbf{1}$ and natural transformations
             \begin{align}
                 \lambda_V &: \mathbf{1} \otimes V \isomto V \\
-                \rho_V &: V \otimes 1 \isomto V
+                \rho_V &: V \otimes \mathbf{1} \isomto V
             \end{align}
         \item a natural transformation 
 
@@ -88,14 +90,14 @@ A rigid monoidal category is a monoidal category where there is a notion of a du
 such that the composition
 
 \begin{equation}
-    V \stackrel{i_V \otimes \id_V}{\xrightarrow{\hspace*{1cm}}} V \otimes V^*
+    V \stackrel{ \id_V \otimes i_V }{\xrightarrow{\hspace*{1cm}}} V \otimes V^*
     \otimes V  \stackrel{\id_V \otimes e_V}{\xrightarrow{\hspace*{1cm}}} V
 \end{equation}
 
 is equal to $\id_V$, and similarly the composition
 
 \begin{equation}
-    V^* \stackrel{id_{V^*} \otimes \id_V}{\xrightarrow{\hspace*{1cm}}} V^*
+    V^* \stackrel{i_V \otimes \id_{V^*} }{\xrightarrow{\hspace*{1cm}}} V^*
     \otimes V \otimes V^*  \stackrel{e_V \otimes
     \id_{V^*}}{\xrightarrow{\hspace*{1cm}}} V^*
 \end{equation}
@@ -129,7 +131,7 @@ braid group $B_n$ as follows:
 
 \begin{align}
     \alpha, \lambda, \rho &\mapsto 1 \\
-    \sigma_{V_{i_k}, V_{i_{k+1}}} \mapsto b_k
+    \sigma_{V_{i_k}, V_{i_{k+1}}} &\mapsto b_k
 \end{align}
 
 \begin{defn}
@@ -247,6 +249,7 @@ We define the dimension of an object $V$ to be $\dim V = \tr \id_V$.
     \todo{why are we making this definition?}
 
 \section{Modular Tensor Categories}
+\label{section:MTCs}
 
 %The \emph{dimension} of a category $\mathcal{C}$ is defined by 
 

@@ -1,14 +1,18 @@
 thesis:
-	pdflatex thesis.tex
+	latex thesis.tex
 	bibtex thesis
-	pdflatex thesis.tex
-	pdflatex thesis.tex
+	latex thesis.tex
+	latex thesis.tex
+	dvips thesis.dvi
+	ps2pdf thesis.ps
 
 preview:
-	pdflatex thesispreview.tex
+	latex thesispreview.tex
 	bibtex thesispreview
-	pdflatex thesispreview.tex
-	pdflatex thesispreview.tex
+	latex thesispreview.tex
+	latex thesispreview.tex
+	dvips thesispreview.dvi
+	ps2pdf thesispreview.ps
 
 
 clean:

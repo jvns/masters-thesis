@@ -62,7 +62,7 @@ for $W^{res}_z(n) \otimes W_z^{res}(m)$ for $0 \leq n,m \leq \ell - 1$.
     is a sequence of submodules 
 
     \begin{equation}
-        \left\{ 0 \right\} = J_0 \subset \cdots \subset J_n = M
+        \left\{ 0 \right\} = J_0 \subsetneq \cdots \subsetneq J_n = M
     \end{equation}
 
     such that each $J_k$ is a maximal submodule of $J_{k+1}$ and each quotient $J_{k+1}/J_k$ is a Weyl module. 
@@ -103,28 +103,70 @@ $T_z(n)$ has basis $\left\{ t_0, \ldots, t_n \right\} \bigcup \left\{ t'_0,
     X^-t_i &= [i+1]_z t_{i+1} \\
     (X^-)^{(\ell)} t_i &= ( i_1 + 1) t_{i+\ell} \\
     Kt'_i &= z^{r-2i} t'_i \\
-    X^+ t'_i &= [r-i+1]_z t'_{i-1}  + \dbinom{n + i - \ell}{i}_z t_{n+i-\ell} &\text{ for $0 < i \leq r$}\\
+    X^+ t'_i &= [r-i+1]_z t'_{i-1}  + \dbinom{n + i - \ell}{i}_z t_{n+i-\ell} &\text{ if $0 < i \leq r$}\\
     X^+ t'_0 &= [n - \ell + 1]_z t_{n-\ell} \\
-    X^-t'_i &= [i+1]_z t'_{i+1} &\text{ for $0 \leq i < r$}\\
+    X^-t'_i &= [i+1]_z t'_{i+1} &\text{ if $0 \leq i < r$}\\
     X^- t'_r &= \dbinom{\ell - 1}{n - \ell + 1}_z t_\ell \\
     (X^\pm)^{(\ell)} t'_i  &= 0
 \end{align*}
 
-\begin{equation}
-\text{Put a nice picture here.}
-\end{equation}
+For example, when $\ell = 5, n = 5$, $T_z(5)$ looks as follows:
+
+\begin{center}
+\scalebox{1} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.57125)(2.905,1.57125)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(0.48,0.88875)(0.62,1.02875)(0.64,1.12875)(0.48,1.26875)
+\rput(0.3021875,1.37875) {$t_0$}
+\rput(0.3021875,0.81875) {$t_1$}
+\rput(0.3021875,0.25875) {$t_2$}
+\rput(0.3021875,-0.30125){$t_3$}
+\rput(0.3021875,-0.86125){$t_4$}
+\rput(0.3021875,-1.42125){$t_5$}
+
+\rput(2.5421875,0.81875) {$t'_0$}
+\rput(2.5421875,0.25875) {$t'_1$}
+\rput(2.5421875,-0.30125){$t'_2$}
+\rput(2.5421875,-0.86125){$t'_3$}
+\psline[linewidth=0.01cm,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(2.3,0.28875)(0.62,0.70875)
+\psline[linewidth=0.01cm,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(2.3,-0.97125)(0.66,-1.31125)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(2.74,-0.79125)(2.88,-0.65125)(2.9,-0.55125)(2.74,-0.41125)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(2.72,-0.27125)(2.86,-0.13125)(2.88,-0.03125)(2.72,0.10875)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(2.72,0.28875)(2.86,0.42875)(2.88,0.52875)(2.72,0.66875)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(0.48,0.30875)(0.62,0.44875)(0.64,0.54875)(0.48,0.68875)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(0.48,-0.25125)(0.62,-0.11125)(0.64,-0.01125)(0.48,0.12875)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(0.46,-0.83125)(0.6,-0.69125)(0.62,-0.59125)(0.46,-0.45125)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(0.48,-1.33125)(0.62,-1.19125)(0.64,-1.09125)(0.48,-0.95125)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{<-}(0.14,-1.35125)(0.02,-1.21125)(0.06,-1.09125)(0.14,-0.97125)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{<-}(0.14,-0.77125)(0.02,-0.63125)(0.06,-0.51125)(0.14,-0.39125)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{<-}(0.14,-0.23125)(0.02,-0.09125)(0.06,0.02875)(0.14,0.14875)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{<-}(2.38,-0.79125)(2.26,-0.65125)(2.3,-0.53125)(2.38,-0.41125)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{<-}(2.36,-0.23125)(2.24,-0.09125)(2.28,0.02875)(2.36,0.14875)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{<-}(2.36,0.32875)(2.24,0.46875)(2.28,0.58875)(2.36,0.70875)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{<-}(0.12,0.32875)(0.0,0.46875)(0.04,0.58875)(0.12,0.70875)
+\psbezier[linewidth=0.01,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{<-}(0.12,0.98875)(0.0,1.12875)(0.04,1.24875)(0.12,1.36875)
+\psline[linewidth=0.01cm,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(2.3,0.84875)(0.62,1.26875)
+\psline[linewidth=0.01cm,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(2.3,-0.27125)(0.62,0.14875)
+\psline[linewidth=0.01cm,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(2.3,-0.83125)(0.62,-0.41125)
+\end{pspicture} 
+}
+
+\end{center}
+
+where the upwards pointing arrows indicate the action of $X^+$ and the
+downwards pointing arrows indicate that of $X^-$.
 
 It is easy to see that the $T_z(n)$ are indecomposable, and that $\left\{ t_0,
 \ldots, t_n \right\}$ span a submodule isomorphic to $W_z^{res}(n)$. The
 quotient is spanned by $\left\{ t'_0, \ldots, t'_r \right\}$ and is
 isomorphic to $W_z^{res}(r)$. It is therefore clear that $T_z(n)$ has a Weyl
-filtration. Note that for $0 \leq n \leq \ell -1$, $T_z(n) = W_z^{res}(n) = W_{z}^{res}(n)$.
+filtration. Note that if $0 \leq n \leq \ell -1$, $T_z(n) = W_z^{res}(n) = W_{z}^{res}(n)$.
 
 Given this definition, we can compute the quantum dimension of $T_z(n)$: 
 
 \begin{equation}
-    \dim_q(T_z(n)) = \begin{cases} [n+1]_z &\text{ for $0 \leq n \leq \ell-1$} \\
-                                   [n+1]_z + [2\ell-n-1]_z = 0 &\text{ for $\ell \leq n < 2\ell - 2$}
+    \dim_q(T_z(n)) = \begin{cases} [n+1]_z & \text{ if $0 \leq n \leq \ell-1$} \\
+                                   [n+1]_z + [2\ell-n-1]_z = 0 &\text{ if $\ell \leq n < 2\ell - 2$}
                      \end{cases}
 \end{equation}
 so we have that $\dim_q(T_z(n)) = 0$ for $n < \ell-1$. In fact, \cite{Andersen1992} shows that 
@@ -186,7 +228,7 @@ for $\ell - 1 \leq n + m < 2\ell - 2$
 
 
 We will now quotient the category $\tilt$ to obtain an MTC. The goal here is to
-quotient by those tilting modules with quantum dimension 0. With this aim, we
+quotient by those tilting modules with quantum dimension zero. With this aim, we
 make the following definitions:
 
 \begin{defn}
@@ -203,7 +245,7 @@ quantum dimension zero. We are now in a position to define our modular tensor ca
 Define the category $\mathcal{C}^\text{int}$ be the category with objects tilting modules and morphisms 
 
     \begin{equation*}
-        \Hom(V,W) = \Hom_T(V,W) / \text{negligible morphisms}
+        \Hom(V,W) = \Hom_{\tilt}(V,W) / \text{negligible morphisms}
     \end{equation*}
 
 Prop \ref{theorem:decomposition} gives us that $\tilt$ is semisimple,
@@ -224,8 +266,8 @@ The fusion rules in $\mathcal{C}^{\text{int}}$ are given by
 where 
 
 \begin{equation}
-    N_{mn}^i = \begin{cases} 1 \text{ for } |m-n| \leq i \leq m+n, i \leq 2k - (m+n), i + m + n \in 2 \mathbf{Z} \\
-                             0 \text{ else } 
+    N_{mn}^i = \begin{cases} 1 \qquad \text{ if } |m-n| \leq i \leq m+n, i \leq 2k - (m+n), i + m + n \in 2 \mathbf{Z} \\
+                             0 \qquad \text{ else } 
                \end{cases}
 \end{equation}
 

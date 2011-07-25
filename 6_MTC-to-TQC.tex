@@ -1,13 +1,12 @@
-
 \section{The Fibonacci anyon}
 The simplest universal model of TQC, and so the most likely candidate for
 implementing TQC, is the Fibonacci anyon. We will introduce the Fibonacci
 anyon, and show how this model comes from the modular tensor category obtained
 from $U_q(\sll(2))$ for $q=e^{2\pi i/5}$ in some detail. We will also explain a
-fairly simple way to simulate quantum circuits with Fibonacci anyons, where
-fusion possibilities \todo{better term?} are the qubits.
+fairly simple way to simulate quantum circuits with Fibonacci anyons.
 
-In the Fibonacci anyon model there are 2 types, labelled $\mathbf{1}$, $\tau$. $\mathbf{1}$ is the trivial type. The fusion rules are as follows: 
+In the Fibonacci anyon model there are 2 types, labelled $\mathbf{1}$, $\tau$.
+$\mathbf{1}$ is the trivial type. The fusion rules are as follows: 
 
 
 \begin{itemize}
@@ -28,35 +27,94 @@ $\tau \odot (\tau \odot \tau)$, we get
 \end{equation}
 
 This means that when $\tau,\tau,\tau$ fuse, the result is either $\tau$ in one of
-2 possible ways, or $\mathbf{1}$ (in one way)''. What do we mean by ``in one of two
+two possible ways, or $\mathbf{1}$ (in one way). What do we mean by ``in one of two
 possible ways?'' Well, there are 3 fusion possibilities for 3 anyons, which we
-can draw as follows 
+can draw as follows: 
+
+\newcommand{\fusiondiagram}[2]
+{
+\begin{pspicture}(0,-0.99125)(2.841875,0.99125)
+\psline[linewidth=0.01cm]{->}(0.2209375,0.63)(0.65,0.2)
+\psline[linewidth=0.01cm]{->}(1.4209375,0.63)(1.05,0.2)
+\psline[linewidth=0.01cm]{->}(0.8209375, -0.12)(1.2209375,-0.57125)
+\psline[linewidth=0.01cm]{->}(2.6209376,0.63)(1.5,-0.57125)
+\rput(1.531875,0.79875) {$\tau$}
+\rput(0.111875,0.79875) {$\tau$}
+\rput(2.691875,0.79875) {$\tau$}
+\rput(0.85, 0.1)    {$#1$}
+\rput(1.35,-0.7)        {$#2$}
+\end{pspicture} 
+}
 \begin{center}
-    (draw some fusion diagrams here)
-    \todo{make these diagrams}
+\fusiondiagram{\mathbf{1}}{\tau}
+\fusiondiagram{\tau}{\mathbf{1}}
+\fusiondiagram{\tau}{\tau}
 \end{center}
 
 So in the first and third case the end result is $\tau$, and in the second case
-$\mathbf{1}$. So we see that there are two different ways of obtaining a final
+$\mathbf{1}$. There are therefore two different ways of obtaining a final
 result of $\tau$: the first two anyons can fuse with a result of either $\tau$
 or $\mathbf{1}$.
 
 
-\subsection{Where are the qubits?}
+\subsection{Simulating quantum circuits with Fibonacci anyons}
 
-When three anyons of type $\tau$ are fused, there are 3 possibilities for the result: 
+In the previous section we saw that three anyons of type $\tau$ are fused,
+there are 3 possibilities for the result: 
 
 \begin{center}
-    (draw some fusion diagrams here)
-    \todo{make these diagrams}
+\fusiondiagram{\mathbf{1}}{\tau}
+\fusiondiagram{\tau}{\mathbf{1}}
+\fusiondiagram{\tau}{\tau}
 \end{center}
 
-2 of them have the final result $\tau$. Another way of putting this is 
+Two of them have the final result $\tau$. This is equivalent to saying that
+$(\tau \odot \tau) \odot \tau \simeq 2\tau \oplus \mathbf{1}$. We therefore
+have that 
 
 \begin{equation}
-    \Hom(\tau, \tau^{\odot 3}) = \mathbb{C}^2
+    \Hom(\tau, (\tau \odot \tau) \odot \tau) = \mathbb{C}^2
 \end{equation}
 
+Our qubits will correspond to elements of $\Hom(\tau, (\tau \odot \tau) \odot
+\tau)$, which we will write as fusion diagrams: let 
 
+\begin{equation}
+\ket{0} = \fusiondiagram{\mathbf{1}}{\tau}
+\ket{1} = \fusiondiagram{\tau}{\tau}
+\end{equation}
+\todo{fix formatting}
 
+Intuitively speaking, $\ket{i}$ is a triplet of $\tau$ anyons that fuses in the
+way indicated in the diagram above.
+
+The central operation in TQC is that of braiding: computations correspond to
+braids. Since \Fib is a modular tensor category, for each pair of objects $V,W$
+there is a braiding isomorphism $\sigma_{V,W}: V \odot W \to W \odot V$.
+
+In particular, $\sigma_{\tau,\tau}: \tau \odot \tau \to \tau \odot \tau$ is an
+automorphism of $\tau \odot \tau$. We can depict it as a braid as follows:
+
+\begin{center}
+\todo{make a picture of the braid here}
+\end{center}
+
+This graphical notation can be formalized in a graphical calculus for ribbon
+categories, but we do not have time to discuss this here. See \cite{Kirillov}. 
+
+$\sigma_{\tau,\tau} \odot \id_\tau$ acts on $\Hom(\tau, (\tau \odot \tau) \odot \tau)$ by composition: 
+
+\begin{equation}
+f \mapsto (\sigma_{\tau,\tau} \odot \id_\tau) \circ f
+\end{equation}
+
+Since $\Hom(\tau, (\tau \odot \tau) \odot \tau) \simeq \mathbb{C}^2$ , we can
+write this as a $2 \times 2$ matrix called the \emph{$R$-matrix}. This can be
+either solved for using the fusion rules and pentagon equation or calculated
+using the $R$-matrix from \ref{section:braiding}. As in any monoidal category, 
+
+As in any monoidal category, $(\tau \odot \tau) \odot \tau \simeq \tau \odot
+(\tau \odot \tau)$ via the associativity isomorphism $\alpha_{\tau,\tau,\tau}$.
+This gives an isomophism between $\Hom(\tau, (\tau \odot \tau) \odot \tau)$ and
+$\Hom(\tau, \tau \odot (\tau \odot \tau))$
 \section{Universality}

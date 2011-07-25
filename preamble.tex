@@ -3,6 +3,7 @@
 \widowpenalty = 10000
 
 
+
 %\input{../../macros/macros} 
 
 %% Glossary/Notation stuff
@@ -16,6 +17,13 @@
 %makeindex -s %.ist -t %.glg -o %.gls %.glo
 %makeindex -s %.ist -t %.nlg -o %.ntn %.not
 % Then run latex, makeindex, latex, preview.
+
+
+% pstricks stutf
+\usepackage{pstricks}
+\usepackage{epsfig}
+\usepackage{pst-grad} % For gradients
+\usepackage{pst-plot} % For axes
 
 \usepackage[dvips]{geometry}
 \usepackage{graphicx}
@@ -88,6 +96,10 @@
 \newcommand{\Fib}{\mathbf{Fib}}
 \newcommand{\Ob}{\operatorname{Ob}}
 \newcommand{\tilt}{\mathbf{tilt}_\ell}
+
+
+\newcommand{\bra}[1]{ \left<#1\right|}
+\newcommand{\ket}[1]{ \left|#1\right>}
 
 \newcommand{\sll}{\mathfrak{sl}}
 \newcommand{\frakg}{\mathfrak{g}}

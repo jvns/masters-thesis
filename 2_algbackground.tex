@@ -242,22 +242,18 @@ associative bilinear mapping $A \times A \to A$ which has an identity element
 $1 \in A$ such that $1\cdot x = x\cdot 1 = x$ for any $x \in A$.
 
 Restated in categorical terms, a $k$-algebra is given by a triple $(A, \mu, \eta)$,
-where $A$ is a vector space, and $\mu: A \otimes A \to A$ and $\eta: k \to A$
-are linear maps satisfying the axioms:
+where $A$ is a vector space, and the multiplication map $\mu: A \otimes A \to A$ and the unit map $\eta: k \to A$
+are linear maps. For $A$ to be an algebra, the following two diagrams need to commute:
 
-Associativity:
-The diagram
+Associativity axiom:
 \begin{equation}
 \xymatrix{
 A \otimes A \otimes A \ar[d]^-{\id \otimes \mu} \ar[r]^-{\mu \otimes \id} & A \otimes A \ar[d]^-{\mu}\\
  A \otimes A \ar[r]^-\mu & A 
 }
 \end{equation}
-commutes.
 
-Unit: 
-
-The diagram
+Unit axiom: 
 
 \begin{equation}
     \xymatrix{
@@ -265,7 +261,6 @@ The diagram
     & A &
     }
 \end{equation}
-commutes.
 
 An algebra is called \emph{commutative} if $x \cdot y = y \cdot x$ for any
 $x,y\in A$. In other terms, it needs to satisfy the commutativity axiom:
@@ -280,7 +275,7 @@ The triangle
 \end{equation}
 
 Given two algebras $(A_1, \mu_1, \eta_1)$ and $(A_2, \mu_2, \eta_2)$, a linear
-map $f: A_1 \to A_2$ is called a \emph{morphism of algebras} or a
+map $f: A_1 \to A_2$ is called a \emph{morphism of algebras} or an
 \emph{algebra homomorphism} if $f(\mu_1(a,b)) = \mu_2(f(a), f(b))$ for any
 $a,b\in A_1$ and $f(\eta_1(1)) = \eta_2(1)$. In other words, the following two
 diagrams need to commute:
@@ -305,21 +300,18 @@ diagrams above as follows:
 \begin{defn}
     A \emph{coalgebra} is a triple $(C, \Delta, \varepsilon)$ where $C$ is a
     vector space, and $\Delta: C \to C \otimes C$, $\varepsilon: C \to k$ are
-    linear maps satisfying the axioms:
+    linear maps such that the following two diagrams commute:
 
-Associativity:
-The diagram
+Associativity axiom:
 \begin{equation}
 \xymatrix{
 C \otimes C \otimes C   & C \otimes C \ar[l]_-{\Delta \otimes \id}\\
  C \otimes C\ar[u]^-{\id \otimes \Delta}  & C \ar[l]_-\Delta \ar[u]_-{\Delta}
 }
 \end{equation}
-commutes.
 
-Unit: 
+Counit axiom:
 
-The diagram
 
 \begin{equation}
     \xymatrix{
@@ -327,9 +319,8 @@ The diagram
     & C \ar[u]_-\Delta \ar[lu]^-\simeq \ar[ru]_-{\simeq}&
     }
 \end{equation}
-commutes.
 \end{defn}
-A coalgebra is called \emph{cocommutative} if the triangle 
+A coalgebra is called \emph{cocommutative} if the following triangle commutes:
 
 \begin{equation}
     \xymatrix{
@@ -338,7 +329,6 @@ A coalgebra is called \emph{cocommutative} if the triangle
     }
 \end{equation}
 
-commutes.
 
 A linear map $f: C_1 \to C_2$ between two coalgebras $(C_1, \Delta_1,
 \varepsilon_1)$, $(C_2, \Delta_2, \varepsilon_2)$ is a coalgebra homomorphism
@@ -427,7 +417,7 @@ S(g) &= g^{-1}
     cocommutative. 
 \end{example}
 
-In general the antipode map can be thought of as an analog to the inverse map
+In general the antipode map can be thought of as an analogue to the inverse map
 in a group. If a bialgebra has an antipode, it is unique, and $S^2 = \id$.
 
 This next example will be quite important to us: the quantum groups we will
