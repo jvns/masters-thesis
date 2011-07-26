@@ -45,6 +45,22 @@ can draw as follows:
 \rput(1.35,-0.7)        {$#2$}
 \end{pspicture} 
 }
+
+\newcommand{\fusiondiagramright}[2]
+{
+\begin{pspicture}(0,-1)(2.84,1)
+\psline[linewidth=0.01cm]{->}(2.62,0.63)(2.19,0.2)
+\psline[linewidth=0.01cm]{->}(1.42,0.63)(1.79,0.2)
+\psline[linewidth=0.01cm]{->}(2.02,-0.12)(1.62,-0.57)
+\psline[linewidth=0.01cm]{->}(0.22,0.63)(1.34,-0.57)
+\rput(1.31,0.79875) {$\tau$}
+\rput(2.73,0.79875) {$\tau$}
+\rput(0.15,0.79875) {$\tau$}
+\rput(1.99, 0.1)    {$#1$}
+\rput(1.49,-0.7)        {$#2$}
+\end{pspicture} 
+}
+
 \begin{center}
 \fusiondiagram{\mathbf{1}}{\tau}
 \fusiondiagram{\tau}{\mathbf{1}}
@@ -89,7 +105,7 @@ Intuitively speaking, $\ket{i}$ is a triplet of $\tau$ anyons that fuses in the
 way indicated in the diagram above.
 
 The central operation in TQC is that of braiding: computations correspond to
-braids. Since \Fib is a modular tensor category, for each pair of objects $V,W$
+braids. Since $\Fib$ is a modular tensor category, for each pair of objects $V,W$
 there is a braiding isomorphism $\sigma_{V,W}: V \odot W \to W \odot V$.
 
 In particular, $\sigma_{\tau,\tau}: \tau \odot \tau \to \tau \odot \tau$ is an
@@ -116,5 +132,47 @@ using the $R$-matrix from \ref{section:braiding}. As in any monoidal category,
 As in any monoidal category, $(\tau \odot \tau) \odot \tau \simeq \tau \odot
 (\tau \odot \tau)$ via the associativity isomorphism $\alpha_{\tau,\tau,\tau}$.
 This gives an isomophism between $\Hom(\tau, (\tau \odot \tau) \odot \tau)$ and
-$\Hom(\tau, \tau \odot (\tau \odot \tau))$
-\section{Universality}
+$\Hom(\tau, \tau \odot (\tau \odot \tau))$: a change of basis matrix between the bases
+
+\begin{equation}
+\fusiondiagram{\mathbf{1}}{\tau}
+\qquad
+\fusiondiagram{\tau}{\tau}
+\end{equation}
+
+and
+
+\begin{equation}
+\fusiondiagramright{\mathbf{1}}{\tau}
+\qquad
+\fusiondiagramright{\tau}{\tau}
+\end{equation}
+
+This change of basis matrix is called the \emph{$F$-matrix}. It is
+\todo{write the F-matrix here}. 
+
+The $R$ and $F$-matrices allow us to compute the $2 \times 2$ matrix
+corresponding to each element of $B_3$. In fact, we obtain a representation of
+$B_n$ for any $n$: one on $\Hom(\mathbf{1}, \tau^{\odot n})$ and one on
+$\Hom(\tau, \tau^{\odot n})$.
+
+We have explained how 1-qubit systems are simulated. It remains to show how to simulate multiqubit systems.
+
+For $\ket{\varphi},\ket{\psi}\in \Hom(\tau,(\tau \odot \tau) \odot \tau)$,
+their tensor product $\ket{\varphi} \odot \ket{\psi} \in \Hom(\tau \odot
+\tau, (\tau)^{\odot 6}) \simeq \mathbb{C}^13$. 
+
+The vectors $\left\{ \ket{i}\odot \ket{j} : 0 \leq i,j\leq 1 \right\}$
+therefore span a 4-dimensional subspace of $\Hom(\tau \odot \tau, (\tau)^{\odot
+6}) \simeq \mathbb{C}^13$. We refer to this space as the \emph{computational
+space} $V$ as it is where all our computation takes place. It is possible that at
+the end of a computation the result is outside the computational space.  In
+that case we discard the result and try again. The goal is to insure that the
+result will be inside the computational space with high probability. 
+
+To do quantum computing, there are 2 obstacles. Any braid $\sigma$ in $B_6$
+acts on $\mathbb{C}^13$. 
+
+Firstly, there may be ``leakage errors'': in general $\sigma v \notin V$ for $v \in V$. 
+Secondly, it is not at all clear that this model is universal. 
+
