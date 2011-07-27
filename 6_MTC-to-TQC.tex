@@ -1,35 +1,54 @@
+In this chapter, we explain the relationship between TQC and modular tensor
+categories arising from quantum groups. We will focus mainly on the category
+$\Fib$ of Fibonacci anyons, which is the simplest MTC which is universal for
+quantum computing. 
+
+We will introduce $\Fib$ and discuss in some detail how to simulate the quantum
+circuit model in $\Fib$. We will then discuss Hormozi's constructions of a
+universal gate set for quantum computing in $\Fib$. We will also discuss
+Rowell's classification of MTCs of small order and state a conjecture of
+Rowell's about universality in MTCs.
+
 \section{The Fibonacci anyon}
-The simplest universal model of TQC, and so the most likely candidate for
-implementing TQC, is the Fibonacci anyon. We will introduce the Fibonacci
-anyon, and show how this model comes from the modular tensor category obtained
-from $U_q(\sll(2))$ for $q=e^{2\pi i/5}$ in some detail. We will also explain a
-fairly simple way to simulate quantum circuits with Fibonacci anyons.
+The simplest universal model of TQC, and so a good candidate for implementing TQC, is the Fibonacci anyon. Here we introduce the Fibonacci anyon
+and explain how to simulate quantum circuits using Fibonacci anyons.
 
-In the Fibonacci anyon model there are 2 types, labelled $\mathbf{1}$, $\tau$.
-$\mathbf{1}$ is the trivial type. The fusion rules are as follows: 
-
+The category $\Fib$ of Fibonacci anyons is a modular tensor category which is a
+subcategory of $\mathcal{C}^{int}(\sll(2),5)$: its objects are representations
+of $U_z^{res}(\sll(2))$ for $z$ a $5^{th}$ root of unity. The simple objects in 
+$\Fib$ are $V_0, V_2$. We will refer to them as $\one$ and $\tau$
+respectively, $\one$ being the tensor unit and trivial anyon type. The
+fusion rules in $\Fib$ can be computed easily and are as follows:
 
 \begin{itemize}
     \item $\tau \odot \tau = I \oplus \tau$
     \item $\tau \odot I = \tau$
     \item $I \odot I = I$
 \end{itemize}
+Recall that the $\oplus$ here means that when $\tau$, $\tau$ fuse, the result
+is a superposition of anyons of type $1$ and $\tau$.  The reason they are
+called Fibonacci anyons is that $\tau^{\odot n} \simeq F_{n-1} \one \oplus F_{n+2}
+\tau$, where $F_n$ is the $n^{th}$ Fibonacci number.
 
-As with all TQC theories, this takes place in a MTC which we call $\Fib$. The
-MTC $\Fib$ has two isomorphism classes of simple objects labelled by
-$\mathbf{1}$, $\tau$. $\mathbf{1}$ is the tensor unit. We will denote the
-tensor product by $\odot$. The $\oplus$ in the first fusion rule above should
-be taken to mean that if two anyons of type $\tau$ fuse, then the result is an
-anyon of type either $\mathbf{1}$ or $\tau$ (or a superposition). If we compute
-$\tau \odot (\tau \odot \tau)$, we get
+We will now explain a simple way to simulate quantum circuits using Fibonacci
+anyons. To simulate quantum circuits, we need
+
+\begin{itemize}
+\item Qubits
+\item Systems of multiple qubits
+\item A way to do measurement
+\item Unitary gates
+\item A universal gate set
+\end{itemize}
+
+First we construct qubits. Consider a triplet $(\tau,\tau,\tau)$ of Fibonacci
+anyons. A simple computation shows that 
+
 \begin{equation}
-    (\tau \odot \tau) \odot \tau = (\tau \oplus I) \odot \tau = (\tau \odot \tau) \oplus (I \odot \tau) = (\tau \oplus I) \oplus \tau = 2\tau \oplus I
+(\tau \odot \tau) \odot \tau \simeq 2\tau \oplus 1
 \end{equation}
 
-This means that when $\tau,\tau,\tau$ fuse, the result is either $\tau$ in one of
-two possible ways, or $\mathbf{1}$ (in one way). What do we mean by ``in one of two
-possible ways?'' Well, there are 3 fusion possibilities for 3 anyons, which we
-can draw as follows: 
+This means that there are $3$ fusion possibilities for $3$ anyons with type $\tau$:
 
 \newcommand{\fusiondiagram}[2]
 {
@@ -62,117 +81,136 @@ can draw as follows:
 }
 
 \begin{center}
-\fusiondiagram{\mathbf{1}}{\tau}
-\fusiondiagram{\tau}{\mathbf{1}}
+\label{fusionleft}
+\fusiondiagram{\one}{\tau}
+\fusiondiagram{\tau}{\one}
 \fusiondiagram{\tau}{\tau}
 \end{center}
 
-So in the first and third case the end result is $\tau$, and in the second case
-$\mathbf{1}$. There are therefore two different ways of obtaining a final
-result of $\tau$: the first two anyons can fuse with a result of either $\tau$
-or $\mathbf{1}$.
+Two of them have the final result $\tau$. We use this fact to define our qubits
+to be triplets of $\tau$ anyons with total charge $\tau$. We saw in
+\ref{fusionleft} that the first two qubits can fuse to be either $\tau$ or
+$\one$: denote these two possibilities by $((\tau,\tau)_\one,\tau)_\tau$ and
+$((\tau,\tau)_\tau,\tau)_\tau$.
 
+In $\Fib$, these are represented by eleemnts of $\Hom(\tau, ( (\tau \odot
+\tau)\odot \tau)) \simeq \Hom(\tau, 2\tau \oplus \one) \simeq \mathbb{C}^2$. 
+Define 
 
-\subsection{Simulating quantum circuits with Fibonacci anyons}
+\begin{align}
+\ket{0} = ((\tau,\tau)_\one , \tau)_\tau \\
+\ket{1} = ((\tau,\tau)_\tau , \tau)_\tau 
+\end{align}
 
-In the previous section we saw that three anyons of type $\tau$ are fused,
-there are 3 possibilities for the result: 
+$\ket{0}$ and $\ket{1}$ are elements of $\Hom(\tau, ((\tau \odot \tau)\odot
+\tau))$. We will call $\operatorname{span}\left\{ \ket{0}, \ket{1} \right\}$
+the \emph{computational space}. There is also a \emph{noncomputational space}
+spanned by $\ket{\text{NC}} = ( (\tau,\tau)_\tau,
+\tau)_\one$. One of the principal issues with this simulation is that of
+``leakage'': some operations take us out of the computational space. 
 
-\begin{center}
-\fusiondiagram{\mathbf{1}}{\tau}
-\fusiondiagram{\tau}{\mathbf{1}}
-\fusiondiagram{\tau}{\tau}
-\end{center}
+Performing measurements in the $\left\{ \ket{0}, \ket{1} \right\}$ basis is
+straightforward: just fuse the first two anyons and measure the result, then
+fuse the remaining two and measure again.
 
-Two of them have the final result $\tau$. This is equivalent to saying that
-$(\tau \odot \tau) \odot \tau \simeq 2\tau \oplus \mathbf{1}$. We therefore
-have that 
-
-\begin{equation}
-    \Hom(\tau, (\tau \odot \tau) \odot \tau) = \mathbb{C}^2
-\end{equation}
-
-Our qubits will correspond to elements of $\Hom(\tau, (\tau \odot \tau) \odot
-\tau)$, which we will write as fusion diagrams: let 
-
-\begin{equation}
-\ket{0} = \fusiondiagram{\mathbf{1}}{\tau}
-\ket{1} = \fusiondiagram{\tau}{\tau}
-\end{equation}
-\todo{fix formatting}
-
-Intuitively speaking, $\ket{i}$ is a triplet of $\tau$ anyons that fuses in the
-way indicated in the diagram above.
-
-The central operation in TQC is that of braiding: computations correspond to
-braids. Since $\Fib$ is a modular tensor category, for each pair of objects $V,W$
-there is a braiding isomorphism $\sigma_{V,W}: V \odot W \to W \odot V$.
-
-In particular, $\sigma_{\tau,\tau}: \tau \odot \tau \to \tau \odot \tau$ is an
-automorphism of $\tau \odot \tau$. We can depict it as a braid as follows:
-
-\begin{center}
-\todo{make a picture of the braid here}
-\end{center}
-
-This graphical notation can be formalized in a graphical calculus for ribbon
-categories, but we do not have time to discuss this here. See \cite{Kirillov}. 
-
-$\sigma_{\tau,\tau} \odot \id_\tau$ acts on $\Hom(\tau, (\tau \odot \tau) \odot \tau)$ by composition: 
-
-\begin{equation}
-f \mapsto (\sigma_{\tau,\tau} \odot \id_\tau) \circ f
-\end{equation}
-
-Since $\Hom(\tau, (\tau \odot \tau) \odot \tau) \simeq \mathbb{C}^2$ , we can
-write this as a $2 \times 2$ matrix called the \emph{$R$-matrix}. This can be
-either solved for using the fusion rules and pentagon equation or calculated
-using the $R$-matrix from \ref{section:braiding}. As in any monoidal category, 
-
-As in any monoidal category, $(\tau \odot \tau) \odot \tau \simeq \tau \odot
-(\tau \odot \tau)$ via the associativity isomorphism $\alpha_{\tau,\tau,\tau}$.
-This gives an isomophism between $\Hom(\tau, (\tau \odot \tau) \odot \tau)$ and
-$\Hom(\tau, \tau \odot (\tau \odot \tau))$: a change of basis matrix between the bases
-
-\begin{equation}
-\fusiondiagram{\mathbf{1}}{\tau}
-\qquad
-\fusiondiagram{\tau}{\tau}
-\end{equation}
-
-and
-
-\begin{equation}
-\fusiondiagramright{\mathbf{1}}{\tau}
-\qquad
-\fusiondiagramright{\tau}{\tau}
-\end{equation}
-
-This change of basis matrix is called the \emph{$F$-matrix}. It is
-\todo{write the F-matrix here}. 
-
-The $R$ and $F$-matrices allow us to compute the $2 \times 2$ matrix
-corresponding to each element of $B_3$. In fact, we obtain a representation of
-$B_n$ for any $n$: one on $\Hom(\mathbf{1}, \tau^{\odot n})$ and one on
-$\Hom(\tau, \tau^{\odot n})$.
-
-We have explained how 1-qubit systems are simulated. It remains to show how to simulate multiqubit systems.
-
+We have explained how 1-qubit systems are simulated. Multiqubit systems are
+similar: for $n$ qubits, we take $n$ sets of $3$ anyons: $\tau^{\odot 3n}$.
 For $\ket{\varphi},\ket{\psi}\in \Hom(\tau,(\tau \odot \tau) \odot \tau)$,
 their tensor product $\ket{\varphi} \odot \ket{\psi} \in \Hom(\tau \odot
-\tau, (\tau)^{\odot 6}) \simeq \mathbb{C}^13$. 
+\tau, (\tau)^{\odot 6}) \simeq \mathbb{C}^{13}$. 
 
 The vectors $\left\{ \ket{i}\odot \ket{j} : 0 \leq i,j\leq 1 \right\}$
 therefore span a 4-dimensional subspace of $\Hom(\tau \odot \tau, (\tau)^{\odot
-6}) \simeq \mathbb{C}^13$. We refer to this space as the \emph{computational
-space} $V$ as it is where all our computation takes place. It is possible that at
-the end of a computation the result is outside the computational space.  In
-that case we discard the result and try again. The goal is to insure that the
-result will be inside the computational space with high probability. 
+6}) \simeq \mathbb{C}^{13}$. We again refer to this space as the
+\emph{computational space} $V$. As $n$ gets larger, more and more of the space
+is the noncomputational space. 
 
-To do quantum computing, there are 2 obstacles. Any braid $\sigma$ in $B_6$
-acts on $\mathbb{C}^13$. 
+We now turn to the problem of defining gates. $\Fib$ is braided, so for any $n$
+and object $V$ in $\Fib$, $B_n$ acts on $\Hom(V, \tau^{\odot n})$ by
+composition: 
 
-Firstly, there may be ``leakage errors'': in general $\sigma v \notin V$ for $v \in V$. 
-Secondly, it is not at all clear that this model is universal. 
+\begin{equation}
+f \mapsto \sigma \circ f
+\end{equation}
+
+This gives a representation of the braid group on the hom sets $\Hom(\one,
+\tau^{\odot n})$. In fact, it turns out that this representation is unitary.
+Braids therefore act unitarily on our qubits, and we will use them as our
+quantum gates. How do these braids act? The generator $\sigma_1$ of $B_3$,
+
+\begin{center}
+    % drawing of a braid
+    \scalebox{1} % Change this value to rescale the drawing.
+    {
+    \begin{pspicture}(0,-0.9615033)(2.421875,0.9815033)
+    \pscustom[linewidth=0.02cm]
+    {
+    \newpath
+    \moveto(0.1609375,0.558031)
+    \lineto(0.1309375,0.43743896)
+    \curveto(0.1159375,0.37714294)(0.1159375,0.2486859)(0.1309375,0.1805255)
+    \curveto(0.1459375,0.112365104)(0.2159375,-0.00822694)(0.2709375,-0.06065797)
+    \curveto(0.3259375,-0.113089)(0.4759375,-0.21008728)(0.5709375,-0.25465393)
+    \curveto(0.6659375,-0.2992206)(0.8459375,-0.40670472)(0.9309375,-0.4696222)
+    \curveto(1.0159374,-0.53253967)(1.1359375,-0.6609961)(1.1709375,-0.726535)
+    \curveto(1.2059375,-0.7920746)(1.2459375,-0.87334293)(1.2609375,-0.9205308)
+    }
+    \pscustom[linewidth=0.02cm]
+    {
+    \newpath
+    \moveto(0.5809375,-0.1340619)
+    \lineto(0.7909375,-0.05541505)
+    \curveto(0.8959375,-0.01609193)(1.0309376,0.10187865)(1.0609375,0.1805255)
+    \curveto(1.0909375,0.25917235)(1.1359375,0.39811522)(1.1809375,0.5790033)
+    }
+    \pscustom[linewidth=0.02cm]
+    {
+    \newpath
+    \moveto(0.4409375,-0.25989687)
+    \lineto(0.2909375,-0.40146118)
+    \curveto(0.2159375,-0.47224304)(0.1159375,-0.6216724)(0.0909375,-0.70031923)
+    \curveto(0.0659375,-0.77896667)(0.0509375,-0.8785858)(0.0809375,-0.9415033)
+    }
+    \rput(0.111875,0.7890033){$\tau$}
+    \rput(1.151875,0.7890033){$\tau$}
+    \rput(2.271875,0.7890033){$\tau$}
+    \psline[linewidth=0.02cm](2.2609375,0.59900326)(2.2609375,-0.90099674)
+    \end{pspicture} 
+    }
+\end{center}
+
+acts on $\Hom(\tau, ( (\tau \odot \tau) \odot \tau))$ via the unitary matrix
+
+\begin{equation}
+\begin{pmatrix}
+e^{\frac{-4\pi i}{5}} & 0 \\
+0 & e^{\frac{-2\pi i}{5}}  \\
+\end{pmatrix}
+\end{equation}
+
+with respect to the basis $\left\{ \ket{0}, \ket{1} \right\}$. This can be
+computed either using the ``universal $R$-matrix'' in \ref{section:braiding} or
+by solving for it using the fusion rules and the axioms for a braided monoidal
+category (see \cite{Panangaden}).
+
+$\Hom(\tau, \tau^{\odot 3})$ also has the basis \{ $(\tau,
+(\tau,\tau)_\one)_\tau$, $(\tau, (\tau,\tau)_\tau)_\tau$ \}. It is obtained
+from the basis $\left\{ \ket{0}, \ket{1} \right\}$ by composing with the
+associativity isomorphism $\alpha_{\tau,\tau,\tau}$. The change of basis matrix
+is called the \emph{$F$-matrix}. It is
+
+\begin{equation}
+\begin{pmatrix}
+\phi^{-1} & \sqrt(\phi^{-1}) \\
+\sqrt(\phi^{-1}) & -\phi^{-1} \\
+\end{pmatrix}
+\end{equation}
+
+where $\phi$ is the golden ratio. The $F$-matrix is also unitary.
+
+The $R$ and $F$-matrices allow us to compute the $2 \times 2$ matrix
+corresponding to each element of $B_3$ in this representation: the other
+generator $\sigma_2$ of $B_3$ acts as $F^{-1}RF$. In fact, the $R$ and $F$
+matrices are enough to compute the matrix associated to any element of the
+$B_n$ acting on $\Hom(\one, \tau^{\odot n})$ or $\Hom(\tau, \tau^{\odot n})$.
 
