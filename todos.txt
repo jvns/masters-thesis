@@ -1,3 +1,8 @@
+Introduction:
+    - ask Prakash about writing some paragraphs about connecting MTCs to TQC
+    - Rewrite some introductory sections (eg that of 4.3) after having an introduction
+    - read Preskill for some inspiration
+
 Algebraic background: 
     - write a section about quantum algebra
     - sketch the classification of Lie algebras
@@ -5,6 +10,7 @@ Algebraic background:
     - introduce an inner product on roots without defining it.
     - say what a positive root is.
     - generally clean up the Lie algebra section
+    - make sure the section on sl(2) relations well to 4.2
 
 Categorical background:
     - introduce MTCs via Muger notes. Look for a reference (perhaps there is one in your notes).
@@ -13,7 +19,8 @@ Categorical background:
     - reference Eric's stuff; it's pretty nice I think
 
 MTC => TQC:
-    - Explain how to simulate circuit-based quantum computation in this
-      quotient category (be really explicit about the braiding morphisms)
     - sketch the proof of universality
-    - basically do everything here =\
+
+General:
+    - Spellcheck.
+    - Ask Prakash about making an index of notation

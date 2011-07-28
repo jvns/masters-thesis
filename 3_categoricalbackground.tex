@@ -1,37 +1,45 @@
-In the introduction we explained that models of TQC can be presented as modular
-tensor categories.  The basic idea is that a modular tensor category is a
-semisimple category where anyon types correspond to isomorphism classes of
-simple objects. Fusing two anyons corresponds to taking the tensor product of
-two objects, and the meaning of an equation like
-
-\begin{equation}
-V_1 \otimes V_2 \simeq V_3 \oplus V_4
-\end{equation}
-
-for simple objects $V_1, V_2, V_3, V_4$ is that fusing $V_1$ with $V_2$ results in
-either an anyon of type $V_3$ or an anyon of type $V_4$ (or a superposition, of
-course).
-
-In categorical terms, a modular tensor category needs to be:
+Any anyonic model corresponds to a modular tensor category. In this chapter we
+give a series of definitions leading up to the definition of a modular tensor
+category. Before delving into categorical definitions, however, we give a
+sketch of the correspondence between an anyonic model and a modular tensor
+category to motivate the upcoming definitions. The basic idea is that anyons
+correspond to objects and anyon types correspond to isomorphism classes of
+simple objects. So,
 
 \begin{itemize}
-    \item semisimple (fusing anyons results in an anyon)
-    \item monoidal (so that we can have tensor products of several anyons)
-    \item rigid (has duals)
-    \item braided (so that anyons can be exchanged: this is how computation occurs)
-    \item ribbon (has a notion of a trace)
+\item Anyons correspond to objects
+\item In any anyonic model, there are a finite number of \emph{charges} or
+      \emph{types}. These correspond to isomorphism classes of simple objects
+\item The category must be \emph{semisimple} \todo{justify this better.}
+\item Systems of several anyons correspond to tensor products of anyons: the
+      category is \emph{monoidal}. These tensor products decompose as direct sums of
+      anyons, e.g. 
+
+\begin{equation}
+a \otimes b \simeq 2a \oplus 3c
+\end{equation}
+
+      The physical interpretation of this is that if an anyon of type $a$ fuses
+      with an anyon with type $b$, the result is either an anyon of type $a$,
+      in one of two possible ways, or an anyon of type $b$, in one of three
+      possible ways.
+\item Exchanging anyons corresponds to braiding their worldlines, which in the
+      category corresponds to applying an appropriate braiding isomorphism to
+      the system of anyons. In other words, the category is \emph{braided}.
+\item The conjugate of a charge corresponds to its \emph{dual}: the category is
+      \emph{rigid}.
+\item The category is \emph{ribbon} \todo{find a justification}
 \end{itemize}
 
-A category with all these properties that satisfies one additional condition is
-called a modular tensor category. We will explain this condition and discuss
-modular tensor categories in more detail in section \ref{section:MTCs}. In
-this chapter, we give abstract definitions
-for all the properties a MTC needs to satisfy. We also show that the category
+To summarize, the category must be semisimple, monoidal, braided, rigid, and
+ribbon. A category with all these properties that satisfies one additional
+condition is called a modular tensor category. We will explain this condition
+and discuss modular tensor categories in more detail in section
+\ref{section:MTCs}. In this chapter, we give abstract definitions for all the
+properties a MTC needs to satisfy. We also show that the category
 of representations of any Hopf algebra is a rigid monoidal category, since the
 modular tensor categories we will be interested in are constructed from
 categories of representations of Hopf algebras.
-
-
 
 \section{Monoidal Categories}
 \begin{defn}
@@ -121,7 +129,7 @@ category $\mathcal{C}$ with a natural transformation
 For $V_1, V_2, \dots, V_n \in \mathcal{C}$, consider expressions of the form 
 
 \begin{equation}
-    ( (V_{i_1}\otimes V_{i_2}) \otimes (V_{i_3} \otimes 1)) \otimes \cdots \otimes V_{i_n}
+    ((V_{i_1}\otimes V_{i_2}) \otimes (V_{i_3} \otimes 1)) \otimes \cdots \otimes V_{i_n}
 \end{equation}
 
 obtained from $V_1,V_2,\ldots,V_n$ by adding brackets and $1$'s.
