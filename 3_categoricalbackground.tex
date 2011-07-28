@@ -14,7 +14,6 @@ simple objects. So,
 \item Systems of several anyons correspond to tensor products of anyons: the
       category is \emph{monoidal}. These tensor products decompose as direct sums of
       anyons, e.g. 
-
 \begin{equation}
 a \otimes b \simeq 2a \oplus 3c
 \end{equation}
@@ -22,10 +21,33 @@ a \otimes b \simeq 2a \oplus 3c
       The physical interpretation of this is that if an anyon of type $a$ fuses
       with an anyon with type $b$, the result is either an anyon of type $a$,
       in one of two possible ways, or an anyon of type $b$, in one of three
-      possible ways.
+      possible ways. The trivial charge corresponds to the tensor unit.
 \item Exchanging anyons corresponds to braiding their worldlines, which in the
       category corresponds to applying an appropriate braiding isomorphism to
       the system of anyons. In other words, the category is \emph{braided}.
+\begin{center}
+\scalebox{1} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.4947689)(5.20875,1.5147688)
+\psbezier[linewidth=0.02](4.04,0.7813313)(4.04,0.6240438)(4.22,0.23082528)(4.64,0.15218155)(5.06,0.073537834)(5.04,-0.10930765)(5.04,-0.30985886)
+\psbezier[linewidth=0.02](5.04,0.7813313)(5.04,0.46675643)(4.96,0.27014711)(4.6,0.21509652)
+\psbezier[linewidth=0.02](4.42,0.16004592)(4.16,0.104995325)(4.04,-0.16239332)(4.04,-0.30985886)
+\psdots[dotsize=0.1](4.08,1.0213313)
+\psdots[dotsize=0.1](5.08,1.0213313)
+\rput(4.043125,1.31){$a$}
+\rput(5.047969,1.35){$b$}
+\psdots[dotsize=0.1](0.1,-0.018668715)
+\psdots[dotsize=0.1](1.1,-0.018668715)
+\rput(0.063125,0.27){$a$}
+\rput(1.0679687,0.31){$b$}
+\psarc[linewidth=0.02]{<-}(1.0,0.061331283){0.78}{199.98311}{174.28941}
+\psbezier[linewidth=0.02](4.04,-0.30985886)(4.0,-0.6047751)(4.22,-0.845619)(4.64,-0.92426276)(5.06,-1.0029064)(5.04,-1.3332101)(5.06,-1.4747688)
+\psbezier[linewidth=0.02](5.04,-0.30985886)(5.04,-0.6096879)(4.96,-0.8062972)(4.6,-0.8613478)
+\psbezier[linewidth=0.02](4.42,-0.9163984)(4.16,-0.971449)(4.04,-1.2388376)(4.04,-1.4747688)
+\rput(2.7798438,-0.028668715){$\iff$}
+\end{pspicture} 
+}
+\end{center}
 \item The conjugate of a charge corresponds to its \emph{dual}: the category is
       \emph{rigid}.
 \item The category is \emph{ribbon} \todo{find a justification}
@@ -83,7 +105,10 @@ other anyon has no effect.
 
 \section{Rigid monoidal categories}
 
-A rigid monoidal category is a monoidal category where there is a notion of a dual. 
+A rigid monoidal category is a monoidal category where there is a notion of a
+dual. This corresponds to the notion of charge conjugation: every anyon type
+$T$ has a unique conjugate type $T^*$ which fuses with it to give the trivial
+charge.
 
 \begin{defn}
     Let $\mathcal{C}$ be a monoidal category, $V$ an object in $\mathcal{C}$. A
@@ -112,14 +137,16 @@ is equal to $\id_V$, and similarly the composition
 
 is equal to $\id_{V^*}$
 
+The morphisms $i_V$ and $e_V$ can be thought of as encoding the way in which
+$V^*$ and $V$ fuse to yield the trivial charge.
    
 \section{Braided monoidal categories}
 \label{section:Braiding}
 
 The central operation in topological quantum computing is that of exchanging
 two anyons. Mathematically, the structure we need to model this is that of a
-braided monoidal category: any computation done a set of anyons corresponds to
-an element of the braid group.  A braided monoidal category is a monoidal
+braided monoidal category: any computation on a set of anyons corresponds to
+an element of the braid group. A braided monoidal category is a monoidal
 category $\mathcal{C}$ with a natural transformation
 
 \begin{equation}
