@@ -50,7 +50,7 @@ a \otimes b \simeq 2a \oplus 3c
 \end{center}
 \item The conjugate of a charge corresponds to its \emph{dual}: the category is
       \emph{rigid}.
-\item The category is \emph{ribbon} \todo{find a justification}
+\item The category is \emph{ribbon} \todo{say more about this?}
 \end{itemize}
 
 To summarize, the category must be semisimple, monoidal, braided, rigid, and
@@ -281,39 +281,34 @@ We define the dimension of an object $V$ to be $\dim V = \tr \id_V$.
     \end{equation}
 
     We call each equation of this type a \emph{fusion rule}. 
-    \todo{why are we making this definition?}
 
 \section{Modular tensor categories}
 \label{section:MTCs}
+    \todo{introductory sentence about anyons and MTCs}
 
-%The \emph{dimension} of a category $\mathcal{C}$ is defined by 
+    The definition of modular tensor categories first appeared in \cite{MS}.
+    They arise in conformal field theory and from quantum groups: we will
+    explain how they arise from quantum groups in Chapter \ref{chapter:MTC}.
+    They have applications ot topological quantum field theory; Reshetikhin and
+    Turaev associated a TQFT in 2+1 dimensions to every MTC; an exposition is
+    in Bakalov \& Kirillov \ref{Kirillov}.
 
-%\begin{equation}
-%    \operatorname{dim}(\mathcal{C}) = \sum_{ x \in \Ob \mathcal{C}} (\operatorname{dim} x)^2
-%\end{equation}
-
-
-\begin{defn}
-    The \emph{symmetric center} of a braided category $\mathcal{C}$
-    $\mathbf{Z}_2(\mathcal{C})$ is a full subcategory with 
-
+    Essentially modular tensor categories are a special type of braided tensor
+    category.  The \emph{symmetric center} $\mathbf{Z}_2(\mathcal{C})$ of a
+    braided category $\mathcal{C}$ is a full subcategory with 
     \begin{equation}
-        \Ob \mathbf{Z}_2(\mathcal{C}) = \left\{ x \in \mathcal{C} : \sigma_{XY} \circ \sigma_{YX} = \id\ \forall Y \in \mathcal{C} \right\}
+        \Ob \mathbf{Z}_2(\mathcal{C}) = \left\{ x \in \mathcal{C} : \sigma_{XY} \circ \sigma_{YX} = \id\ \forall\ Y \in \mathcal{C} \right\}
     \end{equation}
-
-
-\end{defn}
+    It is a measure of ``how commutative'' $\mathcal{C}$ is. In a symmetric
+    category, $\mathbb{Z}_2(\mathcal{C}) = \mathcal{C}$. A modular tensor
+    category is in this sense the opposite of a symmetric category:
 
 \begin{defn}
     A modular tensor category is a semisimple ribbon category such that
-    $\mathbf{Z}_2(\mathcal{C})$ is trivial (every object is isomorphic to
-    $\mathbf{1}^{\oplus n}$). 
-
-    %Equivalently, every simple object in the center is isomorphic to $\mathbf{1}$.  
+    $\mathbf{Z}_2(\mathcal{C})$ is trivial
 \end{defn}
 
-%Why are these categories called modular? 
-\todo{ finish this }
+These categories are called modular because each one gives rise to a projective representation of the modular group $SL(2, \mathbb{Z})$.
 
 In any semisimple rigid braided tensor category, define
 
@@ -328,6 +323,7 @@ It is proved in \cite{mueger2001} that
     $\mathbf{Z}_2(\mathcal{C})$ is trivial if and only if the matrix $s$ is invertible. 
 \end{theorem}
 
+This was the original definition of a modular tensor category.
 
 \section{The category of representations of a Hopf algebra}
 \label{section:RepHopfAlgebra}

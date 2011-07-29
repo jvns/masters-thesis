@@ -3,20 +3,10 @@ Introduction:
     - Rewrite some introductory sections (eg that of 4.3) after having an introduction
     - read Preskill for some inspiration
 
-Algebraic background: 
-    Lie Algebra stuff:
-    - sketch the classification of Lie algebras
-    - explain what a root system is 
-    - introduce an inner product on roots without defining it.
-    - say what a positive root is.
-    - generally clean up the Lie algebra section
-    - make sure the section on sl(2) relations well to 4.2
-
 Categorical background:
-    - introduce MTCs via Muger notes. Look for a reference (perhaps there is one in your notes).
-      there is one here: http://www.math.ru.nl/~mueger/PDF/20.pdf
     - give some intuition for the dual and ribbon parts: take some inspiration from Eric?
     - reference Eric's stuff; it's pretty nice I think
+    - make a real reference 
 
 
 U_q(sl(2)):
