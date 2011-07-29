@@ -4,7 +4,7 @@ Introduction:
     - read Preskill for some inspiration
 
 Algebraic background: 
-    - write a section about quantum algebra
+    Lie Algebra stuff:
     - sketch the classification of Lie algebras
     - explain what a root system is 
     - introduce an inner product on roots without defining it.
@@ -18,8 +18,13 @@ Categorical background:
     - give some intuition for the dual and ribbon parts: take some inspiration from Eric?
     - reference Eric's stuff; it's pretty nice I think
 
+
+U_q(sl(2)):
+    - give some references for quantum integers and q-calculus
+
 MTC => TQC:
     - sketch the proof of universality
+    - make sure you can do this R-matrix calculation
 
 General:
     - Spellcheck.

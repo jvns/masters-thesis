@@ -4,26 +4,6 @@ we define and discuss some relevant results about the required algebraic
 structures. Everything in this section takes place over a field $k$ of
 characteristic 0.
 
-\section{Quantum algebra}
-
-In the definitions and results involving quantum groups we will frequently
-encounter so-called `quantum integers'. In this section we will provide some
-definitions and motivation.
-\todo{provide the motivation}
-
-\begin{equation}
-    [n]_q = \frac{q^n - q^{-n}}{q - q^{-1}} = q^{n-1} + q^{n-3} + \cdots + q^{-n+3} + q^{-n+1}
-\end{equation}
-
-\begin{equation}
-    [n]!_q = [n]_q [n-1]_q \cdots [1]_q
-\end{equation}
-
-$q^{2d}=1$ if and only if $[d]_q = 0$, so $[n]_q \neq 0$ for every nonzero
-integer when $q$ is not a root of unity. When $q$ is an $\ell^\text{th}$ root
-of unity, $[n]_q = 0$ when $\ell$ divides $n$.
-
-
 \section{Representations of algebras}
 
 We will model anyons by representations of certain algebras called quantum
@@ -72,7 +52,7 @@ we will use the terms interchangeably.
     nontrivial submodules.
 \end{defn}
 
-\section{Lie Algebras}
+\section{Lie algebras}
 
 The examples of quantum groups that we are interested in are obtained as
 deformations of semisimple Lie algebras. We will give some basic definitions of
@@ -83,11 +63,11 @@ and \cite{Humphreys1973} for the more general case of Lie algebras over a
 field of arbitrary characteristic. Here we will work over $\mathbb{C}$.
 
 
-Throughout this section $\mathfrak{g}$ will denote a Lie algebra.
+Throughout this section $\frakg$ will denote a Lie algebra.
 
-A \emph{Lie algebra} is a vector space $\mathfrak{g}$ with a bilinear operation
-$\left[ \cdot, \cdot \right]$  $\mathfrak{g} \times \mathfrak{g} \to
-\mathfrak{g}$ such that for any $x,y,z\in \mathfrak{g}$,
+A \emph{Lie algebra} is a vector space $\frakg$ with a bilinear operation
+$\left[ \cdot, \cdot \right]$  $\frakg \times \frakg \to
+\frakg$ such that for any $x,y,z\in \frakg$,
 
 \begin{itemize}
     \item $\left[ x,y \right] = -\left[ y,x \right]$
@@ -116,11 +96,11 @@ We will only be interested here in semisimple Lie algebras, which are a
 well-characterized class of Lie algebras. They are defined as follows.
 
 \begin{defn}
-    A subspace $\mathfrak{h} \subset \mathfrak{g}$ of a Lie algebra is a
-    \emph{Lie subalgebra} if $\mathfrak{h}$ is closed under the Lie bracket. 
+    A subspace $\frakh \subset \frakg$ of a Lie algebra is a
+    \emph{Lie subalgebra} if $\frakh$ is closed under the Lie bracket. 
 
-    An \emph{ideal} $I$ of $\mathfrak{g}$ is a subalgebra such that
-    $[\mathfrak{g}, I] \subset I$
+    An \emph{ideal} $I$ of $\frakg$ is a subalgebra such that
+    $[\frakg, I] \subset I$
 \end{defn}
 
 \begin{defn}
@@ -139,13 +119,14 @@ algebras.
 \end{defn}
 
 \subsection{Representations of $\sll(2)$}
+\label{subsection:RepsOfSL2}
 We model anyons by representations of a deformation of $\sll(2)$, and
 understanding the representations of $\sll(2)$ is an important first step. We
 present the basic facts about the representation theory of $\sll(2)$ here
 without proof.
 
-A \emph{representation} of a Lie algebra $\mathfrak{g}$ is a vector space $V$
-together with an action of $\mathfrak{g}$ on $V$ such that 
+A \emph{representation} of a Lie algebra $\frakg$ is a vector space $V$
+together with an action of $\frakg$ on $V$ such that 
 
 \begin{align*}
     \left[ x,y \right] v &= x(yv) - y(xv) \\
@@ -153,21 +134,22 @@ together with an action of $\mathfrak{g}$ on $V$ such that
     (ax)v &= a(xv)
 \end{align*}
 
-for all $x,y \in \mathfrak{g}, v \in V, a \in \mathbb{C}$
+for all $x,y \in \frakg, v \in V, a \in \mathbb{C}$
 
 A representation is called \emph{irreducible} or \emph{simple} if it has no
-nontrivial subspaces invariant under the action of $\mathfrak{g}$.
+nontrivial subspaces invariant under the action of $\frakg$.
 
 In $\sll(2)$,
-\begin{itemize}
-    \item Every representation decomposes as a direct sum of irreducible
-        representations (in other words, is completely reducible)
+\begin{enumerate}
+    \item Every finite dimensional representation decomposes as a direct sum of
+          irreducible representations (in other words, is completely reducible).
     \item The eigenvectors of $H$ form a basis for every irreducible
-        representation. Their eigenvalues are called \emph{weights} and are
-        all integers.
+          representation. Their eigenvalues are called \emph{weights} and are
+          all integers. The eigenspaces of $H$ are called \emph{weight spaces}.  
+    \item Each irreducible representation has a highest weight vector
     \item The irreducible representations are classified by their highest
-    weights $n \geq 0$: the representation $V(n)$ with highest weight $n$ has
-    basis $\left\{ v_0, \ldots, v_n \right\}$ such that 
+          weights $n \geq 0$: the representation $V(n)$ with highest weight $n$
+          has basis $\left\{ v_0, \ldots, v_n \right\}$ such that 
     % from Kassel, p. 101
 \begin{align*}
     &H v_i = (n - 2i) v_i& \\
@@ -180,43 +162,130 @@ In $\sll(2)$,
                 0& \text{ for $i = 0$} \\
             \end{cases}
 \end{align*}
-\end{itemize}
+\end{enumerate}
 
 
 
 
-\subsection{Representations of Semisimple Lie Algebras}
+\subsection{Representations of semisimple Lie algebras}
 
 Here we will describe some of the representation theory of semisimple Lie
 algebras, in particular defining roots and weights and inner products of roots.
 We will need this theory when discussing the representation theory of the
 quantum groups in chapter \ref{chap:uqsl2}. 
 In a general semisimple Lie algebra, the \emph{Cartan subalgebra}
-$\mathfrak{h}$ will take the place of the matrix $H$: the basis vectors for
+$\frakh$ will take the place of the matrix $H$: the basis vectors for
 irreducible representations of $\frakg$ will be simultaneous eigenvectors of
-every element of $\mathfrak{h}$ instead of eigenvectors of $H$.
+every element of $\frakh$ instead of eigenvectors of $H$.
 
 \begin{defn}
     If $\frakg$ is a complex semisimple Lie algebra, then a \emph{Cartan
-        subalgebra} of $\frakg$ is a complex subspace $\mathfrak{h}$ of
+        subalgebra} of $\frakg$ is a complex subspace $\frakh$ of
         $\frakg$ such that: 
     \begin{enumerate}
         \renewcommand{\labelenumi}{\roman{enumi})}
-        \item $\left[ H_1, H_2 \right] = 0$ for all $H_1, H_2 \in \mathfrak{h}$
+        \item $\left[ H_1, H_2 \right] = 0$ for all $H_1, H_2 \in \frakh$
         \item For all $X \in \frakg$, if $\left[ H,X \right] = 0$, for all $H
-            \in \mathfrak{h}$, then $X \in \mathfrak{h}$
-        \item $\ad_H$ is diagonalizable for all $H \in \mathfrak{h}$
+            \in \frakh$, then $X \in \frakh$
+        \item $\ad_H$ is diagonalizable for all $H \in \frakh$
     \end{enumerate}
 \end{defn}
 
 \begin{defn}
-A \emph{root} of $\frakg$ is a nonzero linear functional $\alpha$ on $\mathfrak{h}$ such that there exists a nonzero element $X \in \frakg$ with 
+A \emph{root} of $\frakg$ is a nonzero linear functional $\alpha$ on $\frakh$ such that there exists a nonzero element $X \in \frakg$ with 
 
 \begin{equation}
 \left[ H,X \right] = \alpha(H)X
 \end{equation}
-for all $H \in \mathfrak{g}$
+for all $H \in \frakg$
 \end{defn}
+
+It is always possible to define an inner product $\left<\cdot,\cdot\right>$ on
+$\frakg$ which satisfies certain properties that we won't go into here. For
+example, in $\sll(2)$ an appropriate inner product is 
+
+\begin{equation}
+\left<A,B\right> = \tr(A^*B)
+\end{equation}
+
+We can use this inner product to identify $\frakh$ with $\frakh^*$. In
+particular, this lets us identify roots with elements of $\frakh$, giving us
+the new definition:
+
+\begin{defn}
+A \emph{root} of $\frakg$ is a nonzero linear functional $\alpha$ on $\frakh$
+such that there exists a nonzero element $X \in \frakg$ with 
+
+\begin{equation}
+\left[ H,X \right] = \left<\alpha,H\right>X
+\end{equation}
+for all $H \in \frakh$
+\end{defn}
+
+This means in particular that there is an inner product on roots. 
+
+The \emph{root system} $R \subset \frakg$ of $\frakg$ is the set of its roots. 
+
+\begin{defn}
+A \emph{base} for a root system $R$ is a subset $\left\{ \alpha_1, \ldots,
+\alpha_r \right\} \subseteq R$ which is a basis for $\frakg$, and further if 
+
+\begin{equation}
+\alpha = n_1 \alpha_1 + \ldots + n_r \alpha_r
+\end{equation}
+
+then either all the $n_i$ are greater than or equal to zero or all the $n_i$
+are less than or equal to zero. A root $\alpha$ with all the $n_i \geq 0$ is
+called a \emph{positive root}. A root $\alpha$ with all the $n_i \leq 0$ is
+called a \emph{negative root}. The elements $\left\{ \alpha_1, \ldots, \alpha_r
+\right\}$ are called the \emph{positive simple roots}.
+\end{defn}
+
+Suppose $\rho$ is a finite dimension representation of $\frakg$ on $V$. $\mu \in \frakh$ is called a \emph{weight} for $\rho$ if there exists a nonzero vector $v \in V$ such that 
+
+\begin{equation}
+\rho(H)v = \left<\mu, H\right> v
+\end{equation}
+
+for all $H \in \frakh$. $v$ is simultaneously an eigenvalue of every $\rho(H)$,
+and $\mu$ gives its eigenvalues.
+
+We define a partial order on the weights as follows:
+
+\begin{defn}
+Let $\mu_1, \mu_2 \in \frakh$. Then $\mu_1 \geq \mu_2$ if there are $n_1, \ldots, n_r \geq 0$ such that 
+
+\begin{equation}
+\mu_1 - \mu_2 = n_1 \alpha_1 + \ldots + n_r \alpha_r
+\end{equation}
+
+A weight $\mu_0$ is a \emph{highest weight} if $\mu_0 \geq \mu$ for all weights $\mu$.
+
+\end{defn}
+
+We need to make one last definition before stating the theorem classifying the representations of semisimple Lie algebras.
+
+\begin{defn}
+A \emph{dominant integral element} of $\frakg$ is an element $\mu \in \frakh$ such that
+
+\begin{equation}
+2 \frac{\left<\mu,\alpha\right>}{\left<\alpha,\alpha\right>}
+\end{equation}
+
+is a nonnegative integral for all positive simple roots $\alpha$.
+\end{defn}
+\begin{theorem}
+\begin{enumerate}
+\item Every finite dimensional representation of $\frakg$ has a highest weight.
+\item Representations with the same highest weight are isomorphic.
+\item Every highest weight is a dominant integral element.
+\item Every dominant integral element occurs as the highest weight of some representation.
+\end{enumerate}
+\end{theorem}
+
+
+
+
 
 \section{Hopf algebras}
 
@@ -235,7 +304,7 @@ In this section, we define algebras and coalgebras, then bialgebras which are
 simultaneously algebras and coalgebras, then Hopf algebras which are bialgebras
 with an antipode map.
 
-\subsection{Algebras and Coalgebras}
+\subsection{Algebras and coalgebras}
 We said earlier that for a field $k$, a \emph{$k$-algebra} $A$ is a $k$-vector
 space with an
 associative bilinear mapping $A \times A \to A$ which has an identity element
@@ -368,7 +437,7 @@ Suppose $H$ is a vector space which has both an algebra structure $(H, \mu,
 
 A morphism of bialgebras is a map which is both a morphism of algebras and a
 morphism of coalgebras.
-\subsection{Hopf Algebras}
+\subsection{Hopf algebras}
 As we said earlier, a Hopf algebra is a bialgebra with an antipode map:
 
 \begin{defn}
@@ -426,8 +495,8 @@ algebras.
 
 \begin{example}
     \label{example:UEA}
-    Given a Lie algebra $\mathfrak{g}$, we can define an associative algebra
-    called the \emph{universal enveloping algebra} of $\mathfrak{g}$. The
+    Given a Lie algebra $\frakg$, we can define an associative algebra
+    called the \emph{universal enveloping algebra} of $\frakg$. The
     universal enveloping algebra of any Lie algebra is a Hopf algebra.
 
     The \emph{tensor algebra} $T(V)$ of any $k$-vector space $V$ is an associative
@@ -441,19 +510,19 @@ algebras.
 
 %    \todo{this doesn't feel well explained :(} 
 
-    If we have a Lie algebra $\mathfrak{g}$, then we can define an ideal
-    $I(\mathfrak{g})$ of the tensor algebra $T(\mathfrak{g})$ generated by all
+    If we have a Lie algebra $\frakg$, then we can define an ideal
+    $I(\frakg)$ of the tensor algebra $T(\frakg)$ generated by all
     elements of the form $(xy - yx) - \left[ x,y \right]$ for $x,y \in
-    \mathfrak{g}$.
+    \frakg$.
 
     We define the universal enveloping algebra to be 
 
     \begin{equation}
-        U(\mathfrak{g}) = T(\mathfrak{g}) / I(\mathfrak{g})
+        U(\frakg) = T(\frakg) / I(\frakg)
     \end{equation}
 
     We can put a Hopf algebra structure on the enveloping algebra
-    $U(\mathfrak{g})$ for any Lie algebra $\mathfrak{g}$, with $\Delta,
+    $U(\frakg)$ for any Lie algebra $\frakg$, with $\Delta,
     \varepsilon, S$ defined by: 
     \begin{align}
         \Delta(x) &= x \otimes 1 + 1 \otimes x \\
@@ -461,7 +530,7 @@ algebras.
         S(x) &= -x  
     \end{align}
 
-    for $x \in \mathfrak{g}$.
+    for $x \in \frakg$.
 
 \end{example}
 

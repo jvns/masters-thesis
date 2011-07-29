@@ -54,6 +54,27 @@ $U(\sll(2))$. In the representation $V_n = \operatorname{span}\left\{ v_0,
     X v_i &= (n-i+1)v_{i-1} &\text{ for $i > 0$} \\
 \end{align}
 
+Before giving the definitions of $U_q(\sll(2))$, we introduce some notation.
+
+\begin{equation}
+    [n]_q = \frac{q^n - q^{-n}}{q - q^{-1}} = q^{n-1} + q^{n-3} + \cdots + q^{-n+3} + q^{-n+1}
+\end{equation}
+
+The $[n]_q$ are called \emph{$q$-integers}. We also define the $q$-factorial
+and $q$-binomial coefficients as follows:
+
+\begin{equation}
+    [n]!_q = [n]_q [n-1]_q \cdots [1]_q
+\end{equation}
+
+\begin{equation}
+    \dbinom{n}{k}_q = \frac{[n]!_q}{[n-k]!_q[k]!_q}
+\end{equation}
+
+$q^{2d}=1$ if and only if $[d]_q = 0$, so $[n]_q \neq 0$ for every nonzero
+integer when $q$ is not a root of unity. When $q$ is an $\ell^\text{th}$ root
+of unity, $[n]_q = 0$ when $\ell$ divides $n$.
+
 \begin{defn}
 \label{Uqsl2Def}
 Let $q$ be an indeterminate. $U_q(\sll(2))$ is the associative algebra over the
@@ -132,16 +153,20 @@ looks quite similar to the Hopf algebra structure on $U(\sll(2))$ defined in
 \label{section:RepsOfUq}
 
 The representation theory of $U_q(\sll(2))$ bears a striking resemblance to
-that of $\sll(2)$. In particular, in $U_q(\sll(2))$:
+that of $\sll(2)$ discussed in \ref{subsection:RepsOfSL2}. In particular, in
+$U_q(\sll(2))$:
+
 
 \begin{enumerate}
     \renewcommand{\labelenumi}{\roman{enumi})}
-    \item Every finite dimensional representation is completely reducible
+    \item Every finite dimensional representation is completely reducible.
     \item The eigenvectors of $K$ form a basis for any irreducible
-          representation. We call the eigenvalues of $K$ \emph{weights} and the
-          eigenspaces of each eigenvector \emph{weight spaces}.  
+          representation. Their eigenvalues are called \emph{weights} and are
+          all integer powers of $q$.  The eigenspaces of each eigenvalue
+          \emph{weight spaces}.  
     \item Each irreducible representation has a highest weight vector
-    \item The irreducible representations are classified by highest weights much as in $U(\sll(2))$.
+    \item The irreducible representations are classified by highest weights
+    much as in $\sll(2)$.
 \end{enumerate}
 
 The proofs of these facts are also more or less analogous to those in
@@ -305,7 +330,7 @@ $U_z(\sll(2))$ are isomorphic. When $z$ is an $\ell^{th}$ root of unity, $\ell
 $(X^+)^\ell \neq 0$ in $U_z(\sll(2))$, so it is clear that these algebras are
 not isomorphic when $q$ is a root of unity. 
 
-\section{The Representation theory of $U_z^{res}(\sll(2))$}
+\section{The representation theory of $U_z^{res}(\sll(2))$}
 \label{section:RepTheoryofResSL2}
 
 
