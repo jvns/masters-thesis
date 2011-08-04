@@ -1,0 +1,6 @@
+- mention graphical calculus for MTCs (asked Alex for some suggestions for references)
+
+p. 42:
+- check that it really is a quotient of the subcategory
+
+Say something about how the \otimes works in $\otimes_A$
