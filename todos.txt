@@ -3,10 +3,15 @@ Introduction:
     - Rewrite some introductory sections (eg that of 4.3) after having an introduction
     - read Preskill for some inspiration
 
+Algebraic background:
+    - say something more (at all) about the braid group
+
 Categorical background:
-    - give some intuition for the dual and ribbon parts: take some inspiration from Eric?
-    - reference Eric's stuff; it's pretty nice I think
-    - make a real reference 
+    - expand ribbon categories section do be better motivated
+    - give some more motivation for ribbon categories: 
+            "For ribbon-ness you should say that physical realizations of
+            anyons are extended objects which can indeed be twisted."
+    - reference Eric's stuff better
 
 
 U_q(sl(2)):
@@ -19,3 +24,14 @@ MTC => TQC:
 General:
     - Spellcheck.
     - Ask Prakash about making an index of notation
+    - ask alex again about categorical references on Wednesday
+    - find refs for q-integers and q-calculus
+        Not sure about this. Did find the Swamy paper. not sure about Ernst paper
+
+What does Fib have to do with SO(3)?
+What is the Lie algebra of SO(3)? (you know...)
+
+Internet:
+- check if there's a different defn of Cartan subalgebra
+    Yes. In general the definition is different
+

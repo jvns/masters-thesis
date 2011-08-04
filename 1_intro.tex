@@ -1,54 +1,99 @@
 \section{Overview of TQC}
 
-\begin{itemize}
-\item motivation (more robust implementation)
-    \item Kitaev etc (find references)
-    \item Setup (anyons, exchanging, fusing)
-    \item worldlines as braids, dependence only on topological class of braid
-    \item TQC is modelled by MTCs
-    \item a couple of words about current experimental status
-\end{itemize}
-%First we'll discuss the basic idea behind TQC.
-%
-%One of the fundamental problems with implementations of quantum computer is
-%that it is very hard to implement quantum gates accurately. Kitaev in 1997
-%propoesd an implementation of QC which exploits topological properties to make
-%this easier.
-%
-%In our basic setup, we have a set of identical anyons which have some joint ``state''.
-%
-%\begin{center}
-%    (picture here?)
-%%    $\circ \hspace{1in} \circ\hspace{1in} \circ\hspace{1in} \circ$
-%\end{center}
-%
-%A computation consists of exchanging the anyons in some way. If we draw such an
-%exchange in 2+1 dimensions, we obtain a braid. 
-%
-%\begin{center}
-%    (picture here?)
-%\end{center}
-%
-%The key point here is that in this model the change in state of the anyons
-%depends \emph{only} on the topological class of the braid, so minor
-%pertubations of a particle's path won't affect the result of the computation at
-%all. The process is thus inherently resistant to errors. 
+First we'll discuss the basic idea behind TQC.
+
+One of the major problems with quantum computing implementations is that it is
+very hard to implement quantum gates accurately. Even with the advent of
+quantum error correction, a certain minimum level of accuracy is required.
+Kitaev in 1997 proposed an implementation of QC which exploits topological
+properties to make this easier.
+
+The spin statistics theorem says that when 2 identical particles are
+interchanged, the result on the system is either $+1$ or $-1$. Particles for
+which $+1$ are called ``bosons'' and those for which $-1$ are called
+``fermions''. Essentially this is because the \expand{which?} group of the
+\expand{what?} is $\left\{ -1, 1 \right\} \simeq \mathbb{Z}_2$. 
 
 
-%\expand{A summary of the notions behind TQC. Bosonic and fermionic statistics. Introduction of the term ``anyon''. Give some history of the subject. Some of the results that TQC has given us (Jones polynomial universal for QC)}
-%
-%In \expand{year}, \expand{who?} found that certain quasiparticles in fractional
-%quantum Hall states had statistics which were neither fermionic nor bosonic. In
-%particular two anyon models which are nonabelian have been proposed: the Ising
-%and Fibonacci anyons. There are modelled by the MTCs obtained from the quantum
-%groups $U_q(\sll(2))$ at a fourth and fifth root of unity respectively. 
-%
-%Anyons are essentially described by MTCs. 
-%
-%\expand{Anyons are modelled by MTCs, and these MTCs are obtained from quantum groups at roots of unity}
-%
-%\todo{Prakash: Rowell says `only anyonic properties of bosonic systems can be described fully by MTCs'. Can you make some sense of this?}
-%
+In \expand{year}, \expand{who?} found that certain quasiparticles in fractional
+quantum Hall states had statistics which were neither fermionic nor bosonic. 
+As the \expand{what?} group of the circle is \expand{what?}, \emph{any} phase
+can occur when exchanging two identical such quasiparticles. \expand{Who?}
+termed these quasiparticles ``anyons''. 
+
+These anyons live on a 2D surface, so their worldlines in 2+1 dimensions can be modelled as braids:
+
+\scalebox{1} % Change this value to rescale the drawing.
+% picture of braiding worldlines
+{
+\begin{pspicture}(0,-1.4947689)(5.20875,1.5147688)
+\psbezier[linewidth=0.02](4.04,0.7813313)(4.04,0.6240438)(4.22,0.23082528)(4.64,0.15218155)(5.06,0.073537834)(5.04,-0.10930765)(5.04,-0.30985886)
+\psbezier[linewidth=0.02](5.04,0.7813313)(5.04,0.46675643)(4.96,0.27014711)(4.6,0.21509652)
+\psbezier[linewidth=0.02](4.42,0.16004592)(4.16,0.104995325)(4.04,-0.16239332)(4.04,-0.30985886)
+\psdots[dotsize=0.1](4.08,1.0213313)
+\psdots[dotsize=0.1](5.08,1.0213313)
+\rput(4.043125,1.31){$a$}
+\rput(5.047969,1.35){$b$}
+\psdots[dotsize=0.1](0.1,-0.018668715)
+\psdots[dotsize=0.1](1.1,-0.018668715)
+\rput(0.063125,0.27){$a$}
+\rput(1.0679687,0.31){$b$}
+\psarc[linewidth=0.02]{<-}(1.0,0.061331283){0.78}{199.98311}{174.28941}
+\psbezier[linewidth=0.02](4.04,-0.30985886)(4.0,-0.6047751)(4.22,-0.845619)(4.64,-0.92426276)(5.06,-1.0029064)(5.04,-1.3332101)(5.06,-1.4747688)
+\psbezier[linewidth=0.02](5.04,-0.30985886)(5.04,-0.6096879)(4.96,-0.8062972)(4.6,-0.8613478)
+\psbezier[linewidth=0.02](4.42,-0.9163984)(4.16,-0.971449)(4.04,-1.2388376)(4.04,-1.4747688)
+\rput(2.7798438,-0.028668715){$\iff$}
+\end{pspicture} 
+}
+\todo{want a different picture here}
+
+It turns out that if $n$ anyons are rearranged in some way, then the change of
+state of their system depends only on the element of the braid group $B_n$ that
+the braid corresponds to! This gives an inherent resistance to errors: small
+perturbations have absolutely no effect on the transformation performed by
+rearranging the anyons.
+
+\expand{something about abelian and nonabelian anyons: what's the difference?}
+
+In particular two anyon models which are nonabelian have been proposed: the
+Ising and Fibonacci anyons. There are modelled by the MTCs obtained from the
+quantum groups $U_q(\sll(2))$ at a fourth and fifth root of unity respectively. 
+
+
+\expand{Give some history of the subject. Some of the results that TQC has given us (Jones polynomial universal for QC)}
+
+\expand{a couple of words about current experimental status}
+\section{Anyons}
+In our basic setup, we have a set of identical anyons which have some joint ``state''.
+
+\expand{ Setup (anyons, exchanging, fusing)}
+\expand{worldlines as braids, dependence only on topological class of braid}
+
+\begin{center}
+    (picture here?)
+%    $\circ \hspace{1in} \circ\hspace{1in} \circ\hspace{1in} \circ$
+\end{center}
+
+A computation consists of exchanging the anyons in some way. If we draw such an
+exchange in 2+1 dimensions, we obtain a braid. 
+
+\begin{center}
+    (picture here?)
+\end{center}
+
+The key point here is that in this model the change in state of the anyons
+depends \emph{only} on the topological class of the braid, so minor
+erturbations of a particle's path won't affect the result of the computation at
+all. The process is thus inherently resistant to errors. 
+
+\section{Connection to MTCs}
+
+Anyons are essentially described by MTCs. 
+
+\expand{Anyons are modelled by MTCs, and these MTCs are obtained from quantum groups at roots of unity}
+
+\todo{Prakash: Rowell says `only anyonic properties of bosonic systems can be described fully by MTCs'. Can you make some sense of this?}
+
 The hope is to give a concrete account of the theory of modular tensor
 categories obtained from quantum groups at roots of unity for computer
 scientists, from a category theoretic and algebraic point of view rather than a

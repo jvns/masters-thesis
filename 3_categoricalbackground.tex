@@ -10,7 +10,9 @@ simple objects. So,
 \item Anyons correspond to objects
 \item In any anyonic model, there are a finite number of \emph{charges} or
       \emph{types}. These correspond to isomorphism classes of simple objects
-\item The category must be \emph{semisimple} \todo{justify this better.}
+\item Anyons are the basic entities of the theory, and any object is
+constructed from them. In categorical terms, the category must be
+\emph{semisimple}
 \item Systems of several anyons correspond to tensor products of anyons: the
       category is \emph{monoidal}. These tensor products decompose as direct sums of
       anyons, e.g. 
@@ -27,6 +29,7 @@ a \otimes b \simeq 2a \oplus 3c
       the system of anyons. In other words, the category is \emph{braided}.
 \begin{center}
 \scalebox{1} % Change this value to rescale the drawing.
+% picture of braiding worldlines
 {
 \begin{pspicture}(0,-1.4947689)(5.20875,1.5147688)
 \psbezier[linewidth=0.02](4.04,0.7813313)(4.04,0.6240438)(4.22,0.23082528)(4.64,0.15218155)(5.06,0.073537834)(5.04,-0.10930765)(5.04,-0.30985886)
@@ -70,10 +73,10 @@ categories of representations of Hopf algebras.
     \renewcommand{\labelenumi}{\roman{enumi})}
         \item a bifunctor $\otimes: \mathcal{C} \times \mathcal{C} \to
             \mathcal{C}$
-        \item a unit object $\mathbf{1}$ and natural transformations
+        \item a unit object $\one$ and natural transformations
             \begin{align}
-                \lambda_V &: \mathbf{1} \otimes V \isomto V \\
-                \rho_V &: V \otimes \mathbf{1} \isomto V
+                \lambda_V &: \one \otimes V \isomto V \\
+                \rho_V &: V \otimes \one \isomto V
             \end{align}
         \item a natural transformation 
 
@@ -85,13 +88,13 @@ categories of representations of Hopf algebras.
             \otimes \cdots V_n$ by inserting 1s and brackets, then all
             isomorphisms $\varphi: X_1 \isomto X_2$ composed of $\alpha$'s,
             $\lambda$'s, and $\rho$'s are equal. 
-        \item $\mathbf{1}$ is a simple object and $\End_\mathcal{C} \mathbf{1} = k$
+        \item $\one$ is a simple object and $\End_\mathcal{C} \one = k$
     \end{enumerate}
 
 \end{defn}
 
 In the context of topological quantum computing, the unit object should be
-thought of as the trivial anyon. The fact that $\mathbf{1} \otimes V \isomto V$
+thought of as the trivial anyon. The fact that $\one \otimes V \isomto V$
 in a natural way should be taken to mean that fusing a trivial anyon with any
 other anyon has no effect.
 
@@ -115,8 +118,8 @@ charge.
     \emph{right dual} to $V$ is an object $V^*$ with two morphisms
 
     \begin{align}
-        e_V: V^* \otimes V \to \mathbf{1}  \\
-        i_V: \mathbf{1} \to V^* \otimes V
+        e_V: V^* \otimes V \to \one  \\
+        i_V: \one \to V^* \otimes V
     \end{align}
 \end{defn}
 
@@ -218,8 +221,8 @@ of $V$, we can define the trace of $f$ by the composition
 
 \begin{equation}
     \xymatrix{
-    \mathbf{1} \ar[r]^-{i_V} & V \otimes V^* \ar[r]^-{f \otimes \id} & V^* \otimes V \ar[r]^-{\delta_V \otimes \id} & V^{**} \otimes V^* \ar[r]^-{e_{V^*}} & 
-    \mathbf{1}
+    \one \ar[r]^-{i_V} & V \otimes V^* \ar[r]^-{f \otimes \id} & V^* \otimes V \ar[r]^-{\delta_V \otimes \id} & V^{**} \otimes V^* \ar[r]^-{e_{V^*}} & 
+    \one
     }
 \end{equation}
 
@@ -346,7 +349,7 @@ Suppose $\Delta(h) = \sum _{i} h^{(1)}_i \otimes h^{(2)}_i$. Then we define
     h (u \otimes v) = \sum_{i} h^{(1)}_i u \otimes h^{(2)}_i v
 \end{equation}
 
-We define the tensor unit using the counit $\varepsilon$: $\mathbf{1}$ is the
+We define the tensor unit using the counit $\varepsilon$: $\one$ is the
 vector space $k$, with 
 
 \begin{equation}

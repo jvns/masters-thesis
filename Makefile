@@ -35,8 +35,12 @@ clean:
 	rm -f thesis.blg
 	rm -f thesis.log
 	rm -f thesis.toc
+	rm -f thesis.ps
+	rm -f thesis.dvi
 	rm -f thesispreview.aux
 	rm -f thesispreview.bbl
 	rm -f thesispreview.blg
 	rm -f thesispreview.log
 	rm -f thesispreview.toc
+	rm -f thesispreview.ps
+	rm -f thesispreview.dvi
