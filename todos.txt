@@ -3,17 +3,6 @@ Introduction:
     - Rewrite some introductory sections (eg that of 4.3) after having an introduction
     - read Preskill for some inspiration
 
-Algebraic background:
-    - say something more (at all) about the braid group
-
-Categorical background:
-    - expand ribbon categories section do be better motivated
-    - give some more motivation for ribbon categories: 
-            "For ribbon-ness you should say that physical realizations of
-            anyons are extended objects which can indeed be twisted."
-    - reference Eric's stuff better
-
-
 U_q(sl(2)):
     - give some references for quantum integers and q-calculus
 
@@ -30,8 +19,4 @@ General:
 
 What does Fib have to do with SO(3)?
 What is the Lie algebra of SO(3)? (you know...)
-
-Internet:
-- check if there's a different defn of Cartan subalgebra
-    Yes. In general the definition is different
 
