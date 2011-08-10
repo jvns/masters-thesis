@@ -53,7 +53,9 @@ a \otimes b \simeq 2a \oplus 3c
 \end{center}
 \item The conjugate of a charge corresponds to its \emph{dual}: the category is
       \emph{rigid}.
-\item The category is \emph{ribbon} \todo{say more about this?}
+\item Anyons can be rotated, so that their worldlines become twisted. The
+    corresponding mathematical formalism is that of a braided \emph{ribbon
+    category}
 \end{itemize}
 
 To summarize, the category must be semisimple, monoidal, braided, rigid, and
@@ -193,9 +195,11 @@ Some examples of symmetric tensor categories include:
 \section{Ribbon categories}
 \label{section:RibbonCategories}
 
-In what follows it will become important to have a notion of the trace of a
-morphism. The definitions that follow will allow us to define a trace in a
-certain class of rigid monoidal categories called ribbon categories.
+Anyons can be rotated so that their worldlines become twisted. This requires
+more structure than in a braided monoidal category.  In ribbon categories, it
+is possible to define a natural twisting isomorphism $\theta_V: V\to V$ for
+each $V$. It is also possible to define the notion of a \emph{trace}, which
+will be important later on.
 
 \begin{defn}
 
@@ -215,6 +219,26 @@ such that
 \end{enumerate}
 
 \end{defn}
+
+In any rigid braided tensor category, we can construct natural transformations 
+
+\begin{equation}
+\psi_V: V^{**} \to V
+\end{equation}
+
+via the composition
+
+\begin{equation}
+\xymatrix{
+    V^{**} \ar[r]^-{i \otimes \id} & V \otimes V^* \otimes V^{**} \ar[r]^-{id \otimes \sigma^{-1}} & V \otimes V^{**} \otimes V^* \ar[r]^-{id \otimes e} &  V
+    }
+\end{equation}
+
+Define the twist maps $\theta_V$ by
+
+\begin{equation}
+\theta_V = \psi_V \delta_V
+\end{equation}
 
 If $V$ is an object in a ribbon category $\mathcal{C}$ and $f$ an endomorphism
 of $V$, we can define the trace of $f$ by the composition
@@ -287,13 +311,13 @@ We define the dimension of an object $V$ to be $\dim V = \tr \id_V$.
 
 \section{Modular tensor categories}
 \label{section:MTCs}
-    \todo{introductory sentence about anyons and MTCs}
-
+    The mathematical structure that describes anyons is that of modular tensor
+    categories. 
     The definition of modular tensor categories first appeared in \cite{MS}.
     They arise in conformal field theory and from quantum groups: we will
     explain how they arise from quantum groups in Chapter \ref{chapter:MTC}.
-    They have applications ot topological quantum field theory; Reshetikhin and
-    Turaev associated a TQFT in 2+1 dimensions to every MTC; an exposition is
+    They have applications to topological quantum field theory: Reshetikhin and
+    Turaev associated a TQFT in 2+1 dimensions to every MTC. An exposition is
     in Bakalov \& Kirillov \ref{Kirillov}.
 
     Essentially modular tensor categories are a special type of braided tensor
