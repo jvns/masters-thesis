@@ -214,3 +214,31 @@ generator $\sigma_2$ of $B_3$ acts as $F^{-1}RF$. In fact, the $R$ and $F$
 matrices are enough to compute the matrix associated to any element of the
 $B_n$ acting on $\Hom(\one, \tau^{\odot n})$ or $\Hom(\tau, \tau^{\odot n})$.
 
+
+\section{Universality and implementations}
+
+We have explained the standard way to simulate the circuit model using
+Fibonacci anyons. Freedman et al show in \cite{Freedman2000} that the image of
+$B_6$ in its representation of $Hom(\tau \oplus \tau, \tau^{\odot 6}) \simeq
+\mathbb{C}^5 \oplus \mathbb{C}^8$ is dense in $SU(5) \oplus SU(8)$. 
+
+There are two issues: firstly it is necessary to find braids $\sigma$ such that
+$\rho(\sigma)$ (at least approximately) takes vectors in the computational
+space to vectors in the computational space. Once this is solved, we need to be
+implement arbitrary unitary gates on the computational space.
+
+This theorem does not however give a means of, given a quantum gate, finding a
+braid whose image approximately realizes this gate.
+
+This problem has been tackled by Hormozi et al in \cite{Hormozi2007} and \expand{whoever}.  In this section we give an account of how these problems have been handled.
+
+the most \todo{naive} solution to the problem of ``topological quantum
+compiling'' is brute force search: try braids until you find one where the
+image is close enough to the gate required.
+
+In \cite{Hormozi2007}, Hormozi et al
+
+\begin{enumerate}
+\item reduce the search space by only considering a limited subset of braids
+\item 
+\end{enumerate}
