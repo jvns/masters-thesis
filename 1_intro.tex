@@ -1,28 +1,27 @@
-\section{Overview of TQC}
+One of the major challenges in implementations of quantum computing is that of
+implementing quantum gates accurately. Topological computing, first proposed by
+Kitaev in 1997 \cite{Kitaev2003}, exploits topological properties of certain
+quasiparticles called \emph{anyons} to give an implementation of quantum
+comping which is inherently fault-tolerant.
 
-First we'll discuss the basic idea behind TQC.
+First we give an introduction to anyons. the spin statistics theorem in 3
+dimensions says that when 2 identical particles are inerchanged, there are
+exactly 2 possibilities: either the wave is symmetric (in the case of bosons)
+or it is antisymmetric (in the case of fermions). 
 
-One of the major problems with quantum computing implementations is that it is
-very hard to implement quantum gates accurately. Even with the advent of
-quantum error correction, a certain minimum level of accuracy is required.
-Kitaev in 1997 proposed an implementation of QC which exploits topological
-properties to make this easier.
+This is because in 3 dimensions, 2 identical particles being interchanged twice
+is topologically equivalent to one particle being transported around the other,
+which is in turn topologically equivalent to neither particle moving at all.
+In 2 dimensions the situations is completely different: the process of moving
+one particle around another is not topologically equivalent to neither particle
+moving around another, and the system will not necessarily end up in the same state.
 
-The spin statistics theorem says that when 2 identical particles are
-interchanged, the result on the system is either $+1$ or $-1$. Particles for
-which $+1$ are called ``bosons'' and those for which $-1$ are called
-``fermions''. Essentially this is because the \expand{which?} group of the
-\expand{what?} is $\left\{ -1, 1 \right\} \simeq \mathbb{Z}_2$. 
+We refer to particles in 2 dimensions which are neither bosons nor fermions as
+\emph{anyons}. Suppose we have a system of $n$ anyons, and rearrange them in
+some way. Each topological class of such trajectories in 2+1 dimensions
+corresponds to an element of the braid group $B_n$:
 
-
-In \expand{year}, \expand{who?} found that certain quasiparticles in fractional
-quantum Hall states had statistics which were neither fermionic nor bosonic. 
-As the \expand{what?} group of the circle is \expand{what?}, \emph{any} phase
-can occur when exchanging two identical such quasiparticles. \expand{Who? (Wilzcek?)} 
-termed these quasiparticles ``anyons''. 
-
-These anyons live on a 2D surface, so their worldlines in 2+1 dimensions can be modelled as braids:
-
+\begin{center}
 \scalebox{1} % Change this value to rescale the drawing.
 % picture of braiding worldlines
 {
@@ -45,64 +44,55 @@ These anyons live on a 2D surface, so their worldlines in 2+1 dimensions can be 
 \rput(2.7798438,-0.028668715){$\iff$}
 \end{pspicture} 
 }
-\todo{want a different picture here}
-
-It turns out that if $n$ anyons are rearranged in some way, then the change of
-state of their system depends only on the element of the braid group $B_n$ that
-the braid corresponds to! This gives an inherent resistance to errors: small
-perturbations have absolutely no effect on the transformation performed by
-rearranging the anyons.
-
-\expand{something about abelian and nonabelian anyons: what's the difference?}
-
-In particular two anyon models which are nonabelian have been proposed: the
-Ising and Fibonacci anyons. There are modelled by the MTCs obtained from the
-quantum groups $U_q(\sll(2))$ at a fourth and fifth root of unity respectively. 
-
-
-\expand{Give some history of the subject. Some of the results that TQC has given us (Jones polynomial universal for QC)}
-
-\expand{a couple of words about current experimental status}
-
-\section{Anyons}
-In our basic setup, we have a set of identical anyons which have some joint ``state''.
-
-\expand{ Setup (anyons, exchanging, fusing)}
-\expand{worldlines as braids, dependence only on topological class of braid}
-
-\begin{center}
-    (picture here?)
-%    $\circ \hspace{1in} \circ\hspace{1in} \circ\hspace{1in} \circ$
 \end{center}
 
-A computation consists of exchanging the anyons in some way. If we draw such an
-exchange in 2+1 dimensions, we obtain a braid. 
+The state of the anyons therefore transforms via representations of the braid
+group $B_n$. In the simplest case, the state transforms via a one-dimensional
+representation of $B_n$:
 
-\begin{center}
-    (picture here?)
-\end{center}
+\begin{equation}
+\Psi \mapsto e^{i\theta}\Psi
+\end{equation}
+
+Anyons which transform in this way are called \emph{abelian anyons}. The other
+possibility is that the state transforms according to some higher-dimensional
+representation of $B_n$. In this case nontrivial operations can be performed
+simply by rearranging the anyons in some suitable way. Anyons which transform
+according to higher-dimensional representations are called \emph{nonabelian
+anyons}, and it is possible to do quantum computation with certain species
+of nonabelian anyons.
 
 The key point here is that in this model the change in state of the anyons
 depends \emph{only} on the topological class of the braid, so minor
-erturbations of a particle's path won't affect the result of the computation at
-all. The process is thus inherently resistant to errors. 
+perturbations of a particle's path won't affect the result of the computation
+at all. The process is thus inherently resistant to errors. 
 
-\section{Connection to MTCs}
+Do anyons actually exist? As we said earlier, all particle types are bosons or
+fermions. However, \expand{Something about anyons arising as emergent
+properties of some kinds of system\ldots fractional quantum Hall systems here}.
 
-Anyons are essentially described by MTCs. 
+In general a system with anyons will have several different types of anyons.
+Any two anyons can be brought together to form a new anyon. This process is
+called \emph{fusion}. In general if two anyons fuse, then there might be
+several possible results. 
 
-\expand{Anyons are modelled by MTCs, and these MTCs are obtained from quantum
-groups at roots of unity}
+The mathematical structure that describes anyons is that of modular tensor
+categories. The goal in this thesis is to give an explanation of modular tensor
+categories as they relate to topological quantum computing, only requiring some
+basic knowledge of algebra and category theory. The modular tensor categories
+that describe anyons' behavior are constructed from the representations of
+certain algebraic objects called \emph{quantum groups}.
 
 \todo{Prakash: Rowell says `only anyonic properties of bosonic systems can be
 described fully by MTCs'. Can you make some sense of this?}
 
-Modular tensor categories provide a framework for this braiding. In particular,
-the MTCs that describe TQC are constructed from the representations of quantum groups. 
 
-In Chapters 2 and 3 we go over the basic categorical and algebraic background
-required to describe quantum groups and modular tensor categories. In Chapter 4
-we introduce the quantum group $U_q(\sll(2))$ and its representation theory. In
+In Chapter 2 we give the algebraic background of braid groups, Lie algebras,
+and Hopf algebras necessary to construct quantum groups. In Chapter 3 we give a
+correspondence between the features of anyonic systems and those of modular
+tensor categories, and define modular tensor categories in several steps.  In
+Chapter 4 we introduce the quantum group $U_q(\sll(2))$ and discuss its
+representation theory. In
 Chapter 5 we explain how to construct a modular tensor category from the
 quantum group $U_q(\sll(2))$. In Chapter 6 we finally get to the business of
 discussing topological quantum computing. We review the work that has been done
@@ -113,6 +103,3 @@ The hope is to give a concrete account of the theory of modular tensor
 categories obtained from quantum groups at roots of unity for computer
 scientists, from a category theoretic and algebraic point of view rather than a
 physical point of view. 
-
-In this thesis we give an account of topological quantum computing from a
-computational and mathematical point of view. 
