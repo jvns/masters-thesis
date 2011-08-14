@@ -1,20 +1,20 @@
 One of the major challenges in implementations of quantum computing is that of
 implementing quantum gates accurately. Topological computing, first proposed by
 Kitaev in 1997 \cite{Kitaev2003}, exploits topological properties of certain
-quasiparticles called \emph{anyons} to give an implementation of quantum
-comping which is inherently fault-tolerant.
+quasiparticles called \emph{anyons} to obtain a proposed implementation of
+quantum computing which is inherently fault-tolerant.
 
-First we give an introduction to anyons. the spin statistics theorem in 3
+What are anyons? The spin statistics theorem in 3
 dimensions says that when 2 identical particles are inerchanged, there are
-exactly 2 possibilities: either the wave is symmetric (in the case of bosons)
-or it is antisymmetric (in the case of fermions). 
+exactly 2 possibilities: either the wave function is symmetric (in the case of
+bosons) or it is antisymmetric (in the case of fermions). 
 
 This is because in 3 dimensions, 2 identical particles being interchanged twice
 is topologically equivalent to one particle being transported around the other,
 which is in turn topologically equivalent to neither particle moving at all.
-In 2 dimensions the situations is completely different: the process of moving
-one particle around another is not topologically equivalent to neither particle
-moving around another, and the system will not necessarily end up in the same state.
+In 2 dimensions the situation is completely different: moving one particle
+around another is topologically nontrivial, and the system may not
+end up in the same state.
 
 We refer to particles in 2 dimensions which are neither bosons nor fermions as
 \emph{anyons}. Suppose we have a system of $n$ anyons, and rearrange them in
@@ -46,12 +46,17 @@ corresponds to an element of the braid group $B_n$:
 }
 \end{center}
 
+and the state $\Psi$ of the anyons transforms depending only on the braid $\sigma$ corresponding to the trajectory of the anyons:
+
+\begin{equation}
+    \Psi \mapsto \rho(\sigma)\Psi
+\end{equation}
 The state of the anyons therefore transforms via representations of the braid
 group $B_n$. In the simplest case, the state transforms via a one-dimensional
 representation of $B_n$:
 
 \begin{equation}
-\Psi \mapsto e^{i\theta}\Psi
+    \Psi \mapsto e^{i\theta}\Psi
 \end{equation}
 
 Anyons which transform in this way are called \emph{abelian anyons}. The other
