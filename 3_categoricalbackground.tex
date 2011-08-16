@@ -7,12 +7,12 @@ correspond to objects and anyon types correspond to isomorphism classes of
 simple objects. So,
 
 \begin{itemize}
-\item Anyons correspond to objects
+\item Anyons correspond to objects.
 \item In any anyonic model, there are a finite number of \emph{charges} or
-      \emph{types}. These correspond to isomorphism classes of simple objects
+      \emph{types}. These correspond to isomorphism classes of simple objects.
 \item Anyons are the basic entities of the theory, and any object is
 constructed from them. In categorical terms, the category must be
-\emph{semisimple}
+\emph{semisimple}.
 \item Systems of several anyons correspond to tensor products of anyons: the
       category is \emph{monoidal}. These tensor products decompose as direct sums of
       anyons, e.g. 
@@ -55,7 +55,7 @@ a \otimes b \simeq 2a \oplus 3c
       \emph{rigid}.
 \item Anyons can be rotated, so that their worldlines become twisted. The
     corresponding mathematical formalism is that of a braided \emph{ribbon
-    category}
+    category}.
 \end{itemize}
 
 To summarize, the category must be semisimple, monoidal, braided, rigid, and
@@ -150,7 +150,8 @@ $V^*$ and $V$ fuse to yield the trivial charge.
 
 The central operation in topological quantum computing is that of exchanging
 two anyons. Mathematically, the structure we need to model this is that of a
-braided monoidal category: any computation on a set of anyons corresponds to
+braided monoidal category: any trajectory where a set of anyons are rearranged
+corresponds to
 an element of the braid group. A braided monoidal category is a monoidal
 category $\mathcal{C}$ with a natural transformation
 
@@ -253,6 +254,10 @@ of $V$, we can define the trace of $f$ by the composition
 We define the dimension of an object $V$ to be $\dim V = \tr \id_V$.
 
 \section{Semisimple categories}
+
+Any object in a modular tensor category is constructed from simple objects,
+which correspond to anyon types: MTCs are \emph{semisimple}.
+
 \begin{defn}
     A category $\mathcal{C}$ is called \emph{abelian} if it satisfies the conditions:
 
@@ -307,7 +312,8 @@ We define the dimension of an object $V$ to be $\dim V = \tr \id_V$.
         V_i \otimes V_j \simeq \bigoplus_k N_{ij}^k V_k
     \end{equation}
 
-    We call each equation of this type a \emph{fusion rule}. 
+    We call each equation of this type a \emph{fusion rule}. These equations
+    describe how anyons fuse to form new anyons.
 
 \section{Modular tensor categories}
 \label{section:MTCs}
@@ -350,10 +356,14 @@ It is proved in \cite{mueger2001} that
     $\mathbf{Z}_2(\mathcal{C})$ is trivial if and only if the matrix $s$ is invertible. 
 \end{theorem}
 
-This was the original definition of a modular tensor category.
+This is the original definition of a modular tensor category.
 
 \section{The category of representations of a Hopf algebra}
 \label{section:RepHopfAlgebra}
+
+In this section we show that the category of representations of any Hopf
+algebra is a rigid monoidal category. Anyonic models are constructed from
+categories of representations of Hopf algebras.
 
 Suppose $(H, \mu, \eta, \Delta, \varepsilon)$ is a Hopf algebra with antipode $S$. 
 
