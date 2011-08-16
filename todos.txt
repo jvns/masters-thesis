@@ -11,11 +11,7 @@ MTC => TQC:
     - make sure you can do this R-matrix calculation
 
 General:
-    - Spellcheck.
-    - Ask Prakash about making an index of notation
     - ask alex again about categorical references on Wednesday
-    - find refs for q-integers and q-calculus
-        Not sure about this. Did find the Swamy paper. not sure about Ernst paper
 
 What does Fib have to do with SO(3)?
 What is the Lie algebra of SO(3)? (you know...)

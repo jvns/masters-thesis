@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\newtheorem*{theorem}{Theorem}
+
+\begin{document}
+\begin{theorem}
+    In the modular tensor category obtained from $\mathfrak{sl}(2)$ at a
+    $5^{th}$ root of unity, which has simple objects $V_0, V_1, V_2, V_3$, for
+    any object $X$ there exist $\ell, m \in \mathbb{C}$ such that 
+
+\begin{align*}
+    \sigma_{V_1,X} = \ell\sigma_{V_2,X} \\
+    \sigma_{V_3,X} = m\sigma_{V_0,X} 
+\end{align*}
+    What this means is that $V_1$ and $V_2$ can be used interchangeably when
+    doing topological quantum computing, as can $V_0$ and $V_3$. 
+
+
+\end{theorem}
+\begin{proof}
+First, recall that 
+
+\begin{align*}
+V_1 \simeq V_2 \otimes V_3 \\
+V_2 \simeq V_1 \otimes V_3
+\end{align*}
+
+$\sigma_{V_2,V_3}$ is an endomorphism of the simple object $V_1$, so
+$\sigma_{V_2, V_3} = k_1I$ for some $k_1 \in \mathbb{C}$.
+
+Similarly, $\sigma_{V_1,V_3}$ is an endomorphism of the simple object $V_2$, so
+$\sigma_{V_1, V_3} = k_2I$ for some $k_2\in \mathbb{C}$. 
+
+This implies the second equation in the theorem. To obtain the first equation, note that 
+
+
+$\sigma_{V_1, X} = \sigma_{V_2 \otimes V_3, X} = \sigma_{V_3,X}\sigma_{V_2,X} = m\sigma_{V_2,X}$ for some $m$.
+
+\end{proof}
+\end{document}

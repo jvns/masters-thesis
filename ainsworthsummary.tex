@@ -1,0 +1,50 @@
+\documentclass[]{article}
+
+\begin{document}
+\section{Summary of article}
+
+It is by Robert Ainsworth and JK Slingerland from the National University of
+Ireland, and titled ``Topological qubit design and leakage''. Published June
+2011 in the New Journal of Physics.
+
+They study 2 questions:
+
+\begin{enumerate}
+\item What is the optimal number of anyons to use to model a qubit?
+\item To what extent can leakage be avoided?
+\end{enumerate}
+
+All of their proofs are completely general and rely only on theorems about
+representations of the braid group.
+
+
+\subsection{Qubit design}
+
+They prove that if we use $n > 4$ anyons to model a qubit, then either:
+
+\begin{itemize}
+\item the representation of $B_n$ is abelian
+\item there is leakage into the noncomputational space in single qubit operations
+\end{itemize}
+
+In general for modelling qudits, the same holds if we use $n > d+2$ anyons.
+
+The mathematical problem that this reduces to is finding the maximum $n$ for
+which there is a nonabelian $d$-dimensional representation of $B_n$. A
+(nontrivial) theorem shows that the answer is always $d+2$.
+
+\subsection{Leakage for multiqubit gates}
+
+They prove that if there is a system of 2 qubits where every 2-qubit gate does
+not cause leakage, then the anyons are Ising anyons.
+
+Further, they show that there are no nonabelian anyons where all the gates on 2
+qutrits or 1 qubit + 1 qutrit are leakage-free.
+
+However, if each anyon carries a representation of a quantum group, then their
+tensor product does as well and thus all gates are leakage-free. However, it is
+conjectured that the braid group representations that occur in this way have
+finite image.
+
+
+\end{document}

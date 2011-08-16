@@ -228,15 +228,57 @@ implement arbitrary unitary gates on the computational space.
 This theorem does not however give a means of, given a quantum gate, finding a
 braid whose image approximately realizes this gate.
 
-This problem has been tackled by Hormozi et al in \cite{Hormozi2007} and \expand{whoever}.  In this section we give an account of how these problems have been handled.
+This problem has been tackled by Hormozi et al in \cite{Hormozi2007} and Burrello et al in \cite{Burrello2010}.  In this section we give an account of how these problems have been handled.
 
 the most \todo{naive} solution to the problem of ``topological quantum
 compiling'' is brute force search: try braids until you find one where the
 image is close enough to the gate required.
 
-In \cite{Hormozi2007}, Hormozi et al
+In \cite{Hormozi2007}, Hormozi et al reduce the problem of implementing a
+universal gate to that of implementing arbitrary single single-quibit gates.
+They do this by giving an explicit method for constructing an approximation to a CNOT gate. They further show how to construct a CNOT gate while only moving one quasiparticle, which has obvious practical significance.
 
-\begin{enumerate}
-\item reduce the search space by only considering a limited subset of braids
-\item 
-\end{enumerate}
+The first construction of the CNOT gate works as follows. First, find a braid
+which approximates the identity, but where the first and third quasiparticles
+swap places, for example
+
+\begin{center}
+picture
+\end{center}
+
+and a braid approximating $X$:
+
+
+\begin{center}
+picture
+\end{center}
+
+They combine these as follows:
+
+\begin{center}
+picture
+\end{center}
+When the mobile pair of qubits has total charge $\tau$, the ``identity'' braid
+has (approximately) no effect on the system and so the approximate $X$ gate is
+applied to the second qubit.
+
+When the mobile pair of qubits has total charge $\one$, the ``identity'' braid
+obviously has an effect on the system. Since braiding the tensor unit has no
+effect, the overall effect on the system is none at all. So this braid
+approximately implements a CNOT gate! In fact, replacing the $X$ gate with any
+other gate gives us arbitrary controlled gates.
+
+However, they rely basically on a combination of brute force search and the
+Solovay-Kitaev algorithm \expand{citation} to implement single-qubit gates.  In
+\cite{Burrello2010}, Burrello et al give a more computationally efficient method for finding braids which approximate single qubit gates.
+
+Their heuristic uses the finite icosahedral group $I$, which has $60$ elements
+and is isomorphic to a subgroup of $SU(2)$. The algorithm uses brute-force
+search to associate a braid to each icosahedral group element which most
+closely approximates it among all braids of length $\leq N$. Call this set
+$I(N)$.
+
+They then use $I(N)$ to find a combination of elements of $I(N)$ which is close
+to the target gate $T$. This involves another brute force search over the
+elements $\left\{ g_1g_2\cdots g_n: g_i \in I(N) \right\}$ for some $n$. Thye
+give some conjectures about the efficiency of this algorithm
