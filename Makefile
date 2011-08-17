@@ -1,18 +1,14 @@
 thesis:
-	latex thesis.tex
+	pdflatex --enable-write18 thesis.tex
 	bibtex thesis
-	latex thesis.tex
-	latex thesis.tex
-	dvips thesis.dvi
-	ps2pdf thesis.ps
+	pdflatex --enable-write18 thesis.tex
+	pdflatex --enable-write18 thesis.tex
 
 preview:
-	latex thesispreview.tex
+	pdflatex --enable-write18 thesispreview.tex
 	bibtex thesispreview
-	latex thesispreview.tex
-	latex thesispreview.tex
-	dvips thesispreview.dvi
-	ps2pdf thesispreview.ps
+	pdflatex --enable-write18 thesispreview.tex
+	pdflatex --enable-write18 thesispreview.tex
 
 
 clean:
