@@ -433,7 +433,7 @@ $V_z^{res}(n) \simeq V_z^{res}(n_0) \otimes V_{z}^{res}(\ell n_1)$
 \end{theorem}
 
 where again $n = n_0 + \ell n_1$, $0 \leq n_0 < \ell$.
-This tells us that in some sense understanding the modules $V_z^{res}(n) \isoto
+This tells us that in some sense understanding the modules $V_z^{res}(n) \simeq
 W_z^{res}(n)$ for $0 \leq n < \ell$ takes us a long way towards understanding:
 those Weyl modules which are irreducible are very important. Our anyon types
 will correspond to irreducible Weyl modules.
@@ -545,11 +545,12 @@ indexed by $\Pi$, and are:
     \end{equation}
 
     Then the Lie algebra has a presentation with $3|\Pi|$ generators
-    $x_\alpha, y_\alpha, h_\alpha$, $\alpha \in \Pi$ and the relations 
+    $X^+_\alpha, X^-_\alpha, H_\alpha$, $\alpha \in \Pi$ and the relations 
 
     \begin{align}
-        \left[ h_\alpha, h_\beta \right] &= 0       &   \left[ x_\alpha, y_\beta \right] &= \delta_{\alpha\beta} h_\alpha \\
-        \left[ h_\alpha, x_\beta \right] &= a_{\alpha\beta} x_\beta  &   \left[ h_\alpha, y_\beta \right] &= -a_{\alpha\beta} y_\beta 
+        \left[ H_\alpha, H_\beta \right] &= 0       &   \left[ X^+_\alpha, X^-_\beta \right] &= \delta_{\alpha\beta} H_\alpha \\
+        \left[ H_\alpha, X^+_\beta \right] &= a_{\alpha\beta} X^+_\beta  &   \left[ H_\alpha, X^-_\beta \right] &= -a_{\alpha\beta} X^-_\beta  \\
+        \ad_{X^+_\alpha}^{1-a_{\alpha\beta}} (X^+_\beta) &= 0 & \ad_{X^-_\alpha}^{1-a_{\alpha\beta}} (X^-_\beta) &= 0 \label{eqn:ad}
     \end{align}
 
 Before giving the definition of $U_q(\frakg)$, we first define some notation to
@@ -576,6 +577,11 @@ make writing out the definition more convenient.
         \dbinom{n}{k}_\alpha = \dbinom{n}{k}_{q_\alpha}
     \end{equation}
 
+        We can now define the quantum group $U_q(\frakg)$. Here as with the
+        definition of $U_q(\sll(2))$ the generators $X^+_\alpha$, $X^-_\alpha$,
+        and $H_\alpha$ should be thought as the analogs of those in $\frakg$.
+        These last two equations look fairly monstrous, but are really just an
+        expanded and deformed version of the relations \ref{eqn:ad}.
     \begin{defn}
     \label{UqgDef}
         The quantum group $U_q(\frakg)$ has generators
@@ -590,16 +596,17 @@ make writing out the definition more convenient.
             [ X^+ _\alpha, X^-_\beta] &= \delta_{\alpha\beta} \frac{K_\alpha - K_\alpha^{-1}}{ q_\alpha - q_\alpha^{-1}} 
         \end{align}
 
-        for all $\alpha, \beta \in \Pi$, and for $a \neq \beta$
+        for all $\alpha, \beta \in \Pi$, and for $\alpha \neq \beta$
 
         \begin{align}
             \sum_{s=0}^{1-a_{\alpha\beta}} (-1)^s \dbinom{1-a_{\alpha\beta}}{s}_\alpha  (X^+)_\alpha^{1-a_{\alpha\beta} - s}  X^+_\beta  (X^+)_\alpha^s  &= 0 \\
             \sum_{s=0}^{1-a_{\alpha\beta}} (-1)^s \dbinom{1-a_{\alpha\beta}}{s}_\alpha (X^-)_\alpha^{1-a_{\alpha\beta} - s} (X^-)_\beta (X^-)_\alpha^s  &= 0 
         \end{align}
+
     \end{defn}
 
-We can define a Hopf algebra structure $(\Delta, \varepsilon, S)$ such
-that for all $\alpha \in \Pi$,
+We can define a Hopf algebra structure $(\Delta, \varepsilon, S)$ on
+$U_q(\frakg)$ such that for all $\alpha \in \Pi$,
 
     \begin{align}
         \Delta(X^+ _\alpha) &=  X^+ _\alpha \otimes 1 + K_\alpha \otimes  X^+ _\alpha      & \varepsilon(X^+ _\alpha) &= 0  & S(X^+ _\alpha) &= -K_\alpha^{-1}  X^+ _\alpha \\
