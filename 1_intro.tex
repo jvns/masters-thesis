@@ -1,5 +1,5 @@
 One of the major challenges in implementations of quantum computing is that of
-implementing quantum gates accurately. Topological computing, first proposed by
+implementing quantum gates accurately and robustly. Topological computing, first proposed by
 Kitaev in 1997 \cite{Kitaev2003}, exploits topological properties of certain
 quasiparticles called \emph{anyons} to obtain a proposed implementation of
 quantum computing which is inherently fault-tolerant.
@@ -7,10 +7,12 @@ quantum computing which is inherently fault-tolerant.
 What are anyons? The spin statistics theorem in 3
 dimensions says that when 2 identical particles are inerchanged, there are
 exactly 2 possibilities: either the wave function is symmetric (in the case of
-bosons) or it is antisymmetric (in the case of fermions).  This is because in 3
-dimensions, 2 identical particles being interchanged twice
+bosons) or it is antisymmetric (in the case of fermions).  Intuitively one can
+view this as arising from the following argument. In 3 dimensions, 2 identical
+particles being interchanged twice
 is topologically equivalent to one particle being transported around the other,
 which is in turn topologically equivalent to neither particle moving at all.
+
 In 2 dimensions the situation is completely different: moving one particle
 around another is topologically nontrivial, and the system may not
 end up in the same state.  We refer to particles in 2 dimensions which are
@@ -71,9 +73,10 @@ depends \emph{only} on the topological class of the braid, so minor
 perturbations of a particle's path won't affect the result of the computation
 at all. The process is thus inherently resistant to errors. 
 
-Do anyons actually exist? As we said earlier, all particle types are bosons or
-fermions. However, \expand{Something about anyons arising as emergent
-properties of some kinds of system\ldots fractional quantum Hall systems here}.
+Do anyons actually exist? As we said earlier, all particles in 3 dimensions are
+bosons or fermions. However, in 2 dimensions many other types are possible.
+These are of course not fundamental particles but merely excitations of the 2D
+electron gas that behave like particles: they are called quasiparticles.
 
 In general a system with anyons will have several different types of anyons.
 Any two anyons can be brought together to form a new anyon. This process is
@@ -81,14 +84,12 @@ called \emph{fusion}. In general if two anyons fuse, then there might be
 several possible results. 
 
 The mathematical structure that describes anyons is that of modular tensor
-categories. The goal in this thesis is to give an explanation of modular tensor
-categories as they relate to topological quantum computing, only requiring some
-basic knowledge of algebra and category theory. The modular tensor categories
-that describe anyons' behavior are constructed from the representations of
-certain algebraic objects called \emph{quantum groups}.
-
-\todo{Prakash: Rowell says `only anyonic properties of bosonic systems can be
-described fully by MTCs'. Can you make some sense of this?}
+categories: the tensor structure models the process of fusion. The goal of this
+thesis is to give an explanation of modular tensor categories as they relate to
+topological quantum computing. It is intended that this thesis can be read with
+some basic knowledge of algebra and category theory. The modular tensor
+categories that describe anyons' behavior are constructed from the
+representations of certain algebraic objects called \emph{quantum groups}.
 
 
 In Chapter 2 we give the algebraic background of braid groups, Lie algebras,
@@ -103,7 +104,7 @@ discussing topological quantum computing. We review the work that has been done
 on the subject, in particular that on the computational business of
 constructing braids that correspond to particular unitaries. 
 
-The hope is to give a concrete account of the theory of modular tensor
-categories obtained from quantum groups at roots of unity for computer
-scientists, from a category theoretic and algebraic point of view rather than a
-physical point of view. 
+The hope is to give a concrete account accessible to computer scientists of the
+theory of modular tensor categories obtained from quantum groups at roots of
+unity. The emphasis is on the from a category theoretic and algebraic point of
+view rather than on the physical point of view. 

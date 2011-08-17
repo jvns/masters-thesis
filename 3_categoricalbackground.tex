@@ -53,7 +53,7 @@ a \otimes b \simeq 2a \oplus 3c
 \end{center}
 \item The conjugate of a charge corresponds to its \emph{dual}: the category is
       \emph{rigid}.
-\item Anyons can be rotated, so that their worldlines become twisted. The
+\item Anyons are extended objects, so that their worldlines become twisted under rotation. The
     corresponding mathematical formalism is that of a braided \emph{ribbon
     category}.
 \end{itemize}
@@ -75,21 +75,24 @@ categories of representations of Hopf algebras.
     \renewcommand{\labelenumi}{\roman{enumi})}
         \item a bifunctor $\otimes: \mathcal{C} \times \mathcal{C} \to
             \mathcal{C}$
-        \item a unit object $\one$ and natural transformations
+        \item a unit object $\one$ and natural isomorphisms
             \begin{align}
                 \lambda_V &: \one \otimes V \isomto V \\
                 \rho_V &: V \otimes \one \isomto V
             \end{align}
-        \item a natural transformation 
+        \item a natural isomorphism 
 
             \begin{equation}
                 \alpha_{UVW} (U \otimes V) \otimes W \isomto U \otimes (V \otimes W)
             \end{equation}
 
         \item if $X_1, X_2$ are two objects obtained from $V_1 \otimes V_2
-            \otimes \cdots V_n$ by inserting 1s and brackets, then all
-            isomorphisms $\varphi: X_1 \isomto X_2$ composed of $\alpha$'s,
-            $\lambda$'s, and $\rho$'s are equal. 
+            \otimes \cdots V_n$ by inserting $\one$s and brackets, then all
+            isomorphisms $\varphi: X_1 \isomto X_2$ composed of $\alpha$s,
+            $\lambda$s, and $\rho$s are equal. 
+            \footnote{This is usually presented as a theorem that follows from
+            the fact that a particular diagram, the ``pentagon'' is required to
+            commute}
         \item $\one$ is a simple object and $\End_\mathcal{C} \one = k$
     \end{enumerate}
 
@@ -153,7 +156,7 @@ two anyons. Mathematically, the structure we need to model this is that of a
 braided monoidal category: any trajectory where a set of anyons are rearranged
 corresponds to
 an element of the braid group. A braided monoidal category is a monoidal
-category $\mathcal{C}$ with a natural transformation
+category $\mathcal{C}$ with a natural isomorphism
 
 \begin{equation}
     \sigma_{V,W} : V \otimes W \to W \otimes V
@@ -165,20 +168,20 @@ For $V_1, V_2, \dots, V_n \in \mathcal{C}$, consider expressions of the form
     ((V_{i_1}\otimes V_{i_2}) \otimes (V_{i_3} \otimes 1)) \otimes \cdots \otimes V_{i_n}
 \end{equation}
 
-obtained from $V_1,V_2,\ldots,V_n$ by adding brackets and $1$'s.
+obtained from $V_1,V_2,\ldots,V_n$ by adding brackets and $\one$s.
 
-To any composition of $\alpha's, \lambda's, \rho's$, assign an element of the
+To any composition of $\alpha$s, $\lambda$s, and $\rho$s, assign an element of the
 braid group $B_n$ as follows:
 
 \begin{align}
-    \alpha, \lambda, \rho &\mapsto 1 \\
+    \alpha, \lambda, \rho &\mapsto \one \\
     \sigma_{V_{i_k}, V_{i_{k+1}}} &\mapsto b_k
 \end{align}
 
 \begin{defn}
     A \emph{braided tensor category} is a monoidal category with natural
     isomorphisms $\sigma_{X,Y}$ as above such that any $\varphi: X_1 \to X_2$
-    obtained by composing $\alpha's, \lambda's, \rho's, \sigma's$ depends only
+    obtained by composing $\alpha$s, $\lambda$s, $\rho$s, and $\sigma$s depends only
     on its image in $B_n$.
 \end{defn}
 
@@ -215,13 +218,13 @@ such that
     \renewcommand{\labelenumi}{\roman{enumi})}
 
     \item $\delta_{V \otimes W} = \delta_V \otimes \delta_W$
-    \item $\delta_1 = \id$
+    \item $\delta_\one = \id$
     \item $\delta_{V^*} = (\delta_V^*)^{-1}$
 \end{enumerate}
 
 \end{defn}
 
-In any rigid braided tensor category, we can construct natural transformations 
+In any rigid braided tensor category, we can construct natural isomorphisms 
 
 \begin{equation}
 \psi_V: V^{**} \to V
@@ -246,7 +249,7 @@ of $V$, we can define the trace of $f$ by the composition
 
 \begin{equation}
     \xymatrix{
-    \one \ar[r]^-{i_V} & V \otimes V^* \ar[r]^-{f \otimes \id} & V^* \otimes V \ar[r]^-{\delta_V \otimes \id} & V^{**} \otimes V^* \ar[r]^-{e_{V^*}} & 
+    \one \ar[r]^-{i_V} & V \otimes V^* \ar[r]^-{f \otimes \id} & V \otimes V^* \ar[r]^-{\delta_V \otimes \id} & V^{**} \otimes V^* \ar[r]^-{e_{V^*}} & 
     \one
     }
 \end{equation}
@@ -271,7 +274,7 @@ which correspond to anyon types: MTCs are \emph{semisimple}.
 
             is $k$-bilinear.
         \item There is a zero object $\mathbf{0} \in \Ob \mathcal{C}$ such that
-            $\Hom(0,V) = \Hom(V,0) = 0$ for every object $V$
+            $\Hom(\mathbf{0},V) = \Hom(V,\mathbf{0}) = \mathbf{0}$ for every object $V$
         \item Finite direct sums exist in $\mathcal{C}$
         \item Every morphism $\varphi$ has a kernel $\ker \varphi$ and a
             cokernel $\coker \varphi$. Every morphism is a composition of an
@@ -280,7 +283,7 @@ which correspond to anyon types: MTCs are \emph{semisimple}.
             $\varphi = \coker(\ker \varphi)$.
     \end{enumerate}
 
-    Examples of abelian categories include the category of $k$-vector spaces,
+    Examples of abelian categories include the category of finite-dimensional $k$-vector spaces,
     the category of finite dimensional $k$-vector spaces, and the category of
     representations of a group $G$ over $k$.
 
@@ -320,7 +323,7 @@ which correspond to anyon types: MTCs are \emph{semisimple}.
     The mathematical structure that describes anyons is that of modular tensor
     categories. 
     The definition of modular tensor categories first appeared in \cite{MS}.
-    They arise in conformal field theory and from quantum groups: we will
+    They arise in conformal field theory and also from quantum groups: we will
     explain how they arise from quantum groups in Chapter \ref{chapter:MTC}.
     They have applications to topological quantum field theory: Reshetikhin and
     Turaev associated a TQFT in 2+1 dimensions to every MTC. An exposition is
@@ -365,13 +368,13 @@ In this section we show that the category of representations of any Hopf
 algebra is a rigid monoidal category. Anyonic models are constructed from
 categories of representations of Hopf algebras.
 
-Suppose $(H, \mu, \eta, \Delta, \varepsilon)$ is a Hopf algebra with antipode $S$. 
+Suppose $(H, \mu, \eta, \Delta, \varepsilon, S)$ is a Hopf algebra.
 
 Let $\Rep_f H$ be the category of finite dimensional representations of $H$ as
 a $k$-algebra.
 
 If $A$ is an algebra and $U, V$ are $A$-modules, then $U \otimes V$ is a vector
-space, but there is no natural way to impose a $A$-module structure on $U
+space, but there is no natural way to impose an $A$-module structure on $U
 \otimes V$. 
 
 The comultiplication $\Delta$ on $H$ allows us to impose a $H$-module structure
@@ -387,7 +390,7 @@ We define the tensor unit using the counit $\varepsilon$: $\one$ is the
 vector space $k$, with 
 
 \begin{equation}
-    h(1) = \varepsilon(h) 1
+    h(1) = \varepsilon(h) \one 
 \end{equation}
 
  for any $h\in H$.
@@ -417,7 +420,10 @@ rigid.
 
 \subsection{Braided structure}
 \label{bialgtocategory}
-In this section we'll sketch the proof of the following theorem
+Recall Definition \ref{defn:braided} where we defined what it means for a
+bialgebra to be braided.  In this section we will sketch the proof of the
+following theorem, which justifies the terminology. The details of the proof
+can be found in \cite{Kassel1994}.
 
 \begin{theorem}
     Let $(H, \mu, \eta, \Delta, \varepsilon)$ be a bialgebra. The category $\Rep_f(H)$ is braided if and only if $H$ is braided. 
@@ -435,10 +441,11 @@ In this section we'll sketch the proof of the following theorem
     Conversely, let $(H, \mu, \eta, \Delta, \varepsilon)$ be a bialgebra, and suppose the category $\Rep_f(H)$ has a braiding $\sigma$. Define 
 
     \begin{equation}
-        R = \tau_{H,H}(\sigma_{H,H}(1 \otimes 1))
+        R = \tau_{H,H}(\sigma_{H,H}(\one \otimes \one))
     \end{equation}
 
     % a proof that this works can be found in Kassel, p. 318
+    Then it turns out that $R$ is a universal $R$-matrix for $H$ and $H$ is a braided bialgebra.
 \end{proof}
 
 

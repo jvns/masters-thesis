@@ -1,6 +1,6 @@
-In this chapter, we explain the relationship between TQC and modular tensor
+In this chapter, we explain further the relationship between TQC and modular tensor
 categories arising from quantum groups. We will focus mainly on the category
-$\Fib$ of Fibonacci anyons, which is the simplest MTC which is universal for
+$\Fib$ of Fibonacci anyons, which is the simplest anyon model which is universal for
 quantum computing. 
 
 We will introduce $\Fib$ and discuss in some detail how to simulate the quantum
@@ -39,6 +39,12 @@ anyons. To simulate quantum circuits, we need
 \item Unitary gates
 \item A universal gate set
 \end{itemize}
+
+We will assume that we have physical capabilities to create anyons in a given
+initial state, rearrange anyons, fuse anyons, and measure the type of a given
+anyon. It turns out that initializing anyons is nontrivial: in \cite{Konig2010}
+K\"onig gives a method for initializing anyons assuming a more restricted set
+of capabilities.
 
 First we construct qubits. Consider a triplet $(\tau,\tau,\tau)$ of Fibonacci
 anyons. A simple computation shows that 
@@ -96,7 +102,7 @@ There is also an equivalent formulation using quadruplets
 $((\tau,\tau),(\tau,\tau))_\one$ with total charge $\one$. We use the same
 formulation as \cite{Hormozi2007} here.
 
-In $\Fib$, these are represented by eleemnts of $\Hom(\tau, ((\tau \odot
+In $\Fib$, these are represented by elements of $\Hom(\tau, ((\tau \odot
 \tau)\odot \tau)) \simeq \Hom(\tau, 2\tau \oplus \one) \simeq \mathbb{C}^2$. 
 Define 
 
@@ -110,7 +116,9 @@ $\ket{0}$ and $\ket{1}$ are elements of $\Hom(\tau, ((\tau \odot \tau)\odot
 the \emph{computational space}. There is also a \emph{noncomputational space}
 spanned by $\ket{\text{NC}} = ((\tau,\tau)_\tau,
 \tau)_\one$. One of the principal issues with this simulation is that of
-``leakage'': some operations take us out of the computational space. 
+``leakage'': some multiqubit operations take us out of the computational space. 
+Since the total charge of a system of anyons is always preserved, single-qubit
+operations do not suffer from leakage.
 
 Performing measurements in the $\left\{ \ket{0}, \ket{1} \right\}$ basis is
 straightforward: just fuse the first two anyons and measure the result, then
@@ -137,7 +145,7 @@ f \mapsto \sigma \circ f
 \end{equation}
 
 This gives a representation of the braid group on the hom sets $\Hom(\one,
-\tau^{\odot n})$. In fact, it turns out that this representation is unitary.
+\tau^{\odot n})$.  In fact it turns out that this representation is unitary.
 Braids therefore act unitarily on our qubits, and we will use them as our
 quantum gates. How do these braids act? The generator $\sigma_1$ of $B_3$,
 
@@ -213,7 +221,7 @@ where $\phi$ is the golden ratio. The $F$-matrix is also unitary.
 
 The $R$ and $F$-matrices allow us to compute the $2 \times 2$ matrix
 corresponding to each element of $B_3$ in this representation: the other
-generator $\sigma_2$ of $B_3$ acts as $F^{-1}RF$. In fact, the $R$ and $F$
+generator $\sigma_2$ of $B_3$ acts as $F^{-1}RF$. Thus the $R$ and $F$
 matrices are enough to compute the matrix associated to any element of the
 $B_n$ acting on $\Hom(\one, \tau^{\odot n})$ or $\Hom(\tau, \tau^{\odot n})$.
 
@@ -252,21 +260,21 @@ which approximates the identity, but where the first and third quasiparticles
 swap places. The example given is
 
 \begin{center}
-\includegraphics{I-small.png}
+\includegraphics[width=3in]{I-small.png}
 \end{center}
 
 and a braid approximating $X$:
 
 
 \begin{center}
-\includegraphics{X-small.png}
+\includegraphics[width=3in]{X-small.png}
 \end{center}
 
 Then combine these as follows to obtain an approximation to the CNOT gate:
 
 \begin{center}
-\includegraphics{CNOT-small.png} \\
-\includegraphics{CNOT-large.png}
+\includegraphics[width=3in]{CNOT-small.png} \\
+\includegraphics[width=6in]{CNOT-large.png}
 \end{center}
 
 When the mobile pair of qubits has total charge $\tau$, the ``identity'' braid

@@ -24,15 +24,16 @@ The objects in $\Rep_w(U_q(\sll(2)))$ are vector spaces, and so any
 endomorphism $f$ has a trace $\tr(f)$. $\Rep_w(U_q(\sll(2)))$ is a ribbon
 category, and we saw in section \ref{section:RibbonCategories} that there is a
 trace in any ribbon category. In $\Rep_w(U_q(\sll(2)))$, this trace does
-\emph{not} correspond to the usual trace of a morphism, and we will denote it
-by $\tr_q$, the ``quantum trace''. It's a useful exercise to show from the
+\emph{not} correspond to the usual trace of a linear map, and we will denote it
+by $\tr_q$, the ``quantum trace''. It is a useful exercise to show from the
 definition that for any $f: V \to V$,
 
 \begin{equation}
 \tr_q(f) = \tr(Kf)
 \end{equation}
 
-We also define the quantum dimension $\dim_q$,
+where $\tr$ is the usual trace of a linear map. We also define the quantum
+dimension $\dim_q$,
 \begin{equation}
 \dim_q(V) = \tr_q(\id_V)
 \end{equation}
@@ -49,7 +50,7 @@ We saw earlier that tensor products of irreducible $U_q(\sll(2))$-modules
 $V_q(n)$ decompose as a direct sum of irreducible modules. This will not be the
 case for irreducible $U_z^{res}(\sll(2))$-modules. However,
 $W_z^{res}(n)\otimes W_z^{res}(m)$ decomposes as a direct sum of indecomposable
-\emph{tilting modules}. In fact the indecomposable tilting modules are exactly
+so-called \emph{tilting modules}. In fact the indecomposable tilting modules are exactly
 the direct summands of the tensor products of the Weyl modules. We will
 quotient the subcategory of tilting modules to obtain a modular tensor
 category. 
@@ -111,9 +112,13 @@ $T_z(n)$ has basis $\left\{ t_0, \ldots, t_n \right\} \bigcup \left\{ t'_0,
     (X^\pm)^{(\ell)} t'_i  &= 0
 \end{align}
 
-For example, when $\ell = 5, n = 5$, $T_z(5)$ looks as follows:
+The essential aspect of these equations can be captured diagrammatically. For
+example, when $\ell = 5, n = 5$, $T_z(5)$ looks as follows:
 
 \begin{center}
+    \begin{figure}
+        \caption{The upwards pointing arrows indicate the action of $X^+$ and
+        the downwards pointing arrows indicate that of $X^-$.  }
 \scalebox{1} % Change this value to rescale the drawing.
 {
 \begin{pspicture}(0,-1.57125)(2.905,1.57125)
@@ -151,13 +156,11 @@ For example, when $\ell = 5, n = 5$, $T_z(5)$ looks as follows:
 \psline[linewidth=0.01cm,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(2.3,-0.83125)(0.62,-0.41125)
 \end{pspicture} 
 }
-
+    \end{figure}
 \end{center}
 
-where the upwards pointing arrows indicate the action of $X^+$ and the
-downwards pointing arrows indicate that of $X^-$.
 
-It is easy to see that the $T_z(n)$ are indecomposable, and that $\left\{ t_0,
+It is easy to see from the figure that the $T_z(n)$ are indecomposable, and that $\left\{ t_0,
 \ldots, t_n \right\}$ span a submodule isomorphic to $W_z^{res}(n)$. The
 quotient is spanned by $\left\{ t'_0, \ldots, t'_r \right\}$ and is
 isomorphic to $W_z^{res}(r)$. It is therefore clear that $T_z(n)$ has a Weyl
@@ -177,7 +180,8 @@ $\dim_q(T_z(n)) \neq 0$ if and only if $n < \ell - 1$
 
 which gives us $\dim_q(T_z(n))$ for all $n$.
 
-A useful corollary of the above proposition is the following:
+A useful corollary of the above proposition is the following. It gives a
+general form for the decomposition of any two tilting modules.
 
 \begin{corollary}
 \label{theorem:tensortilting}
@@ -201,9 +205,12 @@ Take $Z = \displaystyle\bigoplus_{k=\ell-1}^{\infty} T_z(k)^{\otimes n_k}$.
 We can now give a decomposition of $W_z^{res}(n) \otimes W_z^{res}(m)$ into
 indecomposable modules for $0 \leq n,m \leq \ell-1$.  This tensor product will
 not decompose as a direct sum of irreducible modules in general as with the
-irreducible representations of $\sll(2)$. However, it follows from the above
-proposition that it does decompose as a direct sum of irreducible modules and
-tilting modules $T$ with $\dim_q(T) = 0$.
+irreducible representations of $\sll(2)$. However, the crucial point is that it
+\emph{does} decompose as a direct sum of irreducible modules and tilting
+modules $T$ with $\dim_q(T) = 0$. This means if we can ``quotient out'' by the
+tilting modules with quantum dimension zero, then any tensor product will
+decompose as a direct sum of irreducible modules as with representations of
+$\sll(2)$.
 
 \begin{prop}
 \label{theorem:decomposition}
