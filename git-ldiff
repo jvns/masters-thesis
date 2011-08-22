@@ -23,6 +23,9 @@ git clone ~/thesis
 cd thesis
 git checkout $2
 
+cp ~/thesis/0* $TMP1/thesis
+cp ~/thesis/0* $TMP2/thesis
+
 FILE1=$TMP1/thesis/$3
 FILE2=$TMP2/thesis/$3
 
