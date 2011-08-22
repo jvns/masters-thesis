@@ -80,6 +80,7 @@ Let $\tilt$ be the full subcategory of $\mathcal{C}(\sll(2), \ell)$ whose
 objects are the tilting modules modules for $U_z^{res}(\sll(2))$.  
 
 \begin{prop}
+    \label{prop:tiltingclosed}
     $\tilt$ is closed under direct sums, tensor products, duals, and taking direct summands.
 \end{prop}
 \begin{proof}
@@ -246,8 +247,12 @@ definitions:
 A module $T$ is \emph{negligible} if all its endomorphisms are negligible
 \end{defn}
 
-It turns out that a tilting module $T$ is negligible if and only if it has
-quantum dimension zero. 
+The following proposition characterizing negligible tilting modules follows
+from \ref{prop:tiltingclosed} and \ref{theorem:tensortilting}.
+\begin{prop}
+A tilting module $T$ is negligible if and only if it has quantum dimension
+zero. 
+\end{prop}
 
 Define the category $\mathcal{C}^\text{int}$ be the category with objects tilting modules and morphisms 
 
@@ -291,4 +296,5 @@ To summarize,
 \end{prop}
 
 All that remains to show that it is a modular tensor category is to check that
-the $s$-matrix is invertible. A proof of this can be found in \cite{Kirillov2001}.
+the $S$-matrix (defined in Equation \ref{equation:s-matrix}) is invertible. A
+proof of this can be found in \cite{Kirillov2001}.

@@ -1,18 +1,15 @@
 Introduction:
-    - ask Prakash about writing some paragraphs about connecting MTCs to TQC
-    - Rewrite some introductory sections (eg that of 4.3) after having an introduction
-    - read Preskill for some inspiration
-
-U_q(sl(2)):
-    - give some references for quantum integers and q-calculus
 
 MTC => TQC:
     - sketch the proof of universality
     - make sure you can do this R-matrix calculation
 
-General:
-    - ask alex again about categorical references on Wednesday
 
 What does Fib have to do with SO(3)?
 What is the Lie algebra of SO(3)? (you know...)
+
+Submitting
+ - get labels
+ - fill out thesis forms
+ - Write abstracts in french and English
 
