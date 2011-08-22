@@ -3,7 +3,7 @@
 The category of finite dimensional representations of $U_z^{res}(\sll(2))$
 which are direct sum of their weight spaces is a braided monoidal category: it
 is monoidal because $U_z^{res}(\sll(2))$ is a Hopf algebra, and we saw that it
-is braided in \ref{section:braiding}. Call this category
+is braided in Section \ref{section:braiding}. Call this category
 $\Rep_w(U_z^{res}(\sll(2)))$. This category is certainly not a modular tensor
 category: it is not semisimple, and it has infinitely many nonisomorphic simple
 objects. The main goal of this chapter is to describe the passage from
@@ -22,7 +22,7 @@ objects in this modular tensor category will correspond to anyon types.
 
 The objects in $\Rep_w(U_q(\sll(2)))$ are vector spaces, and so any
 endomorphism $f$ has a trace $\tr(f)$. $\Rep_w(U_q(\sll(2)))$ is a ribbon
-category, and we saw in section \ref{section:RibbonCategories} that there is a
+category, and we saw in Section \ref{section:RibbonCategories} that there is a
 trace in any ribbon category. In $\Rep_w(U_q(\sll(2)))$, this trace does
 \emph{not} correspond to the usual trace of a linear map, and we will denote it
 by $\tr_q$, the ``quantum trace''. It is a useful exercise to show from the
@@ -39,7 +39,7 @@ dimension $\dim_q$,
 \end{equation}
 
 For example, we can see from the definition of the Weyl module $W_z^{res}(n)$
-in \ref{section:RepTheoryofResSL2} that $\dim_q(W_z^{res}(n)) = [n+1]_z$. In
+in Section \ref{section:RepTheoryofResSL2} that $\dim_q(W_z^{res}(n)) = [n+1]_z$. In
 particular we see that $\dim_q(W_z^{res}(\ell - 1)) = 0$, so objects other than
 the zero object can have quantum dimension zero. 
 
@@ -114,10 +114,11 @@ $T_z(n)$ has basis $\left\{ t_0, \ldots, t_n \right\} \bigcup \left\{ t'_0,
 \end{align}
 
 The essential aspect of these equations can be captured diagrammatically. For
-example, when $\ell = 5, n = 5$, $T_z(5)$ looks as follows:
+example, when $\ell = 5, n = 5$, $T_z(5)$ is depicted in Figure 5.1.
 
-\begin{center}
     \begin{figure}
+    \label{figure:tilting}
+\begin{center}
         \caption{The upwards pointing arrows indicate the action of $X^+$ and
         the downwards pointing arrows indicate that of $X^-$.  }
 \scalebox{1} % Change this value to rescale the drawing.
@@ -157,8 +158,8 @@ example, when $\ell = 5, n = 5$, $T_z(5)$ looks as follows:
 \psline[linewidth=0.01cm,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(2.3,-0.83125)(0.62,-0.41125)
 \end{pspicture} 
 }
-    \end{figure}
 \end{center}
+    \end{figure}
 
 
 It is easy to see from the figure that the $T_z(n)$ are indecomposable, and that $\left\{ t_0,
@@ -248,7 +249,7 @@ A module $T$ is \emph{negligible} if all its endomorphisms are negligible
 \end{defn}
 
 The following proposition characterizing negligible tilting modules follows
-from \ref{prop:tiltingclosed} and \ref{theorem:tensortilting}.
+from Proposition \ref{prop:tiltingclosed} and Corollary \ref{theorem:tensortilting}.
 \begin{prop}
 A tilting module $T$ is negligible if and only if it has quantum dimension
 zero. 
@@ -260,7 +261,7 @@ Define the category $\mathcal{C}^\text{int}$ be the category with objects tiltin
         \Hom(V,W) = \Hom_{\tilt}(V,W) / \text{negligible morphisms}
     \end{equation}
 
-Prop \ref{theorem:decomposition} gives us that $\tilt$ is semisimple,
+Proposition \ref{theorem:decomposition} gives us that $\tilt$ is semisimple,
 with simple objects 
 \begin{equation}
 \left\{ W_z^{res}(0), \ldots, W_z^{res}(\ell-2) \right\}
