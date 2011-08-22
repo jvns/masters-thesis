@@ -1,0 +1,39 @@
+#!/bin/bash
+
+set -x
+
+TMP1=$(mktemp -d /tmp/git-ldiff-XXXXXX)
+TMP2=$(mktemp -d /tmp/git-ldiff-XXXXXX)
+cp ~/research/thesis/braids.sty $TMP1
+cp ~/research/thesis/braids.sty $TMP2
+
+TMPOUT=$(mktemp -u ldiff-output-XXXXXXXXX)
+echo $TMPOUT
+echo $TMP1
+echo $TMP2
+
+cd $TMP1
+git clone ~/research/thesis
+cd thesis
+git checkout $1
+
+
+cd $TMP2
+git clone ~/research/thesis
+cd thesis
+git checkout $2
+
+FILE1=$TMP1/thesis/$3
+FILE2=$TMP2/thesis/$3
+
+sed 's/\%.*//' > $FILE1.tex < $FILE1
+sed 's/\%.*//' > $FILE2.tex < $FILE2
+
+latexdiff --flatten $FILE1.tex $FILE2.tex  > $TMPOUT.tex
+pdflatex --enable-write18 $TMPOUT.tex
+bibtex $TMPOUT
+pdflatex --enable-write18 $TMPOUT.tex
+pdflatex --enable-write18 $TMPOUT.tex
+echo $TMPOUT.pdf
+evince $TMPOUT.pdf
+
