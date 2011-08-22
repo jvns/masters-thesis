@@ -3,18 +3,15 @@ categories arising from quantum groups. We will focus mainly on the category
 $\Fib$ of Fibonacci anyons, which is the simplest anyon model which is universal for
 quantum computing. 
 
-We will introduce $\Fib$ and discuss in some detail how to simulate the quantum
+We will discuss in some detail how to simulate the quantum
 circuit model in $\Fib$. We will then discuss the universality of this
 simulation and algorithms for doing topological quantum computing in practice.
 
 \section{The Fibonacci anyon}
-The simplest universal model of TQC, and so a good candidate for implementing
-TQC, is the Fibonacci anyon. Here we introduce the Fibonacci anyon and explain
-how to simulate quantum circuits using Fibonacci anyons.
-
 The category $\Fib$ of Fibonacci anyons is a modular tensor category which is a
-subcategory of $\mathcal{C}^{int}(\sll(2),5)$: its objects are representations
-of $U_z^{res}(\sll(2))$ for $z$ a $5^{th}$ root of unity. The simple objects in 
+subcategory of $\mathcal{C}^{int}(\sll(2),5)$. $\mathcal{C}^{int}(\sll(2),5)$
+has simple objects $V_0$, $V_1$, $V_2$, $V_3$, which are representations of
+$U_z^{res}(\sll(2))$ for $z$ a $5^{th}$ root of unity. The simple objects in 
 $\Fib$ are $V_0, V_2$. We will refer to them as $\one$ and $\tau$
 respectively, $\one$ being the tensor unit and trivial anyon type or vacuum. The
 fusion rules in $\Fib$ can be computed easily and are as follows:
@@ -24,8 +21,9 @@ fusion rules in $\Fib$ can be computed easily and are as follows:
     \item $\tau \odot I = \tau$
     \item $I \odot I = I$
 \end{itemize}
+
 Recall that the $\oplus$ here means that when $\tau$, $\tau$ fuse, the result
-is a superposition of anyons of type $1$ and $\tau$.  The reason they are
+is a superposition of anyons of type $1$ and $\tau$.  The reason these anyons are
 called Fibonacci anyons is that $\tau^{\odot n} \simeq F_{n-1} \one \oplus F_{n+2}
 \tau$, where $F_n$ is the $n^{th}$ Fibonacci number.
 
@@ -132,9 +130,8 @@ their tensor product $\ket{\varphi} \odot \ket{\psi} \in \Hom(\tau \odot
 
 The vectors $\left\{ \ket{i}\odot \ket{j} : 0 \leq i,j\leq 1 \right\}$
 therefore span a 4-dimensional subspace of $\Hom(\tau \odot \tau, (\tau)^{\odot
-6}) \simeq \mathbb{C}^{13}$. We again refer to this space as the
-\emph{computational space} $V$. As $n$ gets larger, more and more of the space
-is the noncomputational space. 
+6}) \simeq \mathbb{C}^{13}$. We again refer to this 4-dimensional subspace as the
+\emph{computational space} $V$. 
 
 We now turn to the problem of defining gates. $\Fib$ is braided, so for any $n$
 and object $V$ in $\Fib$, $B_n$ acts on $\Hom(V, \tau^{\odot n})$ by
@@ -204,8 +201,8 @@ computed either using the ``universal $R$-matrix'' in Section \ref{section:braid
 by solving for it using the fusion rules and the axioms for a braided monoidal
 category (see \cite{Panangaden}).
 
-$\Hom(\tau, \tau^{\odot 3})$ also has the basis \{ $(\tau,
-(\tau,\tau)_\one)_\tau$, $(\tau, (\tau,\tau)_\tau)_\tau$ \}. It is obtained
+$\Hom(\tau, \tau^{\odot 3})$ has another natural basis: \{ $(\tau,
+(\tau,\tau)_\one)_\tau$, $(\tau, (\tau,\tau)_\tau)_\tau$ \}. It can be obtained
 from the basis $\left\{ \ket{0}, \ket{1} \right\}$ by composing with the
 associativity isomorphism $\alpha_{\tau,\tau,\tau}$. The change of basis matrix
 is called the \emph{$F$-matrix}. It is
@@ -241,9 +238,9 @@ with as little leakage into the noncomputational space as required.
 %space to vectors in the computational space. Once this is solved, we need to be
 %implement arbitrary unitary gates on the computational space.
 
-This theorem does not however give a means of finding a braid whose image
-approximately realizes a given unitary gate. In this section we review how this
-problem has been approached.
+This theorem does not however give an efficient means of finding a braid whose
+image approximately realizes a given unitary gate. In this section we review
+how this problem has been approached.
 
 The most naive solution to the problem of ``topological quantum
 compiling'' is brute force search: try braids until one is found where the
@@ -251,13 +248,14 @@ image is close enough to the gate required.
 
 In \cite{Hormozi2007}, Hormozi et al reduce the problem of implementing a
 universal gate set to that of implementing arbitrary single-qubit gates.
-They do this by giving an explicit method for constructing an approximation to
+This is done by giving an explicit method for constructing an approximation to
 a CNOT gate. They further show how to construct a CNOT gate while only moving
-one quasiparticle, which has obvious practical significance.
+one quasiparticle, which has obvious practical significance: it is likely to be
+easier in practice to only have to move one quasiparticle.
 
 The first construction of the CNOT gate works as follows. First, find a braid
 which approximates the identity, but where the first and third quasiparticles
-swap places. The example given is
+swap places. The example given is (figures taken from \cite{Hormozi2007})
 
 \begin{center}
 \includegraphics[width=3in]{I-small.png}
@@ -289,23 +287,23 @@ other gate gives us arbitrary controlled gates.
 
 However, the algorithm for constructing single-qubit gates relies on a
 combination of brute force search and the Solovay-Kitaev algorithm.
-\cite{Burrello2010},\cite{Burrello2011}, and \cite{Mosseri2008} give an
-alternative method using the icosahedral group to approximate single qubit
-gates using Fibonacci anyons. 
+\cite{Burrello2010},\cite{Burrello2011}, and \cite{Mosseri2008} give 
+two alternative methods for approximating single qubit gates using Fibonacci
+anyons. Both of these methods involve the icosahedral group in some way.
 
 Burrello et al (\cite{Burrello2010}, \cite{Burrello2011}) use brute-force
 search to associate a braid to each icosahedral group element which most
 closely approximates it among all braids of length $\leq N$. Call this set
 $I(N)$.
 
-They then use $I(N)$ to find a combination of elements of $I(N)$ which is close
-to the target gate $T$. This involves another brute force search over the
-elements $\left\{ g_1g_2\cdots g_n: g_i \in I(N) \right\}$ for some $n$. 
+This set $I(N)$ is then used to find a product of elements of $I(N)$ which
+is close to the target gate $T$. This involves another brute force search over
+the elements $\left\{ g_1g_2\cdots g_n: g_i \in I(N) \right\}$ for some $n$. 
 
 The approach in \cite{Mosseri2008} is related: no algorithm is given
 for approximating particular unitary gates, but rather a method for
 approximating increasingly dense meshes in $SU(2)$. The approach here is to
-use a brute force search to approximate closely two generators for the
+use a brute force search to closely approximate two generators for the
 icosahedral group, and then use these two generators to generate a slightly
 deformed polytope.
 
@@ -318,7 +316,7 @@ answered, using only facts about representations of $B_n$:
 \item To what extent can leakage be avoided?
 \end{enumerate}
 
-To address the first question, they prove that if we use $n > 4$ anyons to
+To address the first question, it is shown that if we use $n > 4$ anyons to
 model a qubit, then either:
 
 \begin{itemize}
@@ -331,11 +329,11 @@ which there is a nonabelian $d$-dimensional representation of $B_n$. A
 (nontrivial) theorem shows that the answer is always $d+2$.
 Therefore in general for modelling qudits, the same holds if we use $n > d+2$ anyons.
 
-As for the second question, they prove that if there is a system of 2 qubits
+As for the second question, it is proven that if there is a system of 2 qubits
 where every 2-qubit gate does not cause leakage, then the anyons are Ising
 anyons, and therefore not universal.
 
-Further, they show that there are no nonabelian anyons where all the gates on 2
+They further show that there are no nonabelian anyons where all the gates on 2
 qutrits or 1 qubit + 1 qutrit are leakage-free.
 
 However, if each anyon carries a representation of a quantum group, then their
@@ -354,3 +352,10 @@ entangling leakage-free 2-qubit gates in universal quantum models. The work in
 \cite{Ainsworth2011} shows us that it is impossible for all gates to be
 leakage-free, but the possibility of there being some nontrivial group of such
 leakage-free is not excluded. 
+
+All of the strategies for finding single-qubit gates discussed above involve a
+significant amount of brute-force search. It would be interesting to see if
+this can be avoided or improved by using facts about braid group
+representations: \cite{Burrello2011} and \cite{Burrello2010} refer to results
+on random matrix theory to support conjectures about the proposed algorithms,
+but do not use any facts about braid group representations.
