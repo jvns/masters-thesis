@@ -4,8 +4,8 @@ set -x
 
 TMP1=$(mktemp -d /tmp/git-ldiff-XXXXXX)
 TMP2=$(mktemp -d /tmp/git-ldiff-XXXXXX)
-cp ~/research/thesis/braids.sty $TMP1
-cp ~/research/thesis/braids.sty $TMP2
+cp ~/thesis/braids.sty $TMP1
+cp ~/thesis/braids.sty $TMP2
 
 TMPOUT=$(mktemp -u ldiff-output-XXXXXXXXX)
 echo $TMPOUT
@@ -13,13 +13,13 @@ echo $TMP1
 echo $TMP2
 
 cd $TMP1
-git clone ~/research/thesis
+git clone ~/thesis
 cd thesis
 git checkout $1
 
 
 cd $TMP2
-git clone ~/research/thesis
+git clone ~/thesis
 cd thesis
 git checkout $2
 
