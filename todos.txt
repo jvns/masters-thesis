@@ -11,5 +11,3 @@ What is the Lie algebra of SO(3)? (you know...)
 Submitting
  - get labels
  - fill out thesis forms
- - Write abstracts in french and English
-
