@@ -87,7 +87,7 @@ categories of representations of Hopf algebras.
             \end{equation}
 
         \item if $X_1, X_2$ are two objects obtained from $V_1 \otimes V_2
-            \otimes \cdots V_n$ by inserting $\one$s and brackets, then all
+            \otimes \cdots \otimes V_n$ by inserting $\one$s and brackets, then all
             isomorphisms $\varphi: X_1 \isomto X_2$ composed of $\alpha$s,
             $\lambda$s, and $\rho$s are equal. 
             \footnote{This is usually presented as a theorem that follows from
@@ -124,23 +124,23 @@ charge.
 
     \begin{align}
         e_V: V^* \otimes V \to \one  \\
-        i_V: \one \to V^* \otimes V
+        i_V: \one \to V \otimes V^*
     \end{align}
 \end{defn}
 
 such that the composition
 
 \begin{equation}
-    V \stackrel{ \id_V \otimes i_V }{\xrightarrow{\hspace*{1cm}}} V \otimes V^*
+    V \stackrel{ i_V \otimes \id_V }{\xrightarrow{\hspace*{1cm}}} V \otimes V^*
     \otimes V  \stackrel{\id_V \otimes e_V}{\xrightarrow{\hspace*{1cm}}} V
 \end{equation}
 
 is equal to $\id_V$, and similarly the composition
 
 \begin{equation}
-    V^* \stackrel{i_V \otimes \id_{V^*} }{\xrightarrow{\hspace*{1cm}}} V^*
-    \otimes V \otimes V^*  \stackrel{e_V \otimes
-    \id_{V^*}}{\xrightarrow{\hspace*{1cm}}} V^*
+    V^* \stackrel{\id_{V^*} \otimes i_V}{\xrightarrow{\hspace*{1cm}}} V^*
+    \otimes V \otimes V^*  \stackrel{e_V \otimes \id_{V^*}}
+    {\xrightarrow{\hspace*{1cm}}} V^*
 \end{equation}
 
 is equal to $\id_{V^*}$
@@ -335,9 +335,9 @@ which correspond to anyon types: MTCs are \emph{semisimple}.
     \begin{equation}
         \Ob \mathbf{Z}_2(\mathcal{C}) = \left\{ x \in \mathcal{C} : \sigma_{XY} \circ \sigma_{YX} = \id\ \forall\ Y \in \mathcal{C} \right\}
     \end{equation}
-    It is a measure of ``how commutative'' $\mathcal{C}$ is. In a symmetric
-    category, $\mathbb{Z}_2(\mathcal{C}) = \mathcal{C}$. A modular tensor
-    category is in this sense the opposite of a symmetric category:
+    The symmetric center is a measure of ``how commutative'' $\mathcal{C}$ is. In
+    a symmetric category, $\mathbb{Z}_2(\mathcal{C}) = \mathcal{C}$. A modular
+    tensor category is in this sense the opposite of a symmetric category:
 
 \begin{defn}
     A modular tensor category is a semisimple ribbon category such that
@@ -375,11 +375,10 @@ Let $\Rep_f H$ be the category of finite dimensional representations of $H$ as
 a $k$-algebra.
 
 If $A$ is an algebra and $U, V$ are $A$-modules, then $U \otimes V$ is a vector
-space, but there is no natural way to impose an $A$-module structure on $U
-\otimes V$. 
-
-The comultiplication $\Delta$ on $H$ allows us to impose a $H$-module structure
-on the tensor product $U \otimes V$ of two $H$-modules $U,V$ as follows.
+space. However, there is no natural way to impose an $A$-module structure on $U
+\otimes V$.  The comultiplication $\Delta$ on $H$ allows us to impose a
+$H$-module structure on the tensor product $U \otimes V$ of two $H$-modules
+$U,V$ as follows.
 
 Suppose $\Delta(h) = \sum _{i} h^{(1)}_i \otimes h^{(2)}_i$. Then we define
 
