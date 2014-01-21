@@ -8,3 +8,7 @@ If you like, you can [download the pdf](https://github.com/jvns/masters-thesis/r
 
 It is likely to be impenetrable unless you too are trying to understand 
 anyons, quantum groups, and modular tensor categories. 
+
+Even then it is probably impenetrable, actually. 
+
+License: [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
