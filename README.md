@@ -1,6 +1,7 @@
 The Algebra of Topological Quantum Computing
 ============================================
 
+<img src="http://jvns.ca/images/thesis-picture.png">
 
 This is my master's thesis, on the algebra of topological quantum computing.
 
